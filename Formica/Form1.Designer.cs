@@ -34,6 +34,7 @@
             attivitàToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
+            label1 = new Label();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             // 
             esciToolStripMenuItem.Image = Properties.Resources.Esci;
             esciToolStripMenuItem.Name = "esciToolStripMenuItem";
-            esciToolStripMenuItem.Size = new Size(180, 22);
+            esciToolStripMenuItem.Size = new Size(94, 22);
             esciToolStripMenuItem.Text = "Esci";
             esciToolStripMenuItem.Click += esciToolStripMenuItem_Click;
             // 
@@ -78,19 +79,33 @@
             // 
             informazioniToolStripMenuItem.Image = Properties.Resources.Informazioni;
             informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem";
-            informazioniToolStripMenuItem.Size = new Size(180, 22);
+            informazioniToolStripMenuItem.Size = new Size(150, 22);
             informazioniToolStripMenuItem.Text = "Informazioni...";
+            // 
+            // label1
+            // 
+            label1.BackColor = SystemColors.Highlight;
+            label1.Dock = DockStyle.Top;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(0, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(800, 22);
+            label1.TabIndex = 2;
+            label1.Text = "Formica - Principale";
+            label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
             Controls.Add(mnsMenuPrincipale);
             MainMenuStrip = mnsMenuPrincipale;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Formatica  - Programma gratuito per la gestione dei task";
+            Text = "Formica  - Programma gratuito per la gestione dei task";
             Load += Form1_Load;
             mnsMenuPrincipale.ResumeLayout(false);
             mnsMenuPrincipale.PerformLayout();
@@ -106,5 +121,6 @@
         private ToolStripMenuItem attivitàToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem informazioniToolStripMenuItem;
+        private Label label1;
     }
 }

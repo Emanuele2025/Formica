@@ -7,7 +7,17 @@ namespace Formica
     /// <summary>
     /// Classe per la gestione delle varie operazioni
     /// </summary>
-    public class Utility
+    /// 
+
+
+    public static class Utility
     {
+
+        public const string TitoloFinestra = "Formica - Programma gratuito per la gestione delle attività";
+
+
+
+
+
     }
 }

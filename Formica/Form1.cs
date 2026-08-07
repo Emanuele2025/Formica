@@ -11,7 +11,7 @@ namespace Formica
         {
             try
             {
-
+                this.Text = Utility.TitoloFinestra;
             }
             catch (Exception ex)
             {
