@@ -14,5 +14,10 @@ namespace Formica
         {
             InitializeComponent();
         }
+
+        private void FrmInfoFormica_Load(object sender, EventArgs e)
+        {
+            this.Text = Utility.TitoloFinestra;
+        }
     }
 }
