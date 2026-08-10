@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace Formica
 {
-    public partial class FrmInfoFormica : Form
+    public partial class FrmAttivita : Form
     {
-        public FrmInfoFormica()
+        public FrmAttivita()
         {
             InitializeComponent();
         }
 
-        private void FrmInfoFormica_Load(object sender, EventArgs e)
+        private void FrmAttivita_Load(object sender, EventArgs e)
         {
             this.Text = Utility.TitoloFinestra;
         }

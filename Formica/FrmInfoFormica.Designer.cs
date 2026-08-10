@@ -32,6 +32,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            BtnChiudi = new Button();
             ((System.ComponentModel.ISupportInitialize)pctLogo).BeginInit();
             SuspendLayout();
             // 
@@ -76,18 +77,29 @@
             label3.Text = "Formica - Informazioni sul programma";
             label3.TextAlign = ContentAlignment.TopCenter;
             // 
+            // BtnChiudi
+            // 
+            BtnChiudi.Location = new Point(989, 573);
+            BtnChiudi.Name = "BtnChiudi";
+            BtnChiudi.Size = new Size(75, 23);
+            BtnChiudi.TabIndex = 4;
+            BtnChiudi.Text = "Chiudi";
+            BtnChiudi.UseVisualStyleBackColor = true;
+            BtnChiudi.Click += BtnChiudi_Click;
+            // 
             // FrmInfoFormica
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1088, 608);
+            Controls.Add(BtnChiudi);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pctLogo);
             Name = "FrmInfoFormica";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmInfoFormica";
+            Text = "Informazioni programma Fattura";
             Load += FrmInfoFormica_Load;
             ((System.ComponentModel.ISupportInitialize)pctLogo).EndInit();
             ResumeLayout(false);
@@ -100,5 +112,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button BtnChiudi;
     }
 }

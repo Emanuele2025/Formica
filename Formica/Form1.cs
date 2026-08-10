@@ -12,6 +12,8 @@ namespace Formica
             try
             {
                 this.Text = Utility.TitoloFinestra;
+                //TODO: Visualizzare i task in un dataGrid
+
             }
             catch (Exception ex)
             {

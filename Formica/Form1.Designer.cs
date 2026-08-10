@@ -35,6 +35,7 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
+            gestioneToolStripMenuItem = new ToolStripMenuItem();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,12 +59,13 @@
             // 
             esciToolStripMenuItem.Image = Properties.Resources.Esci;
             esciToolStripMenuItem.Name = "esciToolStripMenuItem";
-            esciToolStripMenuItem.Size = new Size(94, 22);
+            esciToolStripMenuItem.Size = new Size(180, 22);
             esciToolStripMenuItem.Text = "Esci";
             esciToolStripMenuItem.Click += esciToolStripMenuItem_Click;
             // 
             // attivitàToolStripMenuItem
             // 
+            attivitàToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestioneToolStripMenuItem });
             attivitàToolStripMenuItem.Name = "attivitàToolStripMenuItem";
             attivitàToolStripMenuItem.Size = new Size(57, 20);
             attivitàToolStripMenuItem.Text = "Attività";
@@ -79,7 +81,7 @@
             // 
             informazioniToolStripMenuItem.Image = Properties.Resources.Informazioni;
             informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem";
-            informazioniToolStripMenuItem.Size = new Size(150, 22);
+            informazioniToolStripMenuItem.Size = new Size(180, 22);
             informazioniToolStripMenuItem.Text = "Informazioni...";
             // 
             // label1
@@ -94,6 +96,12 @@
             label1.TabIndex = 2;
             label1.Text = "Formica - Principale";
             label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // gestioneToolStripMenuItem
+            // 
+            gestioneToolStripMenuItem.Name = "gestioneToolStripMenuItem";
+            gestioneToolStripMenuItem.Size = new Size(180, 22);
+            gestioneToolStripMenuItem.Text = "Gestione...";
             // 
             // Form1
             // 
@@ -122,5 +130,6 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem informazioniToolStripMenuItem;
         private Label label1;
+        private ToolStripMenuItem gestioneToolStripMenuItem;
     }
 }
