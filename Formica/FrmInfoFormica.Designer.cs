@@ -36,6 +36,13 @@
             label1 = new Label();
             label2 = new Label();
             label5 = new Label();
+            label6 = new Label();
+            lnlEmail = new LinkLabel();
+            TxtEmail = new TextBox();
+            label7 = new Label();
+            lnkduckduckgo = new LinkLabel();
+            label8 = new Label();
+            lkluxwing = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pctLogo).BeginInit();
             SuspendLayout();
             // 
@@ -57,14 +64,14 @@
             label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(0, 0);
             label3.Name = "label3";
-            label3.Size = new Size(1088, 22);
+            label3.Size = new Size(887, 22);
             label3.TabIndex = 3;
             label3.Text = "Formica - Informazioni sul programma";
             label3.TextAlign = ContentAlignment.TopCenter;
             // 
             // BtnChiudi
             // 
-            BtnChiudi.Location = new Point(989, 573);
+            BtnChiudi.Location = new Point(796, 559);
             BtnChiudi.Name = "BtnChiudi";
             BtnChiudi.Size = new Size(75, 23);
             BtnChiudi.TabIndex = 4;
@@ -120,11 +127,84 @@
             label5.TabIndex = 21;
             label5.Text = "Contatti:";
             // 
+            // label6
+            // 
+            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(348, 174);
+            label6.Name = "label6";
+            label6.Size = new Size(496, 63);
+            label6.TabIndex = 23;
+            label6.Text = "Per informazioni o altro contattare Emanuele al numeo di telefono 339.1980065 oppure  tramite email - For info or anything else, get in touch with Emanuele at 339.1980065 or by email:\r\n";
+            // 
+            // lnlEmail
+            // 
+            lnlEmail.AutoSize = true;
+            lnlEmail.Location = new Point(678, 237);
+            lnlEmail.Name = "lnlEmail";
+            lnlEmail.Size = new Size(176, 15);
+            lnlEmail.TabIndex = 24;
+            lnlEmail.TabStop = true;
+            lnlEmail.Text = "emanuelemattei@tutanota.com";
+            // 
+            // TxtEmail
+            // 
+            TxtEmail.Location = new Point(678, 255);
+            TxtEmail.Name = "TxtEmail";
+            TxtEmail.ReadOnly = true;
+            TxtEmail.Size = new Size(193, 23);
+            TxtEmail.TabIndex = 29;
+            TxtEmail.Text = "emanuelemattei@tutanota.com";
+            // 
+            // label7
+            // 
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label7.Location = new Point(347, 281);
+            label7.Name = "label7";
+            label7.Size = new Size(496, 37);
+            label7.TabIndex = 30;
+            label7.Text = "Le icone e le immagini utilizzate in questo programma provengono dai siti elencati di seguito, che le mettono gratuitamente a disposizione dei propri utenti.";
+            // 
+            // lnkduckduckgo
+            // 
+            lnkduckduckgo.AutoSize = true;
+            lnkduckduckgo.Location = new Point(348, 350);
+            lnkduckduckgo.Name = "lnkduckduckgo";
+            lnkduckduckgo.Size = new Size(479, 15);
+            lnkduckduckgo.TabIndex = 31;
+            lnkduckduckgo.TabStop = true;
+            lnkduckduckgo.Text = "L'immagine della formica creata tramite Duckduckgo AI Image Generator https://duck.ai/";
+            // 
+            // label8
+            // 
+            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label8.Location = new Point(348, 323);
+            label8.Name = "label8";
+            label8.Size = new Size(58, 22);
+            label8.TabIndex = 32;
+            label8.Text = "Crediti";
+            // 
+            // lkluxwing
+            // 
+            lkluxwing.AutoSize = true;
+            lkluxwing.Location = new Point(348, 378);
+            lkluxwing.Name = "lkluxwing";
+            lkluxwing.Size = new Size(483, 15);
+            lkluxwing.TabIndex = 33;
+            lkluxwing.TabStop = true;
+            lkluxwing.Text = "Alcune icone utilizzate in questo programma sono fornite da  uxwing https://uxwing.com/";
+            // 
             // FrmInfoFormica
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1088, 608);
+            ClientSize = new Size(887, 608);
+            Controls.Add(lkluxwing);
+            Controls.Add(label8);
+            Controls.Add(lnkduckduckgo);
+            Controls.Add(label7);
+            Controls.Add(TxtEmail);
+            Controls.Add(lnlEmail);
+            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -133,6 +213,9 @@
             Controls.Add(BtnChiudi);
             Controls.Add(label3);
             Controls.Add(pctLogo);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmInfoFormica";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Informazioni programma Fattura";
@@ -152,5 +235,12 @@
         private Label label1;
         private Label label2;
         private Label label5;
+        private Label label6;
+        private LinkLabel lnlEmail;
+        private TextBox TxtEmail;
+        private Label label7;
+        private LinkLabel lnkduckduckgo;
+        private Label label8;
+        private LinkLabel lkluxwing;
     }
 }
