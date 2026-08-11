@@ -32,16 +32,18 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             esciToolStripMenuItem = new ToolStripMenuItem();
             attivitàToolStripMenuItem = new ToolStripMenuItem();
+            gestioneToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
-            gestioneToolStripMenuItem = new ToolStripMenuItem();
+            documentiToolStripMenuItem = new ToolStripMenuItem();
+            gestioneToolStripMenuItem1 = new ToolStripMenuItem();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
             // mnsMenuPrincipale
             // 
-            mnsMenuPrincipale.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, attivitàToolStripMenuItem, toolStripMenuItem1 });
+            mnsMenuPrincipale.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, attivitàToolStripMenuItem, documentiToolStripMenuItem, toolStripMenuItem1 });
             mnsMenuPrincipale.Location = new Point(0, 0);
             mnsMenuPrincipale.Name = "mnsMenuPrincipale";
             mnsMenuPrincipale.Size = new Size(800, 24);
@@ -59,7 +61,7 @@
             // 
             esciToolStripMenuItem.Image = Properties.Resources.Esci;
             esciToolStripMenuItem.Name = "esciToolStripMenuItem";
-            esciToolStripMenuItem.Size = new Size(180, 22);
+            esciToolStripMenuItem.Size = new Size(94, 22);
             esciToolStripMenuItem.Text = "Esci";
             esciToolStripMenuItem.Click += esciToolStripMenuItem_Click;
             // 
@@ -69,6 +71,12 @@
             attivitàToolStripMenuItem.Name = "attivitàToolStripMenuItem";
             attivitàToolStripMenuItem.Size = new Size(57, 20);
             attivitàToolStripMenuItem.Text = "Attività";
+            // 
+            // gestioneToolStripMenuItem
+            // 
+            gestioneToolStripMenuItem.Name = "gestioneToolStripMenuItem";
+            gestioneToolStripMenuItem.Size = new Size(180, 22);
+            gestioneToolStripMenuItem.Text = "Gestione...";
             // 
             // toolStripMenuItem1
             // 
@@ -81,7 +89,7 @@
             // 
             informazioniToolStripMenuItem.Image = Properties.Resources.Informazioni;
             informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem";
-            informazioniToolStripMenuItem.Size = new Size(180, 22);
+            informazioniToolStripMenuItem.Size = new Size(150, 22);
             informazioniToolStripMenuItem.Text = "Informazioni...";
             // 
             // label1
@@ -97,11 +105,18 @@
             label1.Text = "Formica - Principale";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // gestioneToolStripMenuItem
+            // documentiToolStripMenuItem
             // 
-            gestioneToolStripMenuItem.Name = "gestioneToolStripMenuItem";
-            gestioneToolStripMenuItem.Size = new Size(180, 22);
-            gestioneToolStripMenuItem.Text = "Gestione...";
+            documentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestioneToolStripMenuItem1 });
+            documentiToolStripMenuItem.Name = "documentiToolStripMenuItem";
+            documentiToolStripMenuItem.Size = new Size(78, 20);
+            documentiToolStripMenuItem.Text = "Documenti";
+            // 
+            // gestioneToolStripMenuItem1
+            // 
+            gestioneToolStripMenuItem1.Name = "gestioneToolStripMenuItem1";
+            gestioneToolStripMenuItem1.Size = new Size(180, 22);
+            gestioneToolStripMenuItem1.Text = "Gestione...";
             // 
             // Form1
             // 
@@ -131,5 +146,7 @@
         private ToolStripMenuItem informazioniToolStripMenuItem;
         private Label label1;
         private ToolStripMenuItem gestioneToolStripMenuItem;
+        private ToolStripMenuItem documentiToolStripMenuItem;
+        private ToolStripMenuItem gestioneToolStripMenuItem1;
     }
 }

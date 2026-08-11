@@ -13,12 +13,16 @@ namespace Formica
             {
                 this.Text = Utility.TitoloFinestra;
                 //TODO: Visualizzare i task in un dataGrid
+                //TODO: fare form, che inserisce il progetto (progetto e non task) come nome progetto, descrizione, data inserito e data conclusione
+                //TODO: fare form per inserire le opzioni, come priorità (Urgente, immediata, normale, bassa) stato (da fare, in corso, completato, sospesa)
+                //TODO task, descrizione, percentuale di completamente, nome, descrizione, progetto, documento, informazioni
+                //TODO: FAre anche se è un bug, implementazione, attività normale come nota, etc
+
 
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore("Errore durante il caricamento dell'applicativo." + ex.Message);
             }
         }
 
