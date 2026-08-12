@@ -33,11 +33,11 @@
             esciToolStripMenuItem = new ToolStripMenuItem();
             attivitàToolStripMenuItem = new ToolStripMenuItem();
             gestioneToolStripMenuItem = new ToolStripMenuItem();
+            documentiToolStripMenuItem = new ToolStripMenuItem();
+            gestioneToolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
-            documentiToolStripMenuItem = new ToolStripMenuItem();
-            gestioneToolStripMenuItem1 = new ToolStripMenuItem();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,8 +75,21 @@
             // gestioneToolStripMenuItem
             // 
             gestioneToolStripMenuItem.Name = "gestioneToolStripMenuItem";
-            gestioneToolStripMenuItem.Size = new Size(180, 22);
+            gestioneToolStripMenuItem.Size = new Size(129, 22);
             gestioneToolStripMenuItem.Text = "Gestione...";
+            // 
+            // documentiToolStripMenuItem
+            // 
+            documentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestioneToolStripMenuItem1 });
+            documentiToolStripMenuItem.Name = "documentiToolStripMenuItem";
+            documentiToolStripMenuItem.Size = new Size(78, 20);
+            documentiToolStripMenuItem.Text = "Documenti";
+            // 
+            // gestioneToolStripMenuItem1
+            // 
+            gestioneToolStripMenuItem1.Name = "gestioneToolStripMenuItem1";
+            gestioneToolStripMenuItem1.Size = new Size(129, 22);
+            gestioneToolStripMenuItem1.Text = "Gestione...";
             // 
             // toolStripMenuItem1
             // 
@@ -89,8 +102,9 @@
             // 
             informazioniToolStripMenuItem.Image = Properties.Resources.Informazioni;
             informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem";
-            informazioniToolStripMenuItem.Size = new Size(150, 22);
+            informazioniToolStripMenuItem.Size = new Size(180, 22);
             informazioniToolStripMenuItem.Text = "Informazioni...";
+            informazioniToolStripMenuItem.Click += informazioniToolStripMenuItem_Click;
             // 
             // label1
             // 
@@ -104,19 +118,6 @@
             label1.TabIndex = 2;
             label1.Text = "Formica - Principale";
             label1.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // documentiToolStripMenuItem
-            // 
-            documentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestioneToolStripMenuItem1 });
-            documentiToolStripMenuItem.Name = "documentiToolStripMenuItem";
-            documentiToolStripMenuItem.Size = new Size(78, 20);
-            documentiToolStripMenuItem.Text = "Documenti";
-            // 
-            // gestioneToolStripMenuItem1
-            // 
-            gestioneToolStripMenuItem1.Name = "gestioneToolStripMenuItem1";
-            gestioneToolStripMenuItem1.Size = new Size(180, 22);
-            gestioneToolStripMenuItem1.Text = "Gestione...";
             // 
             // Form1
             // 

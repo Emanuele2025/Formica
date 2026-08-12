@@ -30,5 +30,11 @@ namespace Formica
         {
             this.Close();
         }
+
+        private void informazioniToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmInfoFormica info = new FrmInfoFormica();
+            info.ShowDialog();
+        }
     }
 }

@@ -71,11 +71,14 @@
             // 
             // BtnChiudi
             // 
-            BtnChiudi.Location = new Point(796, 559);
+            BtnChiudi.Image = Properties.Resources.Chiudi_uxwing;
+            BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnChiudi.Location = new Point(793, 559);
             BtnChiudi.Name = "BtnChiudi";
-            BtnChiudi.Size = new Size(75, 23);
+            BtnChiudi.Size = new Size(73, 23);
             BtnChiudi.TabIndex = 4;
             BtnChiudi.Text = "Chiudi";
+            BtnChiudi.TextAlign = ContentAlignment.MiddleRight;
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
@@ -145,6 +148,7 @@
             lnlEmail.TabIndex = 24;
             lnlEmail.TabStop = true;
             lnlEmail.Text = "emanuelemattei@tutanota.com";
+            lnlEmail.LinkClicked += lnlEmail_LinkClicked;
             // 
             // TxtEmail
             // 
@@ -173,6 +177,7 @@
             lnkduckduckgo.TabIndex = 31;
             lnkduckduckgo.TabStop = true;
             lnkduckduckgo.Text = "L'immagine della formica creata tramite Duckduckgo AI Image Generator https://duck.ai/";
+            lnkduckduckgo.LinkClicked += lnkduckduckgo_LinkClicked;
             // 
             // label8
             // 
@@ -192,6 +197,7 @@
             lkluxwing.TabIndex = 33;
             lkluxwing.TabStop = true;
             lkluxwing.Text = "Alcune icone utilizzate in questo programma sono fornite da  uxwing https://uxwing.com/";
+            lkluxwing.LinkClicked += lkluxwing_LinkClicked;
             // 
             // FrmInfoFormica
             // 
