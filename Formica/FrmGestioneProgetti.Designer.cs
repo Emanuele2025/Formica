@@ -1,6 +1,6 @@
 ﻿namespace Formica
 {
-    partial class FrmAttivita
+    partial class FrmGestioneProgetti
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            BtnChiudi = new Button();
             SuspendLayout();
             // 
             // label1
@@ -41,40 +40,25 @@
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
             label1.Size = new Size(800, 22);
-            label1.TabIndex = 3;
-            label1.Text = "Formica - Gestione delle attività";
+            label1.TabIndex = 4;
+            label1.Text = "Formica - Gestione dei progetti";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // BtnChiudi
-            // 
-            BtnChiudi.Image = Properties.Resources.Chiudi_uxwing;
-            BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnChiudi.Location = new Point(713, 415);
-            BtnChiudi.Name = "BtnChiudi";
-            BtnChiudi.Size = new Size(75, 23);
-            BtnChiudi.TabIndex = 4;
-            BtnChiudi.Text = "Chiudi";
-            BtnChiudi.TextAlign = ContentAlignment.MiddleRight;
-            BtnChiudi.UseVisualStyleBackColor = true;
-            BtnChiudi.Click += BtnChiudi_Click;
-            // 
-            // FrmAttivita
+            // FrmGestioneProgetti
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(BtnChiudi);
             Controls.Add(label1);
-            Name = "FrmAttivita";
+            Name = "FrmGestioneProgetti";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Attività";
-            Load += FrmAttivita_Load;
+            Text = "Gestione Progetti";
+            Load += FrmGestioneProgetti_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
         private Label label1;
-        private Button BtnChiudi;
     }
 }

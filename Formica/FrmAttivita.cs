@@ -24,5 +24,10 @@ namespace Formica
         {
             this.Close();
         }
+
+
+        #region Funzioni
+
+        #endregion
     }
 }
