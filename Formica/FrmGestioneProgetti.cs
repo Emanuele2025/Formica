@@ -26,5 +26,24 @@ namespace Formica
                 Utility.MessaggioErrore("Errore: " + ex.Message);
             }
         }
+
+        #region Funzioni
+
+
+
+
+
+
+
+
+        #endregion
+
+
+
+
+        private void BtnChiudi_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
