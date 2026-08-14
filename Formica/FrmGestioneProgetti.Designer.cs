@@ -79,6 +79,7 @@
             BtnInserisci.TabIndex = 6;
             BtnInserisci.Text = "Inserisci";
             BtnInserisci.UseVisualStyleBackColor = true;
+            BtnInserisci.Click += BtnInserisci_Click;
             // 
             // label2
             // 
@@ -184,6 +185,7 @@
             // BtnModifica
             // 
             BtnModifica.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnModifica.Enabled = false;
             BtnModifica.Location = new Point(107, 591);
             BtnModifica.Name = "BtnModifica";
             BtnModifica.Size = new Size(75, 23);
@@ -205,6 +207,7 @@
             // BtnElimina
             // 
             BtnElimina.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnElimina.Enabled = false;
             BtnElimina.Location = new Point(290, 591);
             BtnElimina.Name = "BtnElimina";
             BtnElimina.Size = new Size(75, 23);

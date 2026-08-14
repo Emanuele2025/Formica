@@ -45,5 +45,17 @@ namespace Formica
         {
             this.Close();
         }
+
+        private void BtnInserisci_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+        }
     }
 }
