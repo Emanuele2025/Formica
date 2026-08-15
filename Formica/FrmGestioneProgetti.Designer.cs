@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             dtgDatiProgetti = new DataGridView();
             BtnInserisci = new Button();
@@ -42,10 +43,13 @@
             dateTimePicker1 = new DateTimePicker();
             dtpTermine = new DateTimePicker();
             label6 = new Label();
-            BtnModifica = new Button();
+            BtnAnnulla = new Button();
             BtnSalva = new Button();
-            BtnElimina = new Button();
+            CmsMenu = new ContextMenuStrip(components);
+            modificaToolStripMenuItem = new ToolStripMenuItem();
+            eliminaToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dtgDatiProgetti).BeginInit();
+            CmsMenu.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -64,6 +68,7 @@
             // dtgDatiProgetti
             // 
             dtgDatiProgetti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatiProgetti.ContextMenuStrip = CmsMenu;
             dtgDatiProgetti.Dock = DockStyle.Top;
             dtgDatiProgetti.Location = new Point(0, 22);
             dtgDatiProgetti.Name = "dtgDatiProgetti";
@@ -182,16 +187,17 @@
             label6.TabIndex = 16;
             label6.Text = "Termine:";
             // 
-            // BtnModifica
+            // BtnAnnulla
             // 
-            BtnModifica.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnModifica.Enabled = false;
-            BtnModifica.Location = new Point(107, 591);
-            BtnModifica.Name = "BtnModifica";
-            BtnModifica.Size = new Size(75, 23);
-            BtnModifica.TabIndex = 18;
-            BtnModifica.Text = "Modifica";
-            BtnModifica.UseVisualStyleBackColor = true;
+            BtnAnnulla.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnAnnulla.Enabled = false;
+            BtnAnnulla.Location = new Point(107, 591);
+            BtnAnnulla.Name = "BtnAnnulla";
+            BtnAnnulla.Size = new Size(75, 23);
+            BtnAnnulla.TabIndex = 18;
+            BtnAnnulla.Text = "Annulla";
+            BtnAnnulla.UseVisualStyleBackColor = true;
+            BtnAnnulla.Visible = false;
             // 
             // BtnSalva
             // 
@@ -204,25 +210,31 @@
             BtnSalva.UseVisualStyleBackColor = true;
             BtnSalva.Visible = false;
             // 
-            // BtnElimina
+            // CmsMenu
             // 
-            BtnElimina.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnElimina.Enabled = false;
-            BtnElimina.Location = new Point(290, 591);
-            BtnElimina.Name = "BtnElimina";
-            BtnElimina.Size = new Size(75, 23);
-            BtnElimina.TabIndex = 20;
-            BtnElimina.Text = "Elimina";
-            BtnElimina.UseVisualStyleBackColor = true;
+            CmsMenu.Items.AddRange(new ToolStripItem[] { modificaToolStripMenuItem, eliminaToolStripMenuItem });
+            CmsMenu.Name = "contextMenuStrip1";
+            CmsMenu.Size = new Size(122, 48);
+            // 
+            // modificaToolStripMenuItem
+            // 
+            modificaToolStripMenuItem.Name = "modificaToolStripMenuItem";
+            modificaToolStripMenuItem.Size = new Size(121, 22);
+            modificaToolStripMenuItem.Text = "Modifica";
+            // 
+            // eliminaToolStripMenuItem
+            // 
+            eliminaToolStripMenuItem.Name = "eliminaToolStripMenuItem";
+            eliminaToolStripMenuItem.Size = new Size(121, 22);
+            eliminaToolStripMenuItem.Text = "Elimina";
             // 
             // FrmGestioneProgetti
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1114, 626);
-            Controls.Add(BtnElimina);
             Controls.Add(BtnSalva);
-            Controls.Add(BtnModifica);
+            Controls.Add(BtnAnnulla);
             Controls.Add(dtpTermine);
             Controls.Add(label6);
             Controls.Add(dateTimePicker1);
@@ -242,6 +254,7 @@
             Text = "Gestione Progetti";
             Load += FrmGestioneProgetti_Load;
             ((System.ComponentModel.ISupportInitialize)dtgDatiProgetti).EndInit();
+            CmsMenu.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -262,8 +275,10 @@
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dtpTermine;
         private Label label6;
-        private Button BtnModifica;
+        private Button BtnAnnulla;
         private Button BtnSalva;
-        private Button BtnElimina;
+        private ContextMenuStrip CmsMenu;
+        private ToolStripMenuItem modificaToolStripMenuItem;
+        private ToolStripMenuItem eliminaToolStripMenuItem;
     }
 }

@@ -17,8 +17,8 @@ namespace Formica
                 //TODO: fare form per inserire le opzioni, come priorità (Urgente, immediata, normale, bassa) stato (da fare, in corso, completato, sospesa)
                 //TODO task, descrizione, percentuale di completamente, nome, descrizione, progetto, documento, informazioni
                 //TODO: FAre anche se è un bug, implementazione, attività normale come nota, etc
-
-
+                //Comando per aggiornare tutto                      dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite--context AppDbContext --output - dir Models--force
+                //Comando per aggiornare solo nuove tabelle         dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --table Progetti --table Clienti --context AppDbContext --output-dir Models --force
             }
             catch (Exception ex)
             {
