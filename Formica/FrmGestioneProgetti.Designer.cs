@@ -31,6 +31,9 @@
             components = new System.ComponentModel.Container();
             label1 = new Label();
             dtgDatiProgetti = new DataGridView();
+            CmsMenu = new ContextMenuStrip(components);
+            mniModifica = new ToolStripMenuItem();
+            mniElimina = new ToolStripMenuItem();
             BtnInserisci = new Button();
             label2 = new Label();
             TxtNomeProgetto = new TextBox();
@@ -45,9 +48,6 @@
             label6 = new Label();
             BtnAnnulla = new Button();
             BtnSalva = new Button();
-            CmsMenu = new ContextMenuStrip(components);
-            modificaToolStripMenuItem = new ToolStripMenuItem();
-            eliminaToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dtgDatiProgetti).BeginInit();
             CmsMenu.SuspendLayout();
             SuspendLayout();
@@ -68,12 +68,31 @@
             // dtgDatiProgetti
             // 
             dtgDatiProgetti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatiProgetti.ContextMenuStrip = CmsMenu;
             dtgDatiProgetti.Dock = DockStyle.Top;
             dtgDatiProgetti.Location = new Point(0, 22);
             dtgDatiProgetti.Name = "dtgDatiProgetti";
             dtgDatiProgetti.Size = new Size(1114, 435);
             dtgDatiProgetti.TabIndex = 5;
+            dtgDatiProgetti.CellMouseDown += dtgDatiProgetti_CellMouseDown;
+            // 
+            // CmsMenu
+            // 
+            CmsMenu.Items.AddRange(new ToolStripItem[] { mniModifica, mniElimina });
+            CmsMenu.Name = "contextMenuStrip1";
+            CmsMenu.Size = new Size(181, 70);
+            // 
+            // mniModifica
+            // 
+            mniModifica.Name = "mniModifica";
+            mniModifica.Size = new Size(180, 22);
+            mniModifica.Text = "Modifica";
+            mniModifica.Click += mniModifica_Click;
+            // 
+            // mniElimina
+            // 
+            mniElimina.Name = "mniElimina";
+            mniElimina.Size = new Size(180, 22);
+            mniElimina.Text = "Elimina";
             // 
             // BtnInserisci
             // 
@@ -210,24 +229,6 @@
             BtnSalva.UseVisualStyleBackColor = true;
             BtnSalva.Visible = false;
             // 
-            // CmsMenu
-            // 
-            CmsMenu.Items.AddRange(new ToolStripItem[] { modificaToolStripMenuItem, eliminaToolStripMenuItem });
-            CmsMenu.Name = "contextMenuStrip1";
-            CmsMenu.Size = new Size(122, 48);
-            // 
-            // modificaToolStripMenuItem
-            // 
-            modificaToolStripMenuItem.Name = "modificaToolStripMenuItem";
-            modificaToolStripMenuItem.Size = new Size(121, 22);
-            modificaToolStripMenuItem.Text = "Modifica";
-            // 
-            // eliminaToolStripMenuItem
-            // 
-            eliminaToolStripMenuItem.Name = "eliminaToolStripMenuItem";
-            eliminaToolStripMenuItem.Size = new Size(121, 22);
-            eliminaToolStripMenuItem.Text = "Elimina";
-            // 
             // FrmGestioneProgetti
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -278,7 +279,7 @@
         private Button BtnAnnulla;
         private Button BtnSalva;
         private ContextMenuStrip CmsMenu;
-        private ToolStripMenuItem modificaToolStripMenuItem;
-        private ToolStripMenuItem eliminaToolStripMenuItem;
+        private ToolStripMenuItem mniModifica;
+        private ToolStripMenuItem mniElimina;
     }
 }

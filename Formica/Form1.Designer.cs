@@ -75,8 +75,9 @@
             // gestioneToolStripMenuItem
             // 
             gestioneToolStripMenuItem.Name = "gestioneToolStripMenuItem";
-            gestioneToolStripMenuItem.Size = new Size(129, 22);
+            gestioneToolStripMenuItem.Size = new Size(180, 22);
             gestioneToolStripMenuItem.Text = "Gestione...";
+            gestioneToolStripMenuItem.Click += gestioneToolStripMenuItem_Click;
             // 
             // documentiToolStripMenuItem
             // 
@@ -102,7 +103,7 @@
             // 
             informazioniToolStripMenuItem.Image = Properties.Resources.Informazioni;
             informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem";
-            informazioniToolStripMenuItem.Size = new Size(180, 22);
+            informazioniToolStripMenuItem.Size = new Size(150, 22);
             informazioniToolStripMenuItem.Text = "Informazioni...";
             informazioniToolStripMenuItem.Click += informazioniToolStripMenuItem_Click;
             // 

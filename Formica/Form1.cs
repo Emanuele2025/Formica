@@ -36,5 +36,11 @@ namespace Formica
             FrmInfoFormica info = new FrmInfoFormica();
             info.ShowDialog();
         }
+
+        private void gestioneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestioneProgetti gestione = new FrmGestioneProgetti();
+            gestione.ShowDialog();
+        }
     }
 }
