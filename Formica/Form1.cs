@@ -19,6 +19,9 @@ namespace Formica
                 //TODO: FAre anche se è un bug, implementazione, attività normale come nota, etc
                 //Comando per aggiornare tutto                      dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite--context AppDbContext --output - dir Models--force
                 //Comando per aggiornare solo nuove tabelle         dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --table Progetti --table Clienti --context AppDbContext --output-dir Models --force
+                //TODO : FAre anche Agenda
+
+
             }
             catch (Exception ex)
             {
@@ -41,6 +44,16 @@ namespace Formica
         {
             FrmGestioneProgetti gestione = new FrmGestioneProgetti();
             gestione.ShowDialog();
+        }
+
+        private void mniAgenda_Click(object sender, EventArgs e)
+        {
+            //TODO: Apre finestra dell'agenda
+        }
+
+        private void mniGestioneDocumenti_Click(object sender, EventArgs e)
+        {
+            //TODO: Apre finestra gestione dei documenti
         }
     }
 }

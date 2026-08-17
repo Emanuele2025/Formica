@@ -32,18 +32,21 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             esciToolStripMenuItem = new ToolStripMenuItem();
             attivitàToolStripMenuItem = new ToolStripMenuItem();
-            gestioneToolStripMenuItem = new ToolStripMenuItem();
+            mniGestione = new ToolStripMenuItem();
             documentiToolStripMenuItem = new ToolStripMenuItem();
-            gestioneToolStripMenuItem1 = new ToolStripMenuItem();
+            mniGestioneDocumenti = new ToolStripMenuItem();
+            strumentiToolStripMenuItem = new ToolStripMenuItem();
+            MniAgenda = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
+            MniRubrica = new ToolStripMenuItem();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
             // mnsMenuPrincipale
             // 
-            mnsMenuPrincipale.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, attivitàToolStripMenuItem, documentiToolStripMenuItem, toolStripMenuItem1 });
+            mnsMenuPrincipale.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, attivitàToolStripMenuItem, documentiToolStripMenuItem, strumentiToolStripMenuItem, toolStripMenuItem1 });
             mnsMenuPrincipale.Location = new Point(0, 0);
             mnsMenuPrincipale.Name = "mnsMenuPrincipale";
             mnsMenuPrincipale.Size = new Size(800, 24);
@@ -67,30 +70,45 @@
             // 
             // attivitàToolStripMenuItem
             // 
-            attivitàToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestioneToolStripMenuItem });
+            attivitàToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mniGestione });
             attivitàToolStripMenuItem.Name = "attivitàToolStripMenuItem";
             attivitàToolStripMenuItem.Size = new Size(57, 20);
             attivitàToolStripMenuItem.Text = "Attività";
             // 
-            // gestioneToolStripMenuItem
+            // mniGestione
             // 
-            gestioneToolStripMenuItem.Name = "gestioneToolStripMenuItem";
-            gestioneToolStripMenuItem.Size = new Size(180, 22);
-            gestioneToolStripMenuItem.Text = "Gestione...";
-            gestioneToolStripMenuItem.Click += gestioneToolStripMenuItem_Click;
+            mniGestione.Name = "mniGestione";
+            mniGestione.Size = new Size(180, 22);
+            mniGestione.Text = "Gestione...";
+            mniGestione.Click += gestioneToolStripMenuItem_Click;
             // 
             // documentiToolStripMenuItem
             // 
-            documentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestioneToolStripMenuItem1 });
+            documentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mniGestioneDocumenti });
             documentiToolStripMenuItem.Name = "documentiToolStripMenuItem";
             documentiToolStripMenuItem.Size = new Size(78, 20);
             documentiToolStripMenuItem.Text = "Documenti";
             // 
-            // gestioneToolStripMenuItem1
+            // mniGestioneDocumenti
             // 
-            gestioneToolStripMenuItem1.Name = "gestioneToolStripMenuItem1";
-            gestioneToolStripMenuItem1.Size = new Size(129, 22);
-            gestioneToolStripMenuItem1.Text = "Gestione...";
+            mniGestioneDocumenti.Name = "mniGestioneDocumenti";
+            mniGestioneDocumenti.Size = new Size(180, 22);
+            mniGestioneDocumenti.Text = "Gestione...";
+            mniGestioneDocumenti.Click += mniGestioneDocumenti_Click;
+            // 
+            // strumentiToolStripMenuItem
+            // 
+            strumentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { MniAgenda, MniRubrica });
+            strumentiToolStripMenuItem.Name = "strumentiToolStripMenuItem";
+            strumentiToolStripMenuItem.Size = new Size(71, 20);
+            strumentiToolStripMenuItem.Text = "Strumenti";
+            // 
+            // MniAgenda
+            // 
+            MniAgenda.Name = "MniAgenda";
+            MniAgenda.Size = new Size(180, 22);
+            MniAgenda.Text = "Agenda...";
+            MniAgenda.Click += mniAgenda_Click;
             // 
             // toolStripMenuItem1
             // 
@@ -120,6 +138,12 @@
             label1.Text = "Formica - Principale";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
+            // MniRubrica
+            // 
+            MniRubrica.Name = "MniRubrica";
+            MniRubrica.Size = new Size(180, 22);
+            MniRubrica.Text = "Rubrica...";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -147,8 +171,11 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem informazioniToolStripMenuItem;
         private Label label1;
-        private ToolStripMenuItem gestioneToolStripMenuItem;
+        private ToolStripMenuItem mniGestione;
         private ToolStripMenuItem documentiToolStripMenuItem;
-        private ToolStripMenuItem gestioneToolStripMenuItem1;
+        private ToolStripMenuItem mniGestioneDocumenti;
+        private ToolStripMenuItem strumentiToolStripMenuItem;
+        private ToolStripMenuItem MniAgenda;
+        private ToolStripMenuItem MniRubrica;
     }
 }
