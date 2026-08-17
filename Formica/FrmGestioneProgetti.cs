@@ -101,9 +101,28 @@ namespace Formica
         {
             if (dtgDatiProgetti.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Seleziona una riga");
+                MessageBox.Show("Selezionare una riga");
                 return;
             }
+            int rowIndex = dtgDatiProgetti.SelectedRows[0].Index;
+            DataGridViewRow row = dtgDatiProgetti.Rows[rowIndex];
+
+        }
+
+        private void mniElimina_Click(object sender, EventArgs e)
+        {
+            if (dtgDatiProgetti.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selezionare una riga");
+                return;
+            }
+
+            if (!Utility.CancellaRecord())
+            {
+                return;
+            }
+
+
             int rowIndex = dtgDatiProgetti.SelectedRows[0].Index;
             DataGridViewRow row = dtgDatiProgetti.Rows[rowIndex];
 

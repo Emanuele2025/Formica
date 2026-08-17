@@ -93,6 +93,7 @@
             mniElimina.Name = "mniElimina";
             mniElimina.Size = new Size(180, 22);
             mniElimina.Text = "Elimina";
+            mniElimina.Click += mniElimina_Click;
             // 
             // BtnInserisci
             // 
