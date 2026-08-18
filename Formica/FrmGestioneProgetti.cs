@@ -36,7 +36,16 @@ namespace Formica
 
 
 
+        private void txt_Leave(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.White;
+             
+        }
 
+        private void txt_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.Yellow;
+        }
 
 
 

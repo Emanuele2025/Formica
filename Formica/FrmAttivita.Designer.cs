@@ -30,6 +30,8 @@
         {
             label1 = new Label();
             BtnChiudi = new Button();
+            label2 = new Label();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -58,11 +60,29 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(17, 68);
+            label2.Name = "label2";
+            label2.Size = new Size(38, 15);
+            label2.TabIndex = 5;
+            label2.Text = "label2";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(20, 88);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(251, 23);
+            textBox1.TabIndex = 6;
+            // 
             // FrmAttivita
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox1);
+            Controls.Add(label2);
             Controls.Add(BtnChiudi);
             Controls.Add(label1);
             Name = "FrmAttivita";
@@ -70,11 +90,14 @@
             Text = "Attività";
             Load += FrmAttivita_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Label label1;
         private Button BtnChiudi;
+        private Label label2;
+        private TextBox textBox1;
     }
 }
