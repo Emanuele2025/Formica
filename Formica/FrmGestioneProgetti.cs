@@ -20,6 +20,7 @@ namespace Formica
             try
             {
                 this.Text = Utility.TitoloFinestra;
+                CaricaDati();
             }
             catch (Exception ex)
             {
@@ -49,7 +50,23 @@ namespace Formica
 
 
 
+        private void CaricaDati()
+        {
 
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(ex.Message);
+            }
+
+
+
+
+
+        }
 
 
 
@@ -92,7 +109,7 @@ namespace Formica
                 // Verifico che la riga abbia almeno un dato non vuoto
                 bool rigaValida = riga.Cells
                     .Cast<DataGridViewCell>()
-                    .Any(c => c.Value != null && c.Value.ToString().Trim() != "");
+                    .Any(c => c.Value != null && c?.Value?.ToString()?.Trim() != "");
 
                 if (!rigaValida)
                     return;
