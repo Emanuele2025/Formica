@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Formica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -86,6 +87,24 @@ namespace Formica
         {
             try
             {
+
+                if (TxtNomeProgetto.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Campo nome progetto obbligatorio");
+                    return;
+
+                }
+                Progetti progetto = new Progetti
+                {
+                    Nome = TxtNomeProgetto.Text.Trim(),
+                     Descrizione = TxtDescrizione.Text.Trim()
+
+
+
+                };
+
+
+
 
             }
             catch (Exception ex)

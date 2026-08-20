@@ -39,11 +39,11 @@
             TxtNomeProgetto = new TextBox();
             BtnChiudi = new Button();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            TxtNote = new TextBox();
+            TxtDescrizione = new TextBox();
             label4 = new Label();
             label5 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dtpApertura = new DateTimePicker();
             dtpTermine = new DateTimePicker();
             label6 = new Label();
             BtnAnnulla = new Button();
@@ -148,26 +148,26 @@
             label3.TabIndex = 10;
             label3.Text = "Note:";
             // 
-            // textBox1
+            // TxtNote
             // 
-            textBox1.Location = new Point(676, 499);
-            textBox1.MaxLength = 2000;
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(435, 69);
-            textBox1.TabIndex = 6;
-            textBox1.Enter += txt_Enter;
-            textBox1.Leave += txt_Leave;
+            TxtNote.Location = new Point(676, 499);
+            TxtNote.MaxLength = 2000;
+            TxtNote.Multiline = true;
+            TxtNote.Name = "TxtNote";
+            TxtNote.Size = new Size(435, 69);
+            TxtNote.TabIndex = 6;
+            TxtNote.Enter += txt_Enter;
+            TxtNote.Leave += txt_Leave;
             // 
-            // textBox2
+            // TxtDescrizione
             // 
-            textBox2.Location = new Point(12, 545);
-            textBox2.MaxLength = 200;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(424, 23);
-            textBox2.TabIndex = 3;
-            textBox2.Enter += txt_Enter;
-            textBox2.Leave += txt_Leave;
+            TxtDescrizione.Location = new Point(12, 545);
+            TxtDescrizione.MaxLength = 200;
+            TxtDescrizione.Name = "TxtDescrizione";
+            TxtDescrizione.Size = new Size(424, 23);
+            TxtDescrizione.TabIndex = 3;
+            TxtDescrizione.Enter += txt_Enter;
+            TxtDescrizione.Leave += txt_Leave;
             // 
             // label4
             // 
@@ -187,13 +187,13 @@
             label5.TabIndex = 14;
             label5.Text = "Apertura:";
             // 
-            // dateTimePicker1
+            // dtpApertura
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(453, 500);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 4;
+            dtpApertura.Format = DateTimePickerFormat.Short;
+            dtpApertura.Location = new Point(453, 500);
+            dtpApertura.Name = "dtpApertura";
+            dtpApertura.Size = new Size(200, 23);
+            dtpApertura.TabIndex = 4;
             // 
             // dtpTermine
             // 
@@ -245,11 +245,11 @@
             Controls.Add(BtnAnnulla);
             Controls.Add(dtpTermine);
             Controls.Add(label6);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtpApertura);
             Controls.Add(label5);
-            Controls.Add(textBox2);
+            Controls.Add(TxtDescrizione);
             Controls.Add(label4);
-            Controls.Add(textBox1);
+            Controls.Add(TxtNote);
             Controls.Add(label3);
             Controls.Add(BtnChiudi);
             Controls.Add(TxtNomeProgetto);
@@ -276,11 +276,11 @@
         private TextBox TxtNomeProgetto;
         private Button BtnChiudi;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox TxtNote;
+        private TextBox TxtDescrizione;
         private Label label4;
         private Label label5;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpApertura;
         private DateTimePicker dtpTermine;
         private Label label6;
         private Button BtnAnnulla;
