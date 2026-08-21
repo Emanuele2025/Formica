@@ -41,7 +41,7 @@ namespace Formica
         private void txt_Leave(object sender, EventArgs e)
         {
             ((TextBox)sender).BackColor = Color.White;
-             
+
         }
 
         private void txt_Enter(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace Formica
                 Progetti progetto = new Progetti
                 {
                     Nome = TxtNomeProgetto.Text.Trim(),
-                     Descrizione = TxtDescrizione.Text.Trim()
+                    Descrizione = TxtDescrizione.Text.Trim()
 
 
 
@@ -171,6 +171,16 @@ namespace Formica
             int rowIndex = dtgDatiProgetti.SelectedRows[0].Index;
             DataGridViewRow row = dtgDatiProgetti.Rows[rowIndex];
 
+        }
+
+        private void BtnAnnulla_Click(object sender, EventArgs e)
+        {
+            TxtDescrizione.Text = "";
+            TxtNomeProgetto.Text = "";
+            TxtNote.Text = "";
+            dtpApertura.Value = DateTime.Now;
+            dtpTermine.Value = dtpTermine.MaxDate;
+            BtnSalva.Visible = false;
         }
     }
 }

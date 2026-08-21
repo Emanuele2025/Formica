@@ -191,6 +191,8 @@
             // 
             dtpApertura.Format = DateTimePickerFormat.Short;
             dtpApertura.Location = new Point(453, 500);
+            dtpApertura.MaxDate = new DateTime(2099, 12, 31, 0, 0, 0, 0);
+            dtpApertura.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpApertura.Name = "dtpApertura";
             dtpApertura.Size = new Size(200, 23);
             dtpApertura.TabIndex = 4;
@@ -199,10 +201,12 @@
             // 
             dtpTermine.Format = DateTimePickerFormat.Short;
             dtpTermine.Location = new Point(453, 545);
+            dtpTermine.MaxDate = new DateTime(2099, 12, 31, 0, 0, 0, 0);
+            dtpTermine.MinDate = new DateTime(1980, 1, 1, 0, 0, 0, 0);
             dtpTermine.Name = "dtpTermine";
             dtpTermine.Size = new Size(200, 23);
             dtpTermine.TabIndex = 5;
-            dtpTermine.Value = new DateTime(2050, 12, 31, 0, 0, 0, 0);
+            dtpTermine.Value = new DateTime(2099, 12, 31, 0, 0, 0, 0);
             // 
             // label6
             // 
@@ -224,6 +228,7 @@
             BtnAnnulla.Text = "Annulla";
             BtnAnnulla.UseVisualStyleBackColor = true;
             BtnAnnulla.Visible = false;
+            BtnAnnulla.Click += BtnAnnulla_Click;
             // 
             // BtnSalva
             // 
