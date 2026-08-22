@@ -171,13 +171,20 @@ namespace Formica
             }
 
             int idRecord = 0;
-            int rowIndex = dtgDatiProgetti.SelectedRows[0].Index;
-            DataGridViewRow row = dtgDatiProgetti.Rows[rowIndex];
+            idRecord = Convert.ToInt32( dtgDatiProgetti.SelectedRows[0].Cells["Idprogetto"]);
+            //int rowIndex = dtgDatiProgetti.SelectedRows[0].Index;
+            //DataGridViewRow row = dtgDatiProgetti.Rows[rowIndex];
             //  row.DataBoundItem
             //Cancello dato
 
             //contesto.Progettis.Remove()
-
+            DataRowView DrwSelezionata = (DataRowView)dtgDatiProgetti.SelectedRows[0].DataBoundItem;
+            DataRow rigaSelezionata = DrwSelezionata?.Row;
+            if (rigaSelezionata != null)
+            {
+                idRecord = rigaSelezionata.Field<int>("IdProgetto");
+              
+            }
 
         }
 
