@@ -16,6 +16,9 @@ namespace Formica
             InitializeComponent();
         }
 
+        AppDbContext contesto = new AppDbContext();
+
+
         private void FrmGestioneProgetti_Load(object sender, EventArgs e)
         {
             try
@@ -167,9 +170,14 @@ namespace Formica
                 return;
             }
 
-
+            int idRecord = 0;
             int rowIndex = dtgDatiProgetti.SelectedRows[0].Index;
             DataGridViewRow row = dtgDatiProgetti.Rows[rowIndex];
+            //  row.DataBoundItem
+            //Cancello dato
+
+            //contesto.Progettis.Remove()
+
 
         }
 
