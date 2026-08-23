@@ -100,7 +100,12 @@ namespace Formica
                 Progetti progetto = new Progetti
                 {
                     Nome = TxtNomeProgetto.Text.Trim(),
-                    Descrizione = TxtDescrizione.Text.Trim()
+                    Descrizione = TxtDescrizione.Text.Trim(),
+                    Note = TxtNote.Text.Trim(),
+                    DataApertura = dtpApertura.Value,
+                    DataChiusura = (dtpTermine.Value == dtpTermine.MaxDate) ? null : dtpTermine.Value,
+                    File = (TxtPercorsoFile.Text.Trim() != "") ? File.ReadAllBytes(TxtPercorsoFile.Text.Trim()) : null,
+                    NomeFile = (TxtPercorsoFile.Text.Trim() != "") ? new FileInfo(TxtPercorsoFile.Text.Trim()).Name : ""
 
 
 
@@ -171,7 +176,7 @@ namespace Formica
             }
 
             int idRecord = 0;
-            idRecord = Convert.ToInt32( dtgDatiProgetti.SelectedRows[0].Cells["Idprogetto"]);
+            idRecord = Convert.ToInt32(dtgDatiProgetti.SelectedRows[0].Cells["Idprogetto"]);
             //int rowIndex = dtgDatiProgetti.SelectedRows[0].Index;
             //DataGridViewRow row = dtgDatiProgetti.Rows[rowIndex];
             //  row.DataBoundItem
@@ -183,7 +188,7 @@ namespace Formica
             if (rigaSelezionata != null)
             {
                 idRecord = rigaSelezionata.Field<int>("IdProgetto");
-              
+
             }
 
         }
@@ -196,6 +201,23 @@ namespace Formica
             dtpApertura.Value = DateTime.Now;
             dtpTermine.Value = dtpTermine.MaxDate;
             BtnSalva.Visible = false;
+        }
+
+        private void BtnCercaFile_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openDlg = new OpenFileDialog())
+            {
+
+                openDlg.Multiselect = false;
+
+                openDlg.Filter = "Tutti Files (*.*) | *.*";
+
+                if (openDlg.ShowDialog(this) == DialogResult.OK)
+                {
+                    TxtPercorsoFile.Text = openDlg.FileName;
+                }
+
+            }
         }
     }
 }

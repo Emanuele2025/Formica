@@ -48,6 +48,9 @@
             label6 = new Label();
             BtnAnnulla = new Button();
             BtnSalva = new Button();
+            BtnCercaFile = new Button();
+            TxtPercorsoFile = new TextBox();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgDatiProgetti).BeginInit();
             CmsMenu.SuspendLayout();
             SuspendLayout();
@@ -60,7 +63,7 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1114, 22);
+            label1.Size = new Size(1168, 22);
             label1.TabIndex = 4;
             label1.Text = "Formica - Gestione dei progetti";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -71,7 +74,7 @@
             dtgDatiProgetti.Dock = DockStyle.Top;
             dtgDatiProgetti.Location = new Point(0, 22);
             dtgDatiProgetti.Name = "dtgDatiProgetti";
-            dtgDatiProgetti.Size = new Size(1114, 435);
+            dtgDatiProgetti.Size = new Size(1168, 462);
             dtgDatiProgetti.TabIndex = 1;
             dtgDatiProgetti.CellMouseDown += dtgDatiProgetti_CellMouseDown;
             // 
@@ -98,7 +101,7 @@
             // BtnInserisci
             // 
             BtnInserisci.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnInserisci.Location = new Point(12, 591);
+            BtnInserisci.Location = new Point(12, 654);
             BtnInserisci.Name = "BtnInserisci";
             BtnInserisci.Size = new Size(75, 23);
             BtnInserisci.TabIndex = 7;
@@ -109,7 +112,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 482);
+            label2.Location = new Point(12, 498);
             label2.Name = "label2";
             label2.Size = new Size(92, 15);
             label2.TabIndex = 7;
@@ -117,7 +120,7 @@
             // 
             // TxtNomeProgetto
             // 
-            TxtNomeProgetto.Location = new Point(12, 500);
+            TxtNomeProgetto.Location = new Point(12, 516);
             TxtNomeProgetto.MaxLength = 200;
             TxtNomeProgetto.Name = "TxtNomeProgetto";
             TxtNomeProgetto.Size = new Size(424, 23);
@@ -130,7 +133,7 @@
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             BtnChiudi.Image = Properties.Resources.Chiudi_uxwing;
             BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnChiudi.Location = new Point(1029, 591);
+            BtnChiudi.Location = new Point(1083, 654);
             BtnChiudi.Name = "BtnChiudi";
             BtnChiudi.Size = new Size(73, 23);
             BtnChiudi.TabIndex = 10;
@@ -142,7 +145,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(676, 481);
+            label3.Location = new Point(676, 497);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
             label3.TabIndex = 10;
@@ -150,7 +153,7 @@
             // 
             // TxtNote
             // 
-            TxtNote.Location = new Point(676, 499);
+            TxtNote.Location = new Point(676, 515);
             TxtNote.MaxLength = 2000;
             TxtNote.Multiline = true;
             TxtNote.Name = "TxtNote";
@@ -161,7 +164,7 @@
             // 
             // TxtDescrizione
             // 
-            TxtDescrizione.Location = new Point(12, 545);
+            TxtDescrizione.Location = new Point(12, 561);
             TxtDescrizione.MaxLength = 200;
             TxtDescrizione.Name = "TxtDescrizione";
             TxtDescrizione.Size = new Size(424, 23);
@@ -172,7 +175,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 527);
+            label4.Location = new Point(12, 543);
             label4.Name = "label4";
             label4.Size = new Size(70, 15);
             label4.TabIndex = 12;
@@ -181,7 +184,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(449, 480);
+            label5.Location = new Point(449, 496);
             label5.Name = "label5";
             label5.Size = new Size(56, 15);
             label5.TabIndex = 14;
@@ -190,7 +193,7 @@
             // dtpApertura
             // 
             dtpApertura.Format = DateTimePickerFormat.Short;
-            dtpApertura.Location = new Point(453, 500);
+            dtpApertura.Location = new Point(453, 516);
             dtpApertura.MaxDate = new DateTime(2099, 12, 31, 0, 0, 0, 0);
             dtpApertura.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpApertura.Name = "dtpApertura";
@@ -200,7 +203,7 @@
             // dtpTermine
             // 
             dtpTermine.Format = DateTimePickerFormat.Short;
-            dtpTermine.Location = new Point(453, 545);
+            dtpTermine.Location = new Point(453, 561);
             dtpTermine.MaxDate = new DateTime(2099, 12, 31, 0, 0, 0, 0);
             dtpTermine.MinDate = new DateTime(1980, 1, 1, 0, 0, 0, 0);
             dtpTermine.Name = "dtpTermine";
@@ -211,7 +214,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(449, 525);
+            label6.Location = new Point(449, 541);
             label6.Name = "label6";
             label6.Size = new Size(53, 15);
             label6.TabIndex = 16;
@@ -221,7 +224,7 @@
             // 
             BtnAnnulla.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             BtnAnnulla.Enabled = false;
-            BtnAnnulla.Location = new Point(107, 591);
+            BtnAnnulla.Location = new Point(107, 654);
             BtnAnnulla.Name = "BtnAnnulla";
             BtnAnnulla.Size = new Size(75, 23);
             BtnAnnulla.TabIndex = 8;
@@ -233,7 +236,7 @@
             // BtnSalva
             // 
             BtnSalva.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnSalva.Location = new Point(197, 591);
+            BtnSalva.Location = new Point(197, 654);
             BtnSalva.Name = "BtnSalva";
             BtnSalva.Size = new Size(75, 23);
             BtnSalva.TabIndex = 9;
@@ -241,11 +244,43 @@
             BtnSalva.UseVisualStyleBackColor = true;
             BtnSalva.Visible = false;
             // 
+            // BtnCercaFile
+            // 
+            BtnCercaFile.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            BtnCercaFile.Location = new Point(567, 609);
+            BtnCercaFile.Name = "BtnCercaFile";
+            BtnCercaFile.Size = new Size(30, 29);
+            BtnCercaFile.TabIndex = 19;
+            BtnCercaFile.Text = "...";
+            BtnCercaFile.TextAlign = ContentAlignment.TopLeft;
+            BtnCercaFile.UseVisualStyleBackColor = true;
+            BtnCercaFile.Click += BtnCercaFile_Click;
+            // 
+            // TxtPercorsoFile
+            // 
+            TxtPercorsoFile.Location = new Point(12, 612);
+            TxtPercorsoFile.Name = "TxtPercorsoFile";
+            TxtPercorsoFile.ReadOnly = true;
+            TxtPercorsoFile.Size = new Size(555, 23);
+            TxtPercorsoFile.TabIndex = 18;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(12, 594);
+            label7.Name = "label7";
+            label7.Size = new Size(134, 15);
+            label7.TabIndex = 17;
+            label7.Text = "Percorso e nome del file";
+            // 
             // FrmGestioneProgetti
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1114, 626);
+            ClientSize = new Size(1168, 689);
+            Controls.Add(BtnCercaFile);
+            Controls.Add(TxtPercorsoFile);
+            Controls.Add(label7);
             Controls.Add(BtnSalva);
             Controls.Add(BtnAnnulla);
             Controls.Add(dtpTermine);
@@ -262,6 +297,7 @@
             Controls.Add(BtnInserisci);
             Controls.Add(dtgDatiProgetti);
             Controls.Add(label1);
+            MaximizeBox = false;
             Name = "FrmGestioneProgetti";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestione Progetti";
@@ -293,5 +329,8 @@
         private ContextMenuStrip CmsMenu;
         private ToolStripMenuItem mniModifica;
         private ToolStripMenuItem mniElimina;
+        private Button BtnCercaFile;
+        private TextBox TxtPercorsoFile;
+        private Label label7;
     }
 }
