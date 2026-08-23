@@ -37,10 +37,10 @@
             mniGestioneDocumenti = new ToolStripMenuItem();
             strumentiToolStripMenuItem = new ToolStripMenuItem();
             MniAgenda = new ToolStripMenuItem();
+            MniRubrica = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
-            MniRubrica = new ToolStripMenuItem();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,7 +78,7 @@
             // mniGestione
             // 
             mniGestione.Name = "mniGestione";
-            mniGestione.Size = new Size(180, 22);
+            mniGestione.Size = new Size(129, 22);
             mniGestione.Text = "Gestione...";
             mniGestione.Click += gestioneToolStripMenuItem_Click;
             // 
@@ -92,7 +92,7 @@
             // mniGestioneDocumenti
             // 
             mniGestioneDocumenti.Name = "mniGestioneDocumenti";
-            mniGestioneDocumenti.Size = new Size(180, 22);
+            mniGestioneDocumenti.Size = new Size(129, 22);
             mniGestioneDocumenti.Text = "Gestione...";
             mniGestioneDocumenti.Click += mniGestioneDocumenti_Click;
             // 
@@ -105,10 +105,18 @@
             // 
             // MniAgenda
             // 
+            MniAgenda.Image = Properties.Resources.calendar_16x16_freeicon;
             MniAgenda.Name = "MniAgenda";
             MniAgenda.Size = new Size(180, 22);
             MniAgenda.Text = "Agenda...";
+            MniAgenda.ToolTipText = "Visualizza l'agenda per gestire gli appuntamento o calenderio attività";
             MniAgenda.Click += mniAgenda_Click;
+            // 
+            // MniRubrica
+            // 
+            MniRubrica.Name = "MniRubrica";
+            MniRubrica.Size = new Size(180, 22);
+            MniRubrica.Text = "Rubrica...";
             // 
             // toolStripMenuItem1
             // 
@@ -137,12 +145,6 @@
             label1.TabIndex = 2;
             label1.Text = "Formica - Principale";
             label1.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // MniRubrica
-            // 
-            MniRubrica.Name = "MniRubrica";
-            MniRubrica.Size = new Size(180, 22);
-            MniRubrica.Text = "Rubrica...";
             // 
             // Form1
             // 

@@ -63,6 +63,16 @@ namespace Formica.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap calendar_16x16_freeicon {
+            get {
+                object obj = ResourceManager.GetObject("calendar-16x16_freeicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Chiudi_uxwing {
             get {
                 object obj = ResourceManager.GetObject("Chiudi_uxwing", resourceCulture);

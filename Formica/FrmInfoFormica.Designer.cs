@@ -43,6 +43,7 @@
             lnkduckduckgo = new LinkLabel();
             label8 = new Label();
             lkluxwing = new LinkLabel();
+            linkLabel1 = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pctLogo).BeginInit();
             SuspendLayout();
             // 
@@ -73,9 +74,9 @@
             // 
             BtnChiudi.Image = Properties.Resources.Chiudi_uxwing;
             BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnChiudi.Location = new Point(793, 559);
+            BtnChiudi.Location = new Point(802, 571);
             BtnChiudi.Name = "BtnChiudi";
-            BtnChiudi.Size = new Size(73, 23);
+            BtnChiudi.Size = new Size(73, 25);
             BtnChiudi.TabIndex = 4;
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.TextAlign = ContentAlignment.MiddleRight;
@@ -199,11 +200,23 @@
             lkluxwing.Text = "Alcune icone utilizzate in questo programma sono fornite da  uxwing https://uxwing.com/";
             lkluxwing.LinkClicked += lkluxwing_LinkClicked;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(348, 409);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(500, 15);
+            linkLabel1.TabIndex = 34;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Alcune icone utilizzate in questo programma sono fornite da  freeicon https://freeicon.com/it";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // FrmInfoFormica
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(887, 608);
+            Controls.Add(linkLabel1);
             Controls.Add(lkluxwing);
             Controls.Add(label8);
             Controls.Add(lnkduckduckgo);
@@ -248,5 +261,6 @@
         private LinkLabel lnkduckduckgo;
         private Label label8;
         private LinkLabel lkluxwing;
+        private LinkLabel linkLabel1;
     }
 }

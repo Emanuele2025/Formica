@@ -19,6 +19,9 @@ namespace Formica
         {
             this.Text = Utility.TitoloFinestra;
             //https://uxwing.com/red-x-icon/
+            //Icona agenda https://freeicon.com/it/free-icons/calendar-2/two-color
+
+
         }
 
         private void BtnChiudi_Click(object sender, EventArgs e)
@@ -70,6 +73,24 @@ namespace Formica
                 var psi = new ProcessStartInfo
                 {
                     FileName = "https://uxwing.com/",
+                    UseShellExecute = true
+                };
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Impossibile aprire il sito: " + ex.Message);
+
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                var psi = new ProcessStartInfo
+                {
+                    FileName = "https://freeicon.com/it",
                     UseShellExecute = true
                 };
                 Process.Start(psi);
