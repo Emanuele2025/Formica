@@ -19,5 +19,34 @@ namespace Formica
         {
             this.Close();
         }
+
+        private void BtnAnnulla_Click(object sender, EventArgs e)
+        {
+            BtnSalva.Visible = false;
+            BtnAnnulla.Visible = false;
+            TxtNote.Text = "";
+            dtpData.Value = DateTime.Now;
+
+        }
+
+
+
+
+
+        private void txt_Leave(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.White;
+
+        }
+
+        private void txt_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.Yellow;
+        }
+
+
+
+
+
     }
 }
