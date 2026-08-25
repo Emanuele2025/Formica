@@ -44,9 +44,16 @@ namespace Formica
             ((TextBox)sender).BackColor = Color.Yellow;
         }
 
+        private void FrmAgenda_Load(object sender, EventArgs e)
+        {
+            try
+            {
 
-
-
-
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Impossibile aprire il sito: " + ex.Message);
+            }
+        }
     }
 }

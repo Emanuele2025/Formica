@@ -164,6 +164,7 @@
             Name = "FrmAgenda";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestione Agenda";
+            Load += FrmAgenda_Load;
             ((System.ComponentModel.ISupportInitialize)dtgDatiAgenda).EndInit();
             ResumeLayout(false);
             PerformLayout();
