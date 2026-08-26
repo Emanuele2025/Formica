@@ -49,11 +49,14 @@ namespace Formica
         {
             try
             {
+                //var dati = contesto.Agenda.ToList();
+                //dtgDatiAgenda.DataSource = dati;
+                CaricaDati();
 
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Impossibile aprire il sito: " + ex.Message);
+                Utility.MessaggioErrore("Errore caricamento dati: " + ex.Message);
             }
         }
 
@@ -72,7 +75,7 @@ namespace Formica
 
                 contesto.Agenda.Add(agenda);
                 contesto.SaveChanges();
-
+                CaricaDati();
 
 
             }
@@ -81,6 +84,24 @@ namespace Formica
 
                 throw;
             }
+        }
+
+
+        private void CaricaDati()
+        {
+
+            try
+            {
+                var dati = contesto.Agenda.ToList();
+                dtgDatiAgenda.DataSource = dati;
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore caricamento dati: " + ex.Message);
+            }
+
+
         }
     }
 }

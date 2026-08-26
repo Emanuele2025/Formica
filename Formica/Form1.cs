@@ -49,6 +49,10 @@ namespace Formica
         private void mniAgenda_Click(object sender, EventArgs e)
         {
             //TODO: Apre finestra dell'agenda
+            //TOD: mettere cursor
+            FrmAgenda agenda = new FrmAgenda();
+            agenda.ShowDialog();
+
         }
 
         private void mniGestioneDocumenti_Click(object sender, EventArgs e)
