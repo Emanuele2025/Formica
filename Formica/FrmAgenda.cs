@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Formica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ namespace Formica
         {
             InitializeComponent();
         }
-
+        AppDbContext contesto = new AppDbContext();
         private void BtnChiudi_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -53,6 +54,32 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore("Impossibile aprire il sito: " + ex.Message);
+            }
+        }
+
+        private void BtnInserisci_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Agenda  agenda = new Agenda
+                { 
+                 Note = TxtNote.Text.Trim(),
+                 DataEvento = dtpData.Value
+                    
+                
+                
+                };
+
+                contesto.Agenda.Add(agenda);
+                contesto.SaveChanges();
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

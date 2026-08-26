@@ -15,6 +15,8 @@ public partial class AppDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Agenda> Agenda { get; set; }
+
     public virtual DbSet<Progetti> Progettis { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,6 +25,15 @@ public partial class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
+        modelBuilder.Entity<Agenda>(entity =>
+        {
+            entity.HasKey(e => e.IdAgenda);
+
+            entity.Property(e => e.IdAgenda).ValueGeneratedNever();
+            entity.Property(e => e.DataEvento).HasColumnType("DATETIME");
+        });
+
         modelBuilder.Entity<Progetti>(entity =>
         {
             entity.HasKey(e => e.IdProgetto);
