@@ -47,6 +47,7 @@ namespace Formica
 
         private void FrmAgenda_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 //var dati = contesto.Agenda.ToList();
@@ -57,6 +58,11 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore("Errore caricamento dati: " + ex.Message);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+
             }
         }
 
