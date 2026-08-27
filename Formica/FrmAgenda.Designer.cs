@@ -154,13 +154,14 @@
             // 
             CmsMenu.Items.AddRange(new ToolStripItem[] { mniElimina, MniModifica });
             CmsMenu.Name = "cmsMenu";
-            CmsMenu.Size = new Size(131, 48);
+            CmsMenu.Size = new Size(181, 70);
             // 
             // mniElimina
             // 
             mniElimina.Name = "mniElimina";
             mniElimina.Size = new Size(180, 22);
             mniElimina.Text = "Elimina";
+            mniElimina.Click += mniElimina_Click;
             // 
             // MniModifica
             // 

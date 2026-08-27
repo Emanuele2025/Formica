@@ -138,5 +138,39 @@ namespace Formica
                 CmsMenu.Show(Cursor.Position);
             }
         }
+
+        private void mniElimina_Click(object sender, EventArgs e)
+        {
+            if (dtgDatiAgenda.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selezionare una riga");
+                return;
+            }
+
+            if (!Utility.CancellaRecord())
+            {
+                return;
+            }
+
+            int idRecord = 0;
+            idRecord = Convert.ToInt32(dtgDatiAgenda.SelectedRows[0].Cells["IdAgenda"].Value);
+
+            var record = contesto.Agenda.Where(riga => riga.IdAgenda == idRecord).FirstOrDefault();
+            if (record != null) 
+            {
+                contesto.Agenda.Remove(record);
+                if (contesto.SaveChanges() > 0)
+                    Utility.MessaggioInfo("Record cancellato con successo. ");
+                CaricaDati();
+
+            }
+            
+
+
+
+
+
+             
+        }
     }
 }
