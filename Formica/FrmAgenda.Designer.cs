@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             BtnChiudi = new Button();
             label1 = new Label();
             dtgDatiAgenda = new DataGridView();
@@ -38,7 +39,11 @@
             BtnInserisci = new Button();
             BtnSalva = new Button();
             BtnAnnulla = new Button();
+            CmsMenu = new ContextMenuStrip(components);
+            mniElimina = new ToolStripMenuItem();
+            MniModifica = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dtgDatiAgenda).BeginInit();
+            CmsMenu.SuspendLayout();
             SuspendLayout();
             // 
             // BtnChiudi
@@ -76,6 +81,7 @@
             dtgDatiAgenda.Name = "dtgDatiAgenda";
             dtgDatiAgenda.Size = new Size(826, 341);
             dtgDatiAgenda.TabIndex = 7;
+            dtgDatiAgenda.CellMouseDown += dtgDatiAgenda_CellMouseDown;
             // 
             // Giorno
             // 
@@ -144,6 +150,24 @@
             BtnAnnulla.Visible = false;
             BtnAnnulla.Click += BtnAnnulla_Click;
             // 
+            // CmsMenu
+            // 
+            CmsMenu.Items.AddRange(new ToolStripItem[] { mniElimina, MniModifica });
+            CmsMenu.Name = "cmsMenu";
+            CmsMenu.Size = new Size(131, 48);
+            // 
+            // mniElimina
+            // 
+            mniElimina.Name = "mniElimina";
+            mniElimina.Size = new Size(180, 22);
+            mniElimina.Text = "Elimina";
+            // 
+            // MniModifica
+            // 
+            MniModifica.Name = "MniModifica";
+            MniModifica.Size = new Size(180, 22);
+            MniModifica.Text = "Modifica...";
+            // 
             // FrmAgenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -167,6 +191,7 @@
             Text = "Gestione Agenda";
             Load += FrmAgenda_Load;
             ((System.ComponentModel.ISupportInitialize)dtgDatiAgenda).EndInit();
+            CmsMenu.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -183,5 +208,8 @@
         private Button BtnInserisci;
         private Button BtnSalva;
         private Button BtnAnnulla;
+        private ContextMenuStrip CmsMenu;
+        private ToolStripMenuItem mniElimina;
+        private ToolStripMenuItem MniModifica;
     }
 }

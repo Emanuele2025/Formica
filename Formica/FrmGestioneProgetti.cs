@@ -219,5 +219,10 @@ namespace Formica
 
             }
         }
+
+        private void dtgDatiAgenda_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
     }
 }

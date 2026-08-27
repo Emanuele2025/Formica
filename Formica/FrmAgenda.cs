@@ -70,13 +70,13 @@ namespace Formica
         {
             try
             {
-                Agenda  agenda = new Agenda
-                { 
-                 Note = TxtNote.Text.Trim(),
-                 DataEvento = dtpData.Value
-                    
-                
-                
+                Agenda agenda = new Agenda
+                {
+                    Note = TxtNote.Text.Trim(),
+                    DataEvento = dtpData.Value
+
+
+
                 };
 
                 contesto.Agenda.Add(agenda);
@@ -108,6 +108,35 @@ namespace Formica
             }
 
 
+        }
+
+        private void dtgDatiAgenda_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // Click destro su una cella valida
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                // Controllo che il DGV abbia almeno una riga
+                if (dtgDatiAgenda.Rows.Count == 0)
+                    return;
+
+                // Recupero la riga cliccata
+                var riga = dtgDatiAgenda.Rows[e.RowIndex];
+
+                // Verifico che la riga abbia almeno un dato non vuoto
+                bool rigaValida = riga.Cells
+                    .Cast<DataGridViewCell>()
+                    .Any(c => c.Value != null && c?.Value?.ToString()?.Trim() != "");
+
+                if (!rigaValida)
+                    return;
+
+                // Se arrivo qui: la riga è valida → la seleziono
+                dtgDatiAgenda.ClearSelection();
+                riga.Selected = true;
+
+                // Mostro il menu contestuale
+                CmsMenu.Show(Cursor.Position);
+            }
         }
     }
 }
