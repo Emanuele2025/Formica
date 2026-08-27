@@ -42,8 +42,10 @@ namespace Formica
 
         private void gestioneToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             FrmGestioneProgetti gestione = new FrmGestioneProgetti();
             gestione.ShowDialog();
+            Cursor.Current = Cursors.Default;
         }
 
         private void mniAgenda_Click(object sender, EventArgs e)
