@@ -103,6 +103,8 @@
             // 
             // dtpData
             // 
+            dtpData.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpData.Format = DateTimePickerFormat.Custom;
             dtpData.Location = new Point(18, 400);
             dtpData.Name = "dtpData";
             dtpData.Size = new Size(362, 23);
@@ -121,7 +123,7 @@
             // 
             // BtnInserisci
             // 
-            BtnInserisci.Location = new Point(38, 591);
+            BtnInserisci.Location = new Point(14, 591);
             BtnInserisci.Name = "BtnInserisci";
             BtnInserisci.Size = new Size(75, 23);
             BtnInserisci.TabIndex = 12;
@@ -131,17 +133,18 @@
             // 
             // BtnSalva
             // 
-            BtnSalva.Location = new Point(129, 593);
+            BtnSalva.Location = new Point(95, 591);
             BtnSalva.Name = "BtnSalva";
             BtnSalva.Size = new Size(75, 23);
             BtnSalva.TabIndex = 13;
             BtnSalva.Text = "Salva";
             BtnSalva.UseVisualStyleBackColor = true;
             BtnSalva.Visible = false;
+            BtnSalva.Click += BtnSalva_Click;
             // 
             // BtnAnnulla
             // 
-            BtnAnnulla.Location = new Point(228, 591);
+            BtnAnnulla.Location = new Point(176, 591);
             BtnAnnulla.Name = "BtnAnnulla";
             BtnAnnulla.Size = new Size(75, 23);
             BtnAnnulla.TabIndex = 14;
@@ -167,7 +170,8 @@
             // 
             MniModifica.Name = "MniModifica";
             MniModifica.Size = new Size(180, 22);
-            MniModifica.Text = "Modifica...";
+            MniModifica.Text = "Modifica";
+            MniModifica.Click += MniModifica_Click;
             // 
             // FrmAgenda
             // 

@@ -41,7 +41,7 @@
 
   <ItemGroup>
     <None Update="Database\Formica.db">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

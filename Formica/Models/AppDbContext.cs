@@ -30,7 +30,7 @@ public partial class AppDbContext : DbContext
         {
             entity.HasKey(e => e.IdAgenda);
 
-            entity.Property(e => e.IdAgenda).ValueGeneratedNever();
+            entity.Property(e => e.IdAgenda).ValueGeneratedOnAdd();
             entity.Property(e => e.DataEvento).HasColumnType("DATETIME");
         });
 

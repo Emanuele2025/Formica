@@ -16,6 +16,7 @@ namespace Formica
             InitializeComponent();
         }
         AppDbContext contesto = new AppDbContext();
+        Int32 idAgendaSelezionato = 0;
         private void BtnChiudi_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -27,6 +28,9 @@ namespace Formica
             BtnAnnulla.Visible = false;
             TxtNote.Text = "";
             dtpData.Value = DateTime.Now;
+
+            CaricaDati();
+
 
         }
 
@@ -70,6 +74,12 @@ namespace Formica
         {
             try
             {
+                if (TxtNote.Text.Trim() == "")
+                {
+                    MessageBox.Show("Campo note vuoto, inserire del testo.");
+                    return;
+                     
+                }
                 Agenda agenda = new Agenda
                 {
                     Note = TxtNote.Text.Trim(),
@@ -78,17 +88,20 @@ namespace Formica
 
 
                 };
+                //using var context = new AppDbContext();
+                //context.Agenda.Add(agenda);
+                //context.SaveChanges();
 
-                contesto.Agenda.Add(agenda);
+
+                 contesto.Agenda.Add(agenda);
                 contesto.SaveChanges();
                 CaricaDati();
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore("Errore inserimento dati dati: " + ex.Message);
             }
         }
 
@@ -98,9 +111,14 @@ namespace Formica
 
             try
             {
+                idAgendaSelezionato = 0;
+                TxtNote.Text = "";
+                dtpData.Value = DateTime.Now;
                 var dati = contesto.Agenda.ToList();
                 dtgDatiAgenda.DataSource = dati;
-
+                BtnInserisci.Visible = true;
+                BtnAnnulla.Visible = false;
+                BtnSalva.Visible = false;
             }
             catch (Exception ex)
             {
@@ -141,36 +159,103 @@ namespace Formica
 
         private void mniElimina_Click(object sender, EventArgs e)
         {
-            if (dtgDatiAgenda.SelectedRows.Count == 0)
+            try
             {
-                MessageBox.Show("Selezionare una riga");
-                return;
+
+
+                if (dtgDatiAgenda.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Selezionare una riga");
+                    return;
+                }
+
+                if (!Utility.CancellaRecord())
+                {
+                    return;
+                }
+
+                int idRecord = 0;
+                idRecord = Convert.ToInt32(dtgDatiAgenda.SelectedRows[0].Cells["IdAgenda"].Value);
+
+                var record = contesto.Agenda.Where(riga => riga.IdAgenda == idRecord).FirstOrDefault();
+                if (record != null)
+                {
+                    contesto.Agenda.Remove(record);
+                    if (contesto.SaveChanges() > 0)
+                        Utility.MessaggioInfo("Record cancellato con successo. ");
+                    CaricaDati();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore durante la cancellazione del dato: " + ex.Message);
             }
 
-            if (!Utility.CancellaRecord())
+
+
+
+
+        }
+
+        private void MniModifica_Click(object sender, EventArgs e)
+        {
+            try
             {
-                return;
+                if (dtgDatiAgenda.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Selezionare una riga");
+                    return;
+                }
+
+                idAgendaSelezionato = Convert.ToInt32(dtgDatiAgenda.SelectedRows[0].Cells["IdAgenda"].Value);
+                TxtNote.Text = dtgDatiAgenda.SelectedRows[0].Cells["Note"]?.Value?.ToString();
+                dtpData.Value = Convert.ToDateTime(dtgDatiAgenda.SelectedRows[0].Cells["DataEvento"].Value);
+                BtnAnnulla.Visible = true;
+                BtnSalva.Visible = true;
+                BtnInserisci.Visible = false;
+
+
             }
-
-            int idRecord = 0;
-            idRecord = Convert.ToInt32(dtgDatiAgenda.SelectedRows[0].Cells["IdAgenda"].Value);
-
-            var record = contesto.Agenda.Where(riga => riga.IdAgenda == idRecord).FirstOrDefault();
-            if (record != null) 
+            catch (Exception ex)
             {
-                contesto.Agenda.Remove(record);
-                if (contesto.SaveChanges() > 0)
-                    Utility.MessaggioInfo("Record cancellato con successo. ");
-                CaricaDati();
+                Utility.MessaggioErrore("Errore durante la modifica dei   dati: " + ex.Message);
+            }
+        }
+
+        private void BtnSalva_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TxtNote.Text.Trim() == "")
+                {
+                    MessageBox.Show("Campo note vuoto, inserire del testo.");
+                    return;
+
+                }
+                
+                var record = contesto.Agenda.Where(riga => riga.IdAgenda == idAgendaSelezionato).FirstOrDefault();
+                if (record != null)
+                {
+                    record.Note = TxtNote.Text.Trim();
+                    record.DataEvento = dtpData.Value;
+
+                    
+                    if (contesto.SaveChanges() > 0)
+                        Utility.MessaggioInfo("Record salvato con successo. ");
+                    CaricaDati();
+
+                }
+
+
+
 
             }
-            
-
-
-
-
-
-             
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore durante il salvataggio dei   dati: " + ex.Message);
+            }
         }
     }
 }
