@@ -41,6 +41,7 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
+            MniOpzioni = new ToolStripMenuItem();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -98,7 +99,7 @@
             // 
             // strumentiToolStripMenuItem
             // 
-            strumentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { MniAgenda, MniRubrica });
+            strumentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { MniAgenda, MniRubrica, MniOpzioni });
             strumentiToolStripMenuItem.Name = "strumentiToolStripMenuItem";
             strumentiToolStripMenuItem.Size = new Size(71, 20);
             strumentiToolStripMenuItem.Text = "Strumenti";
@@ -146,6 +147,12 @@
             label1.Text = "Formica - Principale";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
+            // MniOpzioni
+            // 
+            MniOpzioni.Name = "MniOpzioni";
+            MniOpzioni.Size = new Size(180, 22);
+            MniOpzioni.Text = "Opzioni...";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -179,5 +186,6 @@
         private ToolStripMenuItem strumentiToolStripMenuItem;
         private ToolStripMenuItem MniAgenda;
         private ToolStripMenuItem MniRubrica;
+        private ToolStripMenuItem MniOpzioni;
     }
 }
