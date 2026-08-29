@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Formica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,9 @@ namespace Formica
         {
             InitializeComponent();
         }
+
+         AppDbContext contesto = new AppDbContext();
+
 
         private void FrmOpzioni_Load(object sender, EventArgs e)
         {
@@ -46,6 +50,13 @@ namespace Formica
 
             try
             {
+                //Creare tabella Stati (IDStato, Stato, Descrizione)
+
+
+
+
+
+
 
             }
             catch (Exception ex)
