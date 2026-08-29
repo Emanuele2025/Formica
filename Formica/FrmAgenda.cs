@@ -54,6 +54,7 @@ namespace Formica
             Cursor.Current = Cursors.WaitCursor;
             try
             {
+                this.Text = Utility.TitoloFinestra;
                 //var dati = contesto.Agenda.ToList();
                 //dtgDatiAgenda.DataSource = dati;
                 CaricaDati();
