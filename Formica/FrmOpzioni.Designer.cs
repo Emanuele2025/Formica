@@ -32,16 +32,16 @@
             BtnChiudi = new Button();
             tabControl1 = new TabControl();
             tbpStato = new TabPage();
+            TxtDescrizione = new TextBox();
+            label3 = new Label();
+            dtgDatiStato = new DataGridView();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
             BtnInserisci = new Button();
-            textBox1 = new TextBox();
+            TxtStato = new TextBox();
             lblTitolod = new Label();
             tabPage2 = new TabPage();
-            dtgDatiStato = new DataGridView();
-            TxtDescrizione = new TextBox();
-            label3 = new Label();
             tabControl1.SuspendLayout();
             tbpStato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatiStato).BeginInit();
@@ -94,7 +94,7 @@
             tbpStato.Controls.Add(button3);
             tbpStato.Controls.Add(button2);
             tbpStato.Controls.Add(BtnInserisci);
-            tbpStato.Controls.Add(textBox1);
+            tbpStato.Controls.Add(TxtStato);
             tbpStato.Controls.Add(lblTitolod);
             tbpStato.Location = new Point(4, 24);
             tbpStato.Name = "tbpStato";
@@ -103,6 +103,33 @@
             tbpStato.TabIndex = 0;
             tbpStato.Text = "Stato";
             tbpStato.UseVisualStyleBackColor = true;
+            // 
+            // TxtDescrizione
+            // 
+            TxtDescrizione.Location = new Point(212, 340);
+            TxtDescrizione.MaxLength = 2000;
+            TxtDescrizione.Multiline = true;
+            TxtDescrizione.Name = "TxtDescrizione";
+            TxtDescrizione.Size = new Size(641, 23);
+            TxtDescrizione.TabIndex = 8;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(212, 322);
+            label3.Name = "label3";
+            label3.Size = new Size(70, 15);
+            label3.TabIndex = 7;
+            label3.Text = "Descrizione:";
+            // 
+            // dtgDatiStato
+            // 
+            dtgDatiStato.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatiStato.Dock = DockStyle.Top;
+            dtgDatiStato.Location = new Point(3, 3);
+            dtgDatiStato.Name = "dtgDatiStato";
+            dtgDatiStato.Size = new Size(1023, 289);
+            dtgDatiStato.TabIndex = 6;
             // 
             // button4
             // 
@@ -139,13 +166,15 @@
             BtnInserisci.TabIndex = 2;
             BtnInserisci.Text = "Inserisci";
             BtnInserisci.UseVisualStyleBackColor = true;
+            BtnInserisci.Click += BtnInserisci_Click;
             // 
-            // textBox1
+            // TxtStato
             // 
-            textBox1.Location = new Point(12, 340);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(156, 23);
-            textBox1.TabIndex = 1;
+            TxtStato.Location = new Point(12, 340);
+            TxtStato.MaxLength = 20;
+            TxtStato.Name = "TxtStato";
+            TxtStato.Size = new Size(156, 23);
+            TxtStato.TabIndex = 1;
             // 
             // lblTitolod
             // 
@@ -161,36 +190,10 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1017, 440);
+            tabPage2.Size = new Size(1029, 440);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dtgDatiStato
-            // 
-            dtgDatiStato.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatiStato.Dock = DockStyle.Top;
-            dtgDatiStato.Location = new Point(3, 3);
-            dtgDatiStato.Name = "dtgDatiStato";
-            dtgDatiStato.Size = new Size(1023, 289);
-            dtgDatiStato.TabIndex = 6;
-            // 
-            // TxtDescrizione
-            // 
-            TxtDescrizione.Location = new Point(212, 340);
-            TxtDescrizione.Multiline = true;
-            TxtDescrizione.Name = "TxtDescrizione";
-            TxtDescrizione.Size = new Size(641, 23);
-            TxtDescrizione.TabIndex = 8;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(212, 322);
-            label3.Name = "label3";
-            label3.Size = new Size(70, 15);
-            label3.TabIndex = 7;
-            label3.Text = "Descrizione:";
             // 
             // FrmOpzioni
             // 
@@ -223,7 +226,7 @@
         private Button button3;
         private Button button2;
         private Button BtnInserisci;
-        private TextBox textBox1;
+        private TextBox TxtStato;
         private Label lblTitolod;
         private TabPage tabPage2;
         private DataGridView dtgDatiStato;

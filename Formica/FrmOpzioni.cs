@@ -16,7 +16,7 @@ namespace Formica
             InitializeComponent();
         }
 
-         AppDbContext contesto = new AppDbContext();
+        AppDbContext contesto = new AppDbContext();
 
 
         private void FrmOpzioni_Load(object sender, EventArgs e)
@@ -70,9 +70,42 @@ namespace Formica
 
         }
 
+        private void txt_Leave(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.White;
+
+        }
+
+        private void txt_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.Yellow;
+        }
+
+
+
         private void BtnChiudi_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnInserisci_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TxtStato.Text.Trim() == "")
+                {
+                    MessageBox.Show("Campo note vuoto, inserire del testo.");
+                    return;
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore caricamento dati: " + ex.Message);
+            }
         }
     }
 }
