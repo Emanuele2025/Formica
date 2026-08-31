@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             BtnChiudi = new Button();
             tabControl1 = new TabControl();
@@ -36,15 +37,19 @@
             label3 = new Label();
             dtgDatiStato = new DataGridView();
             button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
+            BtnAnnulla = new Button();
+            BtnSalva = new Button();
             BtnInserisci = new Button();
             TxtStato = new TextBox();
             lblTitolod = new Label();
             tabPage2 = new TabPage();
+            CmsMenu = new ContextMenuStrip(components);
+            MniModifica = new ToolStripMenuItem();
+            MniElimina = new ToolStripMenuItem();
             tabControl1.SuspendLayout();
             tbpStato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatiStato).BeginInit();
+            CmsMenu.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -91,8 +96,8 @@
             tbpStato.Controls.Add(label3);
             tbpStato.Controls.Add(dtgDatiStato);
             tbpStato.Controls.Add(button4);
-            tbpStato.Controls.Add(button3);
-            tbpStato.Controls.Add(button2);
+            tbpStato.Controls.Add(BtnAnnulla);
+            tbpStato.Controls.Add(BtnSalva);
             tbpStato.Controls.Add(BtnInserisci);
             tbpStato.Controls.Add(TxtStato);
             tbpStato.Controls.Add(lblTitolod);
@@ -112,6 +117,8 @@
             TxtDescrizione.Name = "TxtDescrizione";
             TxtDescrizione.Size = new Size(641, 23);
             TxtDescrizione.TabIndex = 8;
+            TxtDescrizione.Enter += txt_Enter;
+            TxtDescrizione.Leave += txt_Leave;
             // 
             // label3
             // 
@@ -140,23 +147,23 @@
             button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // BtnAnnulla
             // 
-            button3.Location = new Point(174, 411);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 4;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            BtnAnnulla.Location = new Point(174, 411);
+            BtnAnnulla.Name = "BtnAnnulla";
+            BtnAnnulla.Size = new Size(75, 23);
+            BtnAnnulla.TabIndex = 4;
+            BtnAnnulla.Text = "Annulla";
+            BtnAnnulla.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BtnSalva
             // 
-            button2.Location = new Point(93, 411);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 3;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            BtnSalva.Location = new Point(93, 411);
+            BtnSalva.Name = "BtnSalva";
+            BtnSalva.Size = new Size(75, 23);
+            BtnSalva.TabIndex = 3;
+            BtnSalva.Text = "Salva";
+            BtnSalva.UseVisualStyleBackColor = true;
             // 
             // BtnInserisci
             // 
@@ -175,6 +182,8 @@
             TxtStato.Name = "TxtStato";
             TxtStato.Size = new Size(156, 23);
             TxtStato.TabIndex = 1;
+            TxtStato.Enter += txt_Enter;
+            TxtStato.Leave += txt_Leave;
             // 
             // lblTitolod
             // 
@@ -195,6 +204,24 @@
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // CmsMenu
+            // 
+            CmsMenu.Items.AddRange(new ToolStripItem[] { MniModifica, MniElimina });
+            CmsMenu.Name = "CmsMenu";
+            CmsMenu.Size = new Size(122, 48);
+            // 
+            // MniModifica
+            // 
+            MniModifica.Name = "MniModifica";
+            MniModifica.Size = new Size(180, 22);
+            MniModifica.Text = "Modifica";
+            // 
+            // MniElimina
+            // 
+            MniElimina.Name = "MniElimina";
+            MniElimina.Size = new Size(180, 22);
+            MniElimina.Text = "Elimina";
+            // 
             // FrmOpzioni
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -213,6 +240,7 @@
             tbpStato.ResumeLayout(false);
             tbpStato.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatiStato).EndInit();
+            CmsMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -223,8 +251,8 @@
         private TabControl tabControl1;
         private TabPage tbpStato;
         private Button button4;
-        private Button button3;
-        private Button button2;
+        private Button BtnAnnulla;
+        private Button BtnSalva;
         private Button BtnInserisci;
         private TextBox TxtStato;
         private Label lblTitolod;
@@ -232,5 +260,8 @@
         private DataGridView dtgDatiStato;
         private TextBox TxtDescrizione;
         private Label label3;
+        private ContextMenuStrip CmsMenu;
+        private ToolStripMenuItem MniModifica;
+        private ToolStripMenuItem MniElimina;
     }
 }

@@ -94,7 +94,7 @@ namespace Formica
             {
                 if (TxtStato.Text.Trim() == "")
                 {
-                    MessageBox.Show("Campo note vuoto, inserire del testo.");
+                    MessageBox.Show("Campo stato vuoto, inserire del testo.");
                     return;
                 }
 
