@@ -36,7 +36,6 @@
             TxtDescrizione = new TextBox();
             label3 = new Label();
             dtgDatiStato = new DataGridView();
-            button4 = new Button();
             BtnAnnulla = new Button();
             BtnSalva = new Button();
             BtnInserisci = new Button();
@@ -95,7 +94,6 @@
             tbpStato.Controls.Add(TxtDescrizione);
             tbpStato.Controls.Add(label3);
             tbpStato.Controls.Add(dtgDatiStato);
-            tbpStato.Controls.Add(button4);
             tbpStato.Controls.Add(BtnAnnulla);
             tbpStato.Controls.Add(BtnSalva);
             tbpStato.Controls.Add(BtnInserisci);
@@ -138,15 +136,6 @@
             dtgDatiStato.Size = new Size(1023, 289);
             dtgDatiStato.TabIndex = 6;
             // 
-            // button4
-            // 
-            button4.Location = new Point(255, 411);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 5;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
-            // 
             // BtnAnnulla
             // 
             BtnAnnulla.Location = new Point(174, 411);
@@ -164,6 +153,7 @@
             BtnSalva.TabIndex = 3;
             BtnSalva.Text = "Salva";
             BtnSalva.UseVisualStyleBackColor = true;
+            BtnSalva.Click += BtnSalva_Click;
             // 
             // BtnInserisci
             // 
@@ -213,13 +203,13 @@
             // MniModifica
             // 
             MniModifica.Name = "MniModifica";
-            MniModifica.Size = new Size(180, 22);
+            MniModifica.Size = new Size(121, 22);
             MniModifica.Text = "Modifica";
             // 
             // MniElimina
             // 
             MniElimina.Name = "MniElimina";
-            MniElimina.Size = new Size(180, 22);
+            MniElimina.Size = new Size(121, 22);
             MniElimina.Text = "Elimina";
             // 
             // FrmOpzioni
@@ -250,7 +240,6 @@
         private Button BtnChiudi;
         private TabControl tabControl1;
         private TabPage tbpStato;
-        private Button button4;
         private Button BtnAnnulla;
         private Button BtnSalva;
         private Button BtnInserisci;

@@ -107,5 +107,22 @@ namespace Formica
                 Utility.MessaggioErrore("Errore caricamento dati: " + ex.Message);
             }
         }
+
+        private void BtnSalva_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TxtStato.Text.Trim() == "")
+                {
+                    MessageBox.Show("Campo stato vuoto, inserire del testo.");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Utility.MessaggioErrore("Errore caricamento dati: " + ex.Message);
+            }
+        }
     }
 }
