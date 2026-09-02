@@ -144,6 +144,7 @@
             BtnAnnulla.TabIndex = 4;
             BtnAnnulla.Text = "Annulla";
             BtnAnnulla.UseVisualStyleBackColor = true;
+            BtnAnnulla.Click += BtnAnnulla_Click;
             // 
             // BtnSalva
             // 

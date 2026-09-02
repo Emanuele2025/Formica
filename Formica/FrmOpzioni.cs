@@ -54,6 +54,11 @@ namespace Formica
 
 
 
+                TxtStato.Text = "";
+                TxtDescrizione.Text = "";
+                BtnSalva.Visible = false;
+                BtnInserisci.Visible = true;
+                BtnAnnulla.Visible = false;
 
 
 
@@ -123,6 +128,11 @@ namespace Formica
 
                 Utility.MessaggioErrore("Errore caricamento dati: " + ex.Message);
             }
+        }
+
+        private void BtnAnnulla_Click(object sender, EventArgs e)
+        {
+            CaricaDati();
         }
     }
 }
