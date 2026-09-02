@@ -135,6 +135,7 @@
             dtgDatiStato.Name = "dtgDatiStato";
             dtgDatiStato.Size = new Size(1023, 289);
             dtgDatiStato.TabIndex = 6;
+            dtgDatiStato.CellMouseDown += dtgDatiStato_CellMouseDown;
             // 
             // BtnAnnulla
             // 
@@ -206,12 +207,14 @@
             MniModifica.Name = "MniModifica";
             MniModifica.Size = new Size(121, 22);
             MniModifica.Text = "Modifica";
+            MniModifica.Click += MniModifica_Click;
             // 
             // MniElimina
             // 
             MniElimina.Name = "MniElimina";
             MniElimina.Size = new Size(121, 22);
             MniElimina.Text = "Elimina";
+            MniElimina.Click += MniElimina_Click;
             // 
             // FrmOpzioni
             // 

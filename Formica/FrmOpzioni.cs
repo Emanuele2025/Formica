@@ -104,7 +104,7 @@ namespace Formica
                 }
 
 
-
+                CaricaDati();
 
             }
             catch (Exception ex)
@@ -122,6 +122,18 @@ namespace Formica
                     MessageBox.Show("Campo stato vuoto, inserire del testo.");
                     return;
                 }
+
+
+
+
+
+
+
+                CaricaDati();
+
+
+
+
             }
             catch (Exception ex)
             {
@@ -133,6 +145,38 @@ namespace Formica
         private void BtnAnnulla_Click(object sender, EventArgs e)
         {
             CaricaDati();
+        }
+
+        private void MniElimina_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MniModifica_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgDatiStato_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //Verifico il tasto detro e se non ha fatto click nell'intestazione delle grafiglia o fuori dalle celle
+
+            if (e.Button != MouseButtons.Right)
+                return;
+
+
+
+            //Escludo intestazioni e griglia
+
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+
+
+            CmsMenu.Show(Cursor.Position);
+
+
+
         }
     }
 }
