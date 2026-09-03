@@ -149,12 +149,28 @@ namespace Formica
 
         private void MniElimina_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         private void MniModifica_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         private void dtgDatiStato_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
