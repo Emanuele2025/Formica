@@ -21,7 +21,7 @@ namespace Formica
                 //Comando per aggiornare solo nuove tabelle         dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --table Progetti --table Clienti --context AppDbContext --output-dir Models --force
                 //TODO : FAre anche Agenda
                 //Ultimo comando funziona dopo il cd nel progetto - dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --context AppDbContext --output-dir Models --force
-
+                //TODO: Valutare in schermata di mettere una griglia con lo stato degli ultimi task
             }
             catch (Exception ex)
             {
@@ -60,6 +60,12 @@ namespace Formica
         private void mniGestioneDocumenti_Click(object sender, EventArgs e)
         {
             //TODO: Apre finestra gestione dei documenti
+        }
+
+        private void MniOpzioni_Click(object sender, EventArgs e)
+        {
+            FrmOpzioni opzioni = new FrmOpzioni();
+            opzioni.ShowDialog();
         }
     }
 }

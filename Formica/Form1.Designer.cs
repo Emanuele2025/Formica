@@ -38,10 +38,10 @@
             strumentiToolStripMenuItem = new ToolStripMenuItem();
             MniAgenda = new ToolStripMenuItem();
             MniRubrica = new ToolStripMenuItem();
+            MniOpzioni = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
-            MniOpzioni = new ToolStripMenuItem();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             mnsMenuPrincipale.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, attivitàToolStripMenuItem, documentiToolStripMenuItem, strumentiToolStripMenuItem, toolStripMenuItem1 });
             mnsMenuPrincipale.Location = new Point(0, 0);
             mnsMenuPrincipale.Name = "mnsMenuPrincipale";
-            mnsMenuPrincipale.Size = new Size(800, 24);
+            mnsMenuPrincipale.Size = new Size(1014, 24);
             mnsMenuPrincipale.TabIndex = 0;
             mnsMenuPrincipale.Text = "menuStrip1";
             // 
@@ -119,6 +119,14 @@
             MniRubrica.Size = new Size(180, 22);
             MniRubrica.Text = "Rubrica...";
             // 
+            // MniOpzioni
+            // 
+            MniOpzioni.Name = "MniOpzioni";
+            MniOpzioni.Size = new Size(180, 22);
+            MniOpzioni.Text = "Opzioni...";
+            MniOpzioni.ToolTipText = "Apre la finestra delle opzioni";
+            MniOpzioni.Click += MniOpzioni_Click;
+            // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { informazioniToolStripMenuItem });
@@ -142,22 +150,17 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 24);
             label1.Name = "label1";
-            label1.Size = new Size(800, 22);
+            label1.Size = new Size(1014, 22);
             label1.TabIndex = 2;
             label1.Text = "Formica - Principale";
             label1.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // MniOpzioni
-            // 
-            MniOpzioni.Name = "MniOpzioni";
-            MniOpzioni.Size = new Size(180, 22);
-            MniOpzioni.Text = "Opzioni...";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImageLayout = ImageLayout.Zoom;
+            ClientSize = new Size(1014, 635);
             Controls.Add(label1);
             Controls.Add(mnsMenuPrincipale);
             MainMenuStrip = mnsMenuPrincipale;

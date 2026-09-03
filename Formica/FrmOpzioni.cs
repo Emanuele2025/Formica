@@ -59,7 +59,8 @@ namespace Formica
                 BtnSalva.Visible = false;
                 BtnInserisci.Visible = true;
                 BtnAnnulla.Visible = false;
-
+                var dati = contesto.StatoLavoraziones.ToList();
+                dtgDatiStato.DataSource = dati;
 
 
 
@@ -102,6 +103,17 @@ namespace Formica
                     MessageBox.Show("Campo stato vuoto, inserire del testo.");
                     return;
                 }
+                StatoLavorazione stato = new StatoLavorazione()
+                {
+                     Descrizione = TxtDescrizione.Text.Trim(),
+                     Stato = TxtStato.Text.Trim()
+
+
+
+                };
+
+                contesto.Add(stato);
+                contesto.SaveChanges();
 
 
                 CaricaDati();

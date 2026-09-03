@@ -81,7 +81,7 @@ namespace Formica
                     return;
                      
                 }
-                Agenda agenda = new Agenda
+                Agendum agenda = new Agendum
                 {
                     Note = TxtNote.Text.Trim(),
                     DataEvento = dtpData.Value

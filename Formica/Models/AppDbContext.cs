@@ -15,9 +15,11 @@ public partial class AppDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Agenda> Agenda { get; set; }
+    public virtual DbSet<Agendum> Agenda { get; set; }
 
     public virtual DbSet<Progetti> Progettis { get; set; }
+
+    public virtual DbSet<StatoLavorazione> StatoLavoraziones { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -25,13 +27,11 @@ public partial class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
-        modelBuilder.Entity<Agenda>(entity =>
+        modelBuilder.Entity<Agendum>(entity =>
         {
             entity.HasKey(e => e.IdAgenda);
 
-            entity.Property(e => e.IdAgenda).ValueGeneratedOnAdd();
-            entity.Property(e => e.DataEvento).HasColumnType("DATETIME");
+            entity.Property(e => e.DataEvento).HasColumnType("datetime");
         });
 
         modelBuilder.Entity<Progetti>(entity =>
@@ -42,6 +42,15 @@ public partial class AppDbContext : DbContext
 
             entity.Property(e => e.DataApertura).HasColumnType("DATETIME");
             entity.Property(e => e.DataChiusura).HasColumnType("DATETIME");
+        });
+
+        modelBuilder.Entity<StatoLavorazione>(entity =>
+        {
+            entity.HasKey(e => e.IdStato);
+
+            entity.ToTable("StatoLavorazione");
+
+            entity.Property(e => e.IdStato).ValueGeneratedOnAdd();
         });
 
         OnModelCreatingPartial(modelBuilder);
