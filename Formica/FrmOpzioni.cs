@@ -17,7 +17,7 @@ namespace Formica
         }
 
         AppDbContext contesto = new AppDbContext();
-
+        int? idSelezionato;
 
         private void FrmOpzioni_Load(object sender, EventArgs e)
         {
@@ -135,13 +135,17 @@ namespace Formica
                     return;
                 }
 
+              
+                var record = contesto.StatoLavoraziones.Where(riga => riga.IdStato == idSelezionato).FirstOrDefault();
+                if (record != null)
+                {
+                    record.Descrizione = TxtDescrizione.Text.Trim();
+                    record.Stato = TxtStato.Text.Trim();
+                    if (contesto.SaveChanges() > 0)
+                        Utility.MessaggioInfo("Record salvato con successo. ");
 
-
-
-
-
-
-                CaricaDati();
+                }
+  
 
 
 
@@ -163,6 +167,31 @@ namespace Formica
         {
             try
             {
+                if (dtgDatiStato.SelectedRows.Count==0)
+                {
+                    Utility.MessaggioInfo("Selezionare una riga");
+                    return;
+                }
+
+                if (!Utility.CancellaRecord())
+                {
+                    return;
+                }
+                int idRecord = 0;
+                idRecord = Convert.ToInt32(dtgDatiStato.SelectedRows[0].Cells["IdStato"].Value);
+
+                var record = contesto.StatoLavoraziones.Where(riga => riga.IdStato == idRecord).FirstOrDefault();
+                if (record != null)
+                {
+                    contesto.StatoLavoraziones.Remove(record);
+                    if (contesto.SaveChanges() > 0)
+                        Utility.MessaggioInfo("Record cancellato con successo. ");
+                    CaricaDati();
+
+                }
+
+
+
 
             }
             catch (Exception ex)
@@ -175,7 +204,18 @@ namespace Formica
         {
             try
             {
+                if (dtgDatiStato.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Selezionare una riga");
+                    return;
+                }
 
+                idSelezionato = Convert.ToInt32(dtgDatiStato.SelectedRows[0].Cells["IdStato"].Value);
+                TxtStato.Text = dtgDatiStato.SelectedRows[0].Cells["Stato"]?.Value?.ToString();
+                TxtDescrizione.Text = dtgDatiStato.SelectedRows[0].Cells["Descrizione"]?.Value?.ToString();
+                BtnAnnulla.Visible = true;
+                BtnSalva.Visible = true;
+                BtnInserisci.Visible = false;
             }
             catch (Exception ex)
             {
