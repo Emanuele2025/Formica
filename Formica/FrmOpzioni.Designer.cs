@@ -114,7 +114,7 @@
             TxtDescrizione.Multiline = true;
             TxtDescrizione.Name = "TxtDescrizione";
             TxtDescrizione.Size = new Size(641, 23);
-            TxtDescrizione.TabIndex = 8;
+            TxtDescrizione.TabIndex = 2;
             TxtDescrizione.Enter += txt_Enter;
             TxtDescrizione.Leave += txt_Leave;
             // 
@@ -162,7 +162,7 @@
             BtnInserisci.Location = new Point(12, 411);
             BtnInserisci.Name = "BtnInserisci";
             BtnInserisci.Size = new Size(75, 23);
-            BtnInserisci.TabIndex = 2;
+            BtnInserisci.TabIndex = 3;
             BtnInserisci.Text = "Inserisci";
             BtnInserisci.UseVisualStyleBackColor = true;
             BtnInserisci.Click += BtnInserisci_Click;

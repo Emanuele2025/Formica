@@ -54,7 +54,7 @@
             BtnChiudi.Location = new Point(739, 594);
             BtnChiudi.Name = "BtnChiudi";
             BtnChiudi.Size = new Size(75, 23);
-            BtnChiudi.TabIndex = 5;
+            BtnChiudi.TabIndex = 6;
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.TextAlign = ContentAlignment.MiddleRight;
             BtnChiudi.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             // Giorno
             // 
             Giorno.AutoSize = true;
-            Giorno.Location = new Point(14, 380);
+            Giorno.Location = new Point(415, 373);
             Giorno.Name = "Giorno";
             Giorno.Size = new Size(34, 15);
             Giorno.TabIndex = 8;
@@ -95,7 +95,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(401, 382);
+            label3.Location = new Point(0, 373);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
             label3.TabIndex = 9;
@@ -105,19 +105,19 @@
             // 
             dtpData.CustomFormat = "dd/MM/yyyy HH:mm";
             dtpData.Format = DateTimePickerFormat.Custom;
-            dtpData.Location = new Point(18, 400);
+            dtpData.Location = new Point(419, 393);
             dtpData.Name = "dtpData";
             dtpData.Size = new Size(362, 23);
-            dtpData.TabIndex = 10;
+            dtpData.TabIndex = 2;
             // 
             // TxtNote
             // 
-            TxtNote.Location = new Point(401, 400);
+            TxtNote.Location = new Point(0, 393);
             TxtNote.MaxLength = 2000;
             TxtNote.Multiline = true;
             TxtNote.Name = "TxtNote";
             TxtNote.Size = new Size(413, 108);
-            TxtNote.TabIndex = 11;
+            TxtNote.TabIndex = 1;
             TxtNote.Enter += txt_Enter;
             TxtNote.Leave += txt_Leave;
             // 
@@ -126,7 +126,7 @@
             BtnInserisci.Location = new Point(14, 591);
             BtnInserisci.Name = "BtnInserisci";
             BtnInserisci.Size = new Size(75, 23);
-            BtnInserisci.TabIndex = 12;
+            BtnInserisci.TabIndex = 3;
             BtnInserisci.Text = "Nuovo";
             BtnInserisci.UseVisualStyleBackColor = true;
             BtnInserisci.Click += BtnInserisci_Click;
@@ -136,7 +136,7 @@
             BtnSalva.Location = new Point(95, 591);
             BtnSalva.Name = "BtnSalva";
             BtnSalva.Size = new Size(75, 23);
-            BtnSalva.TabIndex = 13;
+            BtnSalva.TabIndex = 4;
             BtnSalva.Text = "Salva";
             BtnSalva.UseVisualStyleBackColor = true;
             BtnSalva.Visible = false;
@@ -147,7 +147,7 @@
             BtnAnnulla.Location = new Point(176, 591);
             BtnAnnulla.Name = "BtnAnnulla";
             BtnAnnulla.Size = new Size(75, 23);
-            BtnAnnulla.TabIndex = 14;
+            BtnAnnulla.TabIndex = 5;
             BtnAnnulla.Text = "Annulla";
             BtnAnnulla.UseVisualStyleBackColor = true;
             BtnAnnulla.Visible = false;
@@ -157,19 +157,19 @@
             // 
             CmsMenu.Items.AddRange(new ToolStripItem[] { mniElimina, MniModifica });
             CmsMenu.Name = "cmsMenu";
-            CmsMenu.Size = new Size(181, 70);
+            CmsMenu.Size = new Size(122, 48);
             // 
             // mniElimina
             // 
             mniElimina.Name = "mniElimina";
-            mniElimina.Size = new Size(180, 22);
+            mniElimina.Size = new Size(121, 22);
             mniElimina.Text = "Elimina";
             mniElimina.Click += mniElimina_Click;
             // 
             // MniModifica
             // 
             MniModifica.Name = "MniModifica";
-            MniModifica.Size = new Size(180, 22);
+            MniModifica.Size = new Size(121, 22);
             MniModifica.Text = "Modifica";
             MniModifica.Click += MniModifica_Click;
             // 

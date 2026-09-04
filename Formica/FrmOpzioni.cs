@@ -150,7 +150,7 @@ namespace Formica
             catch (Exception ex)
             {
 
-                Utility.MessaggioErrore("Errore caricamento dati: " + ex.Message);
+                Utility.MessaggioErrore("Errore salvataggio dati: " + ex.Message);
             }
         }
 
@@ -167,8 +167,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore("Errore nella cancellazione dei dati: " + ex.Message);
             }
         }
 
@@ -180,8 +179,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore("Errore nella modifica dei dati: " + ex.Message);
             }
         }
 
