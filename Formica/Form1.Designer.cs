@@ -79,8 +79,9 @@
             // mniGestione
             // 
             mniGestione.Name = "mniGestione";
-            mniGestione.Size = new Size(129, 22);
-            mniGestione.Text = "Gestione...";
+            mniGestione.Size = new Size(180, 22);
+            mniGestione.Text = "Progetti...";
+            mniGestione.ToolTipText = "Apre la finestra per la gestione dei progetti";
             mniGestione.Click += gestioneToolStripMenuItem_Click;
             // 
             // documentiToolStripMenuItem
@@ -108,7 +109,7 @@
             // 
             MniAgenda.Image = Properties.Resources.calendar_16x16_freeicon;
             MniAgenda.Name = "MniAgenda";
-            MniAgenda.Size = new Size(180, 22);
+            MniAgenda.Size = new Size(124, 22);
             MniAgenda.Text = "Agenda...";
             MniAgenda.ToolTipText = "Visualizza l'agenda per gestire gli appuntamento o calenderio attività";
             MniAgenda.Click += mniAgenda_Click;
@@ -116,13 +117,13 @@
             // MniRubrica
             // 
             MniRubrica.Name = "MniRubrica";
-            MniRubrica.Size = new Size(180, 22);
+            MniRubrica.Size = new Size(124, 22);
             MniRubrica.Text = "Rubrica...";
             // 
             // MniOpzioni
             // 
             MniOpzioni.Name = "MniOpzioni";
-            MniOpzioni.Size = new Size(180, 22);
+            MniOpzioni.Size = new Size(124, 22);
             MniOpzioni.Text = "Opzioni...";
             MniOpzioni.ToolTipText = "Apre la finestra delle opzioni";
             MniOpzioni.Click += MniOpzioni_Click;

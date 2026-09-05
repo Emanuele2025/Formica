@@ -21,7 +21,6 @@ namespace Formica
 
         private void FrmOpzioni_Load(object sender, EventArgs e)
         {
-            //TODO: mettere gestione dello stato (Da iniziare, in lavorazione, Sospeso, Terminato) con campo testo, ID ed una Descrizione, in caso si avvicina il mouse, con il tooltiptext
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -50,10 +49,7 @@ namespace Formica
 
             try
             {
-                //Creare tabella Stati (IDStato, Stato, Descrizione)
-
-
-
+               
                 TxtStato.Text = "";
                 TxtDescrizione.Text = "";
                 BtnSalva.Visible = false;

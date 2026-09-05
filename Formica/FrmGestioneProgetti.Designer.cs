@@ -76,6 +76,7 @@
             dtgDatiProgetti.Name = "dtgDatiProgetti";
             dtgDatiProgetti.Size = new Size(1168, 462);
             dtgDatiProgetti.TabIndex = 1;
+            dtgDatiProgetti.CellContentClick += dtgDatiProgetti_CellContentClick;
             dtgDatiProgetti.CellMouseDown += dtgDatiProgetti_CellMouseDown;
             // 
             // CmsMenu
@@ -202,11 +203,13 @@
             // 
             // dtpTermine
             // 
+            dtpTermine.Checked = false;
             dtpTermine.Format = DateTimePickerFormat.Short;
             dtpTermine.Location = new Point(453, 561);
             dtpTermine.MaxDate = new DateTime(2099, 12, 31, 0, 0, 0, 0);
             dtpTermine.MinDate = new DateTime(1980, 1, 1, 0, 0, 0, 0);
             dtpTermine.Name = "dtpTermine";
+            dtpTermine.ShowCheckBox = true;
             dtpTermine.Size = new Size(200, 23);
             dtpTermine.TabIndex = 5;
             dtpTermine.Value = new DateTime(2099, 12, 31, 0, 0, 0, 0);
@@ -243,6 +246,7 @@
             BtnSalva.Text = "Salva";
             BtnSalva.UseVisualStyleBackColor = true;
             BtnSalva.Visible = false;
+            BtnSalva.Click += BtnSalva_Click;
             // 
             // BtnCercaFile
             // 

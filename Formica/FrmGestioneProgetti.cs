@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Net.Mime;
 using System.Text;
 using System.Windows.Forms;
 
@@ -17,7 +18,7 @@ namespace Formica
         }
 
         AppDbContext contesto = new AppDbContext();
-
+        int? idSelezionato;
 
         private void FrmGestioneProgetti_Load(object sender, EventArgs e)
         {
@@ -59,7 +60,19 @@ namespace Formica
 
             try
             {
+                idSelezionato = null;
+                TxtNote.Text = "";
+                TxtDescrizione.Text = "";
+                TxtNomeProgetto.Text = "";
+                TxtPercorsoFile.Text = "";
 
+
+                var dati = contesto.Progettis.ToList();
+                dtgDatiProgetti.DataSource = dati;
+                BtnInserisci.Visible = true;
+                BtnAnnulla.Visible = false;
+                BtnSalva.Visible = false;
+                dtgDatiProgetti.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -103,14 +116,18 @@ namespace Formica
                     Descrizione = TxtDescrizione.Text.Trim(),
                     Note = TxtNote.Text.Trim(),
                     DataApertura = dtpApertura.Value,
-                    DataChiusura = (dtpTermine.Value == dtpTermine.MaxDate) ? null : dtpTermine.Value,
+                    // DataChiusura = (dtpTermine.Value == dtpTermine.MaxDate) ? null : dtpTermine.Value,
                     File = (TxtPercorsoFile.Text.Trim() != "") ? File.ReadAllBytes(TxtPercorsoFile.Text.Trim()) : null,
                     NomeFile = (TxtPercorsoFile.Text.Trim() != "") ? new FileInfo(TxtPercorsoFile.Text.Trim()).Name : ""
 
 
 
                 };
+                contesto.Progettis.Add(progetto);
+                if (contesto.SaveChanges() > 0)
+                    Utility.MessaggioInfo("Record inserito correttamente.");
 
+                CaricaDati();
 
 
 
@@ -157,40 +174,67 @@ namespace Formica
                 MessageBox.Show("Selezionare una riga");
                 return;
             }
-            int rowIndex = dtgDatiProgetti.SelectedRows[0].Index;
-            DataGridViewRow row = dtgDatiProgetti.Rows[rowIndex];
+            idSelezionato = Convert.ToInt32(dtgDatiProgetti.SelectedRows[0].Cells["IdProgetto"].Value);
+            var progettoTrovato = contesto.Progettis.Where(p => p.IdProgetto == idSelezionato).FirstOrDefault();
+            if (progettoTrovato != null)
+            {
+                TxtDescrizione.Text = progettoTrovato?.Descrizione?.Trim();
+                TxtNomeProgetto.Text = progettoTrovato?.Nome.Trim();
+                TxtNote.Text = progettoTrovato?.Note?.Trim();
+                dtpApertura.Value = progettoTrovato.DataApertura.HasValue ? progettoTrovato.DataApertura.Value : DateTime.Now;
+                if (progettoTrovato.DataChiusura != null)
+                {
+                    dtpTermine.Value = progettoTrovato.DataChiusura.HasValue ? progettoTrovato.DataChiusura.Value : DateTime.Now;
+                }
+                if (progettoTrovato.File != null)
+                {
+                    TxtPercorsoFile.Text = "[File]";
+                }
+            }
+
+
+            BtnAnnulla.Visible = true;
+            BtnSalva.Visible = true;
+            dtgDatiProgetti.Enabled = false;
+            BtnInserisci.Visible = false;
 
         }
 
         private void mniElimina_Click(object sender, EventArgs e)
         {
-            if (dtgDatiProgetti.SelectedRows.Count == 0)
+            try
             {
-                MessageBox.Show("Selezionare una riga");
-                return;
-            }
 
-            if (!Utility.CancellaRecord())
+
+                if (dtgDatiProgetti.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Selezionare una riga");
+                    return;
+                }
+
+                if (!Utility.CancellaRecord())
+                {
+                    return;
+                }
+
+                int idRecord = 0;
+                idRecord = Convert.ToInt32(dtgDatiProgetti.SelectedRows[0].Cells["Idprogetto"]);
+                var progettoTrovato = contesto.Progettis.Where(p => p.IdProgetto == idRecord).FirstOrDefault();
+                if (progettoTrovato != null)
+                {
+                    contesto.Progettis.Remove(progettoTrovato);
+                    if (contesto.SaveChanges() > 0)
+                        Utility.MessaggioInfo("Record cancellato con successo. ");
+
+
+                    CaricaDati();
+                }
+            }
+            catch (Exception ex)
             {
-                return;
+
+                throw;
             }
-
-            int idRecord = 0;
-            idRecord = Convert.ToInt32(dtgDatiProgetti.SelectedRows[0].Cells["Idprogetto"]);
-            //int rowIndex = dtgDatiProgetti.SelectedRows[0].Index;
-            //DataGridViewRow row = dtgDatiProgetti.Rows[rowIndex];
-            //  row.DataBoundItem
-            //Cancello dato
-
-            //contesto.Progettis.Remove()
-            DataRowView DrwSelezionata = (DataRowView)dtgDatiProgetti.SelectedRows[0].DataBoundItem;
-            DataRow rigaSelezionata = DrwSelezionata?.Row;
-            if (rigaSelezionata != null)
-            {
-                idRecord = rigaSelezionata.Field<int>("IdProgetto");
-
-            }
-
         }
 
         private void BtnAnnulla_Click(object sender, EventArgs e)
@@ -220,9 +264,63 @@ namespace Formica
             }
         }
 
-        private void dtgDatiAgenda_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        private void dtgDatiProgetti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //if (e.ColumnIndex == 10)
+            //{
+            //    if (dtgLibroSoci.Rows[e.RowIndex].Cells[10].Value != null)
+            //    {
+            //        SaveFileDialog salvaFile = new SaveFileDialog();
+            //        salvaFile.Filter = "Immagine(.JPG)|*.jpg";
+            //        salvaFile.Title = "Salva file sul pc";
+            //        salvaFile.CheckPathExists = true;
+            //        if (salvaFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //        {
+            //            Image ImmagineRilevata = (dtgLibroSoci.Rows[e.RowIndex].Cells[10].Value as Image);
+            //            RidefinisciImmagine(ImmagineRilevata, ImmagineRilevata.Height, ImmagineRilevata.Width, salvaFile.FileName);
+            //        }
+            //    }
+            //}
+            //else if (e.ColumnIndex == 12)
+            //{
+            //    if (dtgLibroSoci.Rows[e.RowIndex].Cells[12].Value.ToString() == "Scarica")
+            //    {
+            //        DatiEntities EntitaSoci = new DatiEntities();
+            //        int IdTrovato = Convert.ToInt32(dtgLibroSoci.Rows[e.RowIndex].Cells[0].Value);
+            //        var SocioTrovato = (from dati in EntitaSoci.LibroSoci where dati.IdSocio == IdTrovato select dati.TipoFile).FirstOrDefault();
 
+            //        //Scarico il file
+            //        SaveFileDialog salvaFile = new SaveFileDialog();
+            //        salvaFile.Filter = "File(" + SocioTrovato.ToString() + ")|*" + SocioTrovato.ToString() + "";
+            //        salvaFile.Title = "Salva file sul pc";
+            //        salvaFile.CheckPathExists = true;
+            //        if (salvaFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //        {
+            //            var datiFile = (from dati in EntitaSoci.LibroSoci where dati.IdSocio == IdTrovato select dati.Documento).FirstOrDefault();
+            //            File.WriteAllBytes(salvaFile.FileName, datiFile);
+            //        }
+
+            //    }
+
+
+            //}
+        }
+
+        private void BtnSalva_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                //if (txtFoto.Text != "[File]" & txtFoto.Text.Trim() != "")
+                //    nuovoSocio.Foto = File.ReadAllBytes(txtFoto.Text);
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
