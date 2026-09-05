@@ -144,6 +144,9 @@ namespace Formica
                     if (contesto.SaveChanges() > 0)
                         Utility.MessaggioInfo("Record salvato con successo. ");
 
+
+                    CaricaDati();
+
                 }
   
 
@@ -186,6 +189,8 @@ namespace Formica
                     contesto.StatoLavoraziones.Remove(record);
                     if (contesto.SaveChanges() > 0)
                         Utility.MessaggioInfo("Record cancellato con successo. ");
+
+
                     CaricaDati();
 
                 }

@@ -175,10 +175,10 @@ namespace Formica
                     return;
                 }
 
-                //int idRecord = 0;
-                //idRecord = Convert.ToInt32(dtgDatiAgenda.SelectedRows[0].Cells["IdAgenda"].Value);
+                 int idRecord = 0;
+                idRecord = Convert.ToInt32(dtgDatiAgenda.SelectedRows[0].Cells["IdAgenda"].Value);
 
-                var record = contesto.Agenda.Where(riga => riga.IdAgenda == idAgendaSelezionato).FirstOrDefault();
+                var record = contesto.Agenda.Where(riga => riga.IdAgenda == idRecord).FirstOrDefault();
                 if (record != null)
                 {
                     contesto.Agenda.Remove(record);
@@ -245,6 +245,10 @@ namespace Formica
                     
                     if (contesto.SaveChanges() > 0)
                         Utility.MessaggioInfo("Record salvato con successo. ");
+
+
+
+
                     CaricaDati();
 
                 }
