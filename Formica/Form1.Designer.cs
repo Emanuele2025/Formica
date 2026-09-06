@@ -42,6 +42,7 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
+            MniAttivita = new ToolStripMenuItem();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             // 
             // attivitàToolStripMenuItem
             // 
-            attivitàToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mniGestione });
+            attivitàToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mniGestione, MniAttivita });
             attivitàToolStripMenuItem.Name = "attivitàToolStripMenuItem";
             attivitàToolStripMenuItem.Size = new Size(57, 20);
             attivitàToolStripMenuItem.Text = "Attività";
@@ -94,7 +95,7 @@
             // mniGestioneDocumenti
             // 
             mniGestioneDocumenti.Name = "mniGestioneDocumenti";
-            mniGestioneDocumenti.Size = new Size(129, 22);
+            mniGestioneDocumenti.Size = new Size(180, 22);
             mniGestioneDocumenti.Text = "Gestione...";
             mniGestioneDocumenti.Click += mniGestioneDocumenti_Click;
             // 
@@ -109,7 +110,7 @@
             // 
             MniAgenda.Image = Properties.Resources.calendar_16x16_freeicon;
             MniAgenda.Name = "MniAgenda";
-            MniAgenda.Size = new Size(124, 22);
+            MniAgenda.Size = new Size(180, 22);
             MniAgenda.Text = "Agenda...";
             MniAgenda.ToolTipText = "Visualizza l'agenda per gestire gli appuntamento o calenderio attività";
             MniAgenda.Click += mniAgenda_Click;
@@ -117,13 +118,13 @@
             // MniRubrica
             // 
             MniRubrica.Name = "MniRubrica";
-            MniRubrica.Size = new Size(124, 22);
+            MniRubrica.Size = new Size(180, 22);
             MniRubrica.Text = "Rubrica...";
             // 
             // MniOpzioni
             // 
             MniOpzioni.Name = "MniOpzioni";
-            MniOpzioni.Size = new Size(124, 22);
+            MniOpzioni.Size = new Size(180, 22);
             MniOpzioni.Text = "Opzioni...";
             MniOpzioni.ToolTipText = "Apre la finestra delle opzioni";
             MniOpzioni.Click += MniOpzioni_Click;
@@ -155,6 +156,12 @@
             label1.TabIndex = 2;
             label1.Text = "Formica - Principale";
             label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // MniAttivita
+            // 
+            MniAttivita.Name = "MniAttivita";
+            MniAttivita.Size = new Size(180, 22);
+            MniAttivita.Text = "Attività..";
             // 
             // Form1
             // 
@@ -191,5 +198,6 @@
         private ToolStripMenuItem MniAgenda;
         private ToolStripMenuItem MniRubrica;
         private ToolStripMenuItem MniOpzioni;
+        private ToolStripMenuItem MniAttivita;
     }
 }

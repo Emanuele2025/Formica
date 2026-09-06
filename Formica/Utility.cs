@@ -19,6 +19,16 @@ namespace Formica
 
         public const string TitoloFinestra = "Formica - Programma gratuito per la gestione delle attività";
         const string titolo = "Falco";
+
+
+        public const string Modifica = "Modifica effettuata con successo.";
+
+        public const string Inserimento = "Inserimento effettuato con successo.";
+
+
+         
+
+
         #endregion
 
 

@@ -31,6 +31,15 @@
             components = new System.ComponentModel.Container();
             label1 = new Label();
             dtgDatiProgetti = new DataGridView();
+            IdProgetto = new DataGridViewTextBoxColumn();
+            FileProgetto = new DataGridViewTextBoxColumn();
+            NomeAttivita = new DataGridViewTextBoxColumn();
+            Descrizione = new DataGridViewTextBoxColumn();
+            DataApertura = new DataGridViewTextBoxColumn();
+            DataChiusura = new DataGridViewTextBoxColumn();
+            Note = new DataGridViewTextBoxColumn();
+            NomeFile = new DataGridViewTextBoxColumn();
+            FileAllegato = new DataGridViewTextBoxColumn();
             CmsMenu = new ContextMenuStrip(components);
             mniModifica = new ToolStripMenuItem();
             mniElimina = new ToolStripMenuItem();
@@ -71,6 +80,7 @@
             // dtgDatiProgetti
             // 
             dtgDatiProgetti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatiProgetti.Columns.AddRange(new DataGridViewColumn[] { IdProgetto, FileProgetto, NomeAttivita, Descrizione, DataApertura, DataChiusura, Note, NomeFile, FileAllegato });
             dtgDatiProgetti.Dock = DockStyle.Top;
             dtgDatiProgetti.Location = new Point(0, 22);
             dtgDatiProgetti.Name = "dtgDatiProgetti";
@@ -78,6 +88,62 @@
             dtgDatiProgetti.TabIndex = 1;
             dtgDatiProgetti.CellContentClick += dtgDatiProgetti_CellContentClick;
             dtgDatiProgetti.CellMouseDown += dtgDatiProgetti_CellMouseDown;
+            // 
+            // IdProgetto
+            // 
+            IdProgetto.DataPropertyName = "IdProgetto";
+            IdProgetto.HeaderText = "IdProgetto";
+            IdProgetto.Name = "IdProgetto";
+            IdProgetto.Visible = false;
+            // 
+            // FileProgetto
+            // 
+            FileProgetto.DataPropertyName = "FileProgetto";
+            FileProgetto.HeaderText = "FileProgetto";
+            FileProgetto.Name = "FileProgetto";
+            FileProgetto.Visible = false;
+            // 
+            // NomeAttivita
+            // 
+            NomeAttivita.DataPropertyName = "Nome";
+            NomeAttivita.HeaderText = "Nome Attività";
+            NomeAttivita.Name = "NomeAttivita";
+            // 
+            // Descrizione
+            // 
+            Descrizione.DataPropertyName = "Descrizione";
+            Descrizione.HeaderText = "Descrizione";
+            Descrizione.Name = "Descrizione";
+            // 
+            // DataApertura
+            // 
+            DataApertura.DataPropertyName = "DataApertura";
+            DataApertura.HeaderText = "Aperto";
+            DataApertura.Name = "DataApertura";
+            // 
+            // DataChiusura
+            // 
+            DataChiusura.DataPropertyName = "DataChiusura";
+            DataChiusura.HeaderText = "Chiuso";
+            DataChiusura.Name = "DataChiusura";
+            // 
+            // Note
+            // 
+            Note.DataPropertyName = "Note";
+            Note.HeaderText = "Note";
+            Note.Name = "Note";
+            // 
+            // NomeFile
+            // 
+            NomeFile.DataPropertyName = "NomeFile";
+            NomeFile.HeaderText = "Nome File";
+            NomeFile.Name = "NomeFile";
+            // 
+            // FileAllegato
+            // 
+            FileAllegato.DataPropertyName = "FileAllegato";
+            FileAllegato.HeaderText = "File";
+            FileAllegato.Name = "FileAllegato";
             // 
             // CmsMenu
             // 
@@ -226,7 +292,6 @@
             // BtnAnnulla
             // 
             BtnAnnulla.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnAnnulla.Enabled = false;
             BtnAnnulla.Location = new Point(107, 654);
             BtnAnnulla.Name = "BtnAnnulla";
             BtnAnnulla.Size = new Size(75, 23);
@@ -336,5 +401,14 @@
         private Button BtnCercaFile;
         private TextBox TxtPercorsoFile;
         private Label label7;
+        private DataGridViewTextBoxColumn IdProgetto;
+        private DataGridViewTextBoxColumn FileProgetto;
+        private DataGridViewTextBoxColumn NomeAttivita;
+        private DataGridViewTextBoxColumn Descrizione;
+        private DataGridViewTextBoxColumn DataApertura;
+        private DataGridViewTextBoxColumn DataChiusura;
+        private DataGridViewTextBoxColumn Note;
+        private DataGridViewTextBoxColumn NomeFile;
+        private DataGridViewTextBoxColumn FileAllegato;
     }
 }

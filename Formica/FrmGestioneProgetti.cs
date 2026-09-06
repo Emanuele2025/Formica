@@ -22,6 +22,7 @@ namespace Formica
 
         private void FrmGestioneProgetti_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
                 this.Text = Utility.TitoloFinestra;
@@ -31,14 +32,19 @@ namespace Formica
             {
                 Utility.MessaggioErrore("Errore: " + ex.Message);
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+
+            }
         }
 
         #region Funzioni
 
 
-        //TODO: Mettere il cursore di attesa
+        
         //TDOO: mettere le funzioni
-        //TODO: cambia il colore giallo e bianco delle textbox
+        
 
 
 
@@ -67,8 +73,24 @@ namespace Formica
                 TxtPercorsoFile.Text = "";
 
 
-                var dati = contesto.Progettis.ToList();
-                dtgDatiProgetti.DataSource = dati;
+                var dati = contesto.Progettis.ToList().Select(p=> new { 
+                
+                    p.IdProgetto,
+                    p.Nome,
+                    p.Descrizione,
+                    p.DataApertura,
+                    p.DataChiusura,
+                    p.Note,
+                    p.NomeFile,
+                    FileAllegato = (p.File != null) ? "Scarica" : "",
+                    FileProgetto = p.File
+                
+                } );
+
+
+
+                dtgDatiProgetti.AutoGenerateColumns = false;
+                dtgDatiProgetti.DataSource = dati.ToList();
                 BtnInserisci.Visible = true;
                 BtnAnnulla.Visible = false;
                 BtnSalva.Visible = false;
@@ -245,6 +267,8 @@ namespace Formica
             dtpApertura.Value = DateTime.Now;
             dtpTermine.Value = dtpTermine.MaxDate;
             BtnSalva.Visible = false;
+            BtnAnnulla.Visible = false;
+            dtgDatiProgetti.Enabled = true;
         }
 
         private void BtnCercaFile_Click(object sender, EventArgs e)
@@ -266,44 +290,43 @@ namespace Formica
 
         private void dtgDatiProgetti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == 10)
-            //{
-            //    if (dtgLibroSoci.Rows[e.RowIndex].Cells[10].Value != null)
-            //    {
-            //        SaveFileDialog salvaFile = new SaveFileDialog();
-            //        salvaFile.Filter = "Immagine(.JPG)|*.jpg";
-            //        salvaFile.Title = "Salva file sul pc";
-            //        salvaFile.CheckPathExists = true;
-            //        if (salvaFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //        {
-            //            Image ImmagineRilevata = (dtgLibroSoci.Rows[e.RowIndex].Cells[10].Value as Image);
-            //            RidefinisciImmagine(ImmagineRilevata, ImmagineRilevata.Height, ImmagineRilevata.Width, salvaFile.FileName);
-            //        }
-            //    }
-            //}
-            //else if (e.ColumnIndex == 12)
-            //{
-            //    if (dtgLibroSoci.Rows[e.RowIndex].Cells[12].Value.ToString() == "Scarica")
-            //    {
-            //        DatiEntities EntitaSoci = new DatiEntities();
-            //        int IdTrovato = Convert.ToInt32(dtgLibroSoci.Rows[e.RowIndex].Cells[0].Value);
-            //        var SocioTrovato = (from dati in EntitaSoci.LibroSoci where dati.IdSocio == IdTrovato select dati.TipoFile).FirstOrDefault();
 
-            //        //Scarico il file
-            //        SaveFileDialog salvaFile = new SaveFileDialog();
-            //        salvaFile.Filter = "File(" + SocioTrovato.ToString() + ")|*" + SocioTrovato.ToString() + "";
-            //        salvaFile.Title = "Salva file sul pc";
-            //        salvaFile.CheckPathExists = true;
-            //        if (salvaFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //        {
-            //            var datiFile = (from dati in EntitaSoci.LibroSoci where dati.IdSocio == IdTrovato select dati.Documento).FirstOrDefault();
-            //            File.WriteAllBytes(salvaFile.FileName, datiFile);
-            //        }
-
-            //    }
+            try
+            {
 
 
-            //}
+                if (dtgDatiProgetti.Columns[e.ColumnIndex].Name == "FileAllegato")
+                {
+                    if (dtgDatiProgetti.Rows[e.RowIndex].Cells["FileAllegato"].Value == "Scarica")
+                    {
+                        SaveFileDialog salvaFile = new SaveFileDialog();
+                        string estensione = dtgDatiProgetti.Rows[e.RowIndex].Cells["NomeFile"].Value.ToString();
+                        if (!string.IsNullOrWhiteSpace(estensione))
+                        {
+                            estensione = Path.GetExtension(estensione);
+                            salvaFile.Filter = "File  " + estensione + "  |*" + estensione + "";
+                        }
+                        salvaFile.Title = "Salva file sul pc";
+                        salvaFile.CheckPathExists = true;
+                        if (salvaFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        {
+                            byte[] fileBytes = (byte[])dtgDatiProgetti.Rows[e.RowIndex].Cells["FileProgetto"].Value;
+                            if(fileBytes != null)
+                             File.WriteAllBytes(salvaFile.FileName, fileBytes);
+
+                        }
+                    }
+                }
+            }
+            catch (IOException exio)
+            {
+                Utility.MessaggioErrore("Errore: " + exio.Message);
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore: " + ex.Message);
+            }
+
         }
 
         private void BtnSalva_Click(object sender, EventArgs e)
@@ -313,6 +336,47 @@ namespace Formica
 
                 //if (txtFoto.Text != "[File]" & txtFoto.Text.Trim() != "")
                 //    nuovoSocio.Foto = File.ReadAllBytes(txtFoto.Text);
+                if (TxtNomeProgetto.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Campo nome progetto obbligatorio");
+                    return;
+
+                }
+                if (idSelezionato == null)
+                {
+                    idSelezionato = Convert.ToInt32(dtgDatiProgetti.SelectedRows[0].Cells["IdProgetto"].Value);
+                }
+
+                var progettoTrovato = contesto.Progettis.Where(p => p.IdProgetto == idSelezionato).FirstOrDefault();
+                if (progettoTrovato != null)
+                {
+                    progettoTrovato.Nome = TxtNomeProgetto.Text.Trim();
+                    progettoTrovato.Descrizione = TxtDescrizione.Text.Trim();
+                    progettoTrovato.Note = TxtNote.Text.Trim();
+                    progettoTrovato.DataApertura = dtpApertura.Value;
+                    if (dtpTermine.Checked)
+                    {
+                        progettoTrovato.DataChiusura = dtpTermine.Value;
+                    }
+
+
+                    if (progettoTrovato.DataChiusura != null)
+                    {
+                        dtpTermine.Value = progettoTrovato.DataChiusura.HasValue ? progettoTrovato.DataChiusura.Value : DateTime.Now;
+                    }
+                    if (TxtPercorsoFile.Text != "[File]" & TxtPercorsoFile.Text.Trim() != "")
+                    {
+                        progettoTrovato.NomeFile = new FileInfo(TxtPercorsoFile.Text.Trim()).Name;
+                        progettoTrovato.File =  File.ReadAllBytes(TxtPercorsoFile.Text.Trim());
+
+                    }
+
+                    if (contesto.SaveChanges() > 0)
+                        Utility.MessaggioInfo("Modifica effettuata con successo.");
+
+                }
+                CaricaDati();
+
 
 
             }
