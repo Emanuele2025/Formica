@@ -42,10 +42,7 @@ namespace Formica
         #region Funzioni
 
 
-        
-        //TDOO: mettere le funzioni
-        
-
+         
 
 
         private void txt_Leave(object sender, EventArgs e)
@@ -360,10 +357,7 @@ namespace Formica
                     }
 
 
-                    if (progettoTrovato.DataChiusura != null)
-                    {
-                        dtpTermine.Value = progettoTrovato.DataChiusura.HasValue ? progettoTrovato.DataChiusura.Value : DateTime.Now;
-                    }
+                    
                     if (TxtPercorsoFile.Text != "[File]" & TxtPercorsoFile.Text.Trim() != "")
                     {
                         progettoTrovato.NomeFile = new FileInfo(TxtPercorsoFile.Text.Trim()).Name;
