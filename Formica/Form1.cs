@@ -12,6 +12,7 @@ namespace Formica
             try
             {
                 this.Text = Utility.TitoloFinestra;
+                //TODO: come consigliato da AI, visualizzare una Dashboard con i task chiusi, aperti etc
                 //TODO: Visualizzare i task in un dataGrid
                 //TODO: fare form, che inserisce il progetto (progetto e non task) come nome progetto, descrizione, data inserito e data conclusione
                 //TODO: fare form per inserire le opzioni, come priorità (Urgente, immediata, normale, bassa) stato (da fare, in corso, completato, sospesa)

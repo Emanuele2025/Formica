@@ -38,9 +38,9 @@
             TxtNote = new TextBox();
             label4 = new Label();
             CmsAttivita = new ContextMenuStrip(components);
-            DtgDatiAttivita = new DataGridView();
             MniModifica = new ToolStripMenuItem();
             MniElimina = new ToolStripMenuItem();
+            DtgDatiAttivita = new DataGridView();
             dtpTermine = new DateTimePicker();
             label6 = new Label();
             dtpApertura = new DateTimePicker();
@@ -48,8 +48,11 @@
             label7 = new Label();
             label8 = new Label();
             CmbStato = new ComboBox();
-            label9 = new Label();
             CmbProgetto = new ComboBox();
+            ChkUrgente = new CheckBox();
+            BtnInserisci = new Button();
+            BtnSalva = new Button();
+            BtnAnnulla = new Button();
             CmsAttivita.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DtgDatiAttivita).BeginInit();
             SuspendLayout();
@@ -141,15 +144,6 @@
             CmsAttivita.Name = "contextMenuStrip1";
             CmsAttivita.Size = new Size(122, 48);
             // 
-            // DtgDatiAttivita
-            // 
-            DtgDatiAttivita.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DtgDatiAttivita.Dock = DockStyle.Top;
-            DtgDatiAttivita.Location = new Point(0, 22);
-            DtgDatiAttivita.Name = "DtgDatiAttivita";
-            DtgDatiAttivita.Size = new Size(1236, 279);
-            DtgDatiAttivita.TabIndex = 12;
-            // 
             // MniModifica
             // 
             MniModifica.Name = "MniModifica";
@@ -161,6 +155,15 @@
             MniElimina.Name = "MniElimina";
             MniElimina.Size = new Size(121, 22);
             MniElimina.Text = "Elimina";
+            // 
+            // DtgDatiAttivita
+            // 
+            DtgDatiAttivita.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DtgDatiAttivita.Dock = DockStyle.Top;
+            DtgDatiAttivita.Location = new Point(0, 22);
+            DtgDatiAttivita.Name = "DtgDatiAttivita";
+            DtgDatiAttivita.Size = new Size(1236, 329);
+            DtgDatiAttivita.TabIndex = 12;
             // 
             // dtpTermine
             // 
@@ -230,15 +233,6 @@
             CmbStato.Size = new Size(194, 23);
             CmbStato.TabIndex = 5;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(592, 319);
-            label9.Name = "label9";
-            label9.Size = new Size(53, 15);
-            label9.TabIndex = 38;
-            label9.Text = "Termine:";
-            // 
             // CmbProgetto
             // 
             CmbProgetto.FormattingEnabled = true;
@@ -247,13 +241,55 @@
             CmbProgetto.Size = new Size(420, 23);
             CmbProgetto.TabIndex = 6;
             // 
+            // ChkUrgente
+            // 
+            ChkUrgente.AutoSize = true;
+            ChkUrgente.Location = new Point(748, 436);
+            ChkUrgente.Name = "ChkUrgente";
+            ChkUrgente.Size = new Size(68, 19);
+            ChkUrgente.TabIndex = 38;
+            ChkUrgente.Text = "Urgente";
+            ChkUrgente.UseVisualStyleBackColor = true;
+            // 
+            // BtnInserisci
+            // 
+            BtnInserisci.Location = new Point(38, 593);
+            BtnInserisci.Name = "BtnInserisci";
+            BtnInserisci.Size = new Size(75, 23);
+            BtnInserisci.TabIndex = 39;
+            BtnInserisci.Text = "Inerisci";
+            BtnInserisci.UseVisualStyleBackColor = true;
+            // 
+            // BtnSalva
+            // 
+            BtnSalva.Location = new Point(119, 593);
+            BtnSalva.Name = "BtnSalva";
+            BtnSalva.Size = new Size(75, 23);
+            BtnSalva.TabIndex = 40;
+            BtnSalva.Text = "Salva";
+            BtnSalva.UseVisualStyleBackColor = true;
+            BtnSalva.Visible = false;
+            // 
+            // BtnAnnulla
+            // 
+            BtnAnnulla.Location = new Point(200, 593);
+            BtnAnnulla.Name = "BtnAnnulla";
+            BtnAnnulla.Size = new Size(75, 23);
+            BtnAnnulla.TabIndex = 41;
+            BtnAnnulla.Text = "Annulla";
+            BtnAnnulla.UseVisualStyleBackColor = true;
+            BtnAnnulla.Visible = false;
+            // 
             // FrmAttivita
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1236, 652);
+            Controls.Add(BtnAnnulla);
+            Controls.Add(BtnSalva);
+            Controls.Add(BtnInserisci);
+            Controls.Add(ChkUrgente);
             Controls.Add(CmbProgetto);
-            Controls.Add(label9);
             Controls.Add(CmbStato);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -304,7 +340,10 @@
         private Label label7;
         private Label label8;
         private ComboBox CmbStato;
-        private Label label9;
         private ComboBox CmbProgetto;
+        private CheckBox ChkUrgente;
+        private Button BtnInserisci;
+        private Button BtnSalva;
+        private Button BtnAnnulla;
     }
 }
