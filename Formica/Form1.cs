@@ -12,6 +12,7 @@ namespace Formica
             try
             {
                 this.Text = Utility.TitoloFinestra;
+                //TODO : task chiusi in percentuali
                 //TODO: come consigliato da AI, visualizzare una Dashboard con i task chiusi, aperti etc
                 //TODO: Visualizzare i task in un dataGrid
                 //TODO: fare form, che inserisce il progetto (progetto e non task) come nome progetto, descrizione, data inserito e data conclusione
@@ -23,6 +24,16 @@ namespace Formica
                 //TODO : FAre anche Agenda
                 //Ultimo comando funziona dopo il cd nel progetto - dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --context AppDbContext --output-dir Models --force
                 //TODO: Valutare in schermata di mettere una griglia con lo stato degli ultimi task
+
+
+                VerificaATtivita();
+
+
+
+
+
+
+
             }
             catch (Exception ex)
             {
@@ -68,5 +79,65 @@ namespace Formica
             FrmOpzioni opzioni = new FrmOpzioni();
             opzioni.ShowDialog();
         }
+
+        private void LnkAttivitaTerminate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //Apro task chiuse
+        }
+
+        private void lnkAttivitaAperte_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //apro task attività aperte
+
+        }
+
+
+        #region funzioni
+
+        private void VerificaATtivita()
+        {
+
+            //Imposto la percentuale per le attività rosso sotto il 50, tra il 50 e 85 giallo e sopra 85 verde
+
+            try
+            {
+                int percentualeTaskAperti = 0;
+                int percentualeTaskChiusi = 0;
+
+                lnkAttivitaAperte.Text = percentualeTaskAperti.ToString() + "%";
+                LnkAttivitaTerminate.Text = percentualeTaskChiusi.ToString() + "%";  
+                //TODO: Farlo con lo switch nuovo
+
+                if (percentualeTaskAperti < 50)
+                {
+                    lnkAttivitaAperte.LinkColor = Color.Red;
+                }
+                if (percentualeTaskChiusi < 50)
+                {
+                    LnkAttivitaTerminate.LinkColor = Color.Red;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore("Errore durante il caricamento dell'applicativo." + ex.Message);
+            }
+
+
+
+
+        
+        }
+
+
+
+
+        #endregion
+
+
+
+
+
     }
 }

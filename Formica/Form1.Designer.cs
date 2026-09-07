@@ -33,6 +33,7 @@
             esciToolStripMenuItem = new ToolStripMenuItem();
             attivitàToolStripMenuItem = new ToolStripMenuItem();
             mniGestione = new ToolStripMenuItem();
+            MniAttivita = new ToolStripMenuItem();
             documentiToolStripMenuItem = new ToolStripMenuItem();
             mniGestioneDocumenti = new ToolStripMenuItem();
             strumentiToolStripMenuItem = new ToolStripMenuItem();
@@ -42,7 +43,10 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
-            MniAttivita = new ToolStripMenuItem();
+            label2 = new Label();
+            lnkAttivitaAperte = new LinkLabel();
+            LnkAttivitaTerminate = new LinkLabel();
+            label3 = new Label();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,7 +55,7 @@
             mnsMenuPrincipale.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, attivitàToolStripMenuItem, documentiToolStripMenuItem, strumentiToolStripMenuItem, toolStripMenuItem1 });
             mnsMenuPrincipale.Location = new Point(0, 0);
             mnsMenuPrincipale.Name = "mnsMenuPrincipale";
-            mnsMenuPrincipale.Size = new Size(1014, 24);
+            mnsMenuPrincipale.Size = new Size(1042, 24);
             mnsMenuPrincipale.TabIndex = 0;
             mnsMenuPrincipale.Text = "menuStrip1";
             // 
@@ -80,10 +84,16 @@
             // mniGestione
             // 
             mniGestione.Name = "mniGestione";
-            mniGestione.Size = new Size(180, 22);
+            mniGestione.Size = new Size(125, 22);
             mniGestione.Text = "Progetti...";
             mniGestione.ToolTipText = "Apre la finestra per la gestione dei progetti";
             mniGestione.Click += gestioneToolStripMenuItem_Click;
+            // 
+            // MniAttivita
+            // 
+            MniAttivita.Name = "MniAttivita";
+            MniAttivita.Size = new Size(125, 22);
+            MniAttivita.Text = "Attività..";
             // 
             // documentiToolStripMenuItem
             // 
@@ -95,7 +105,7 @@
             // mniGestioneDocumenti
             // 
             mniGestioneDocumenti.Name = "mniGestioneDocumenti";
-            mniGestioneDocumenti.Size = new Size(180, 22);
+            mniGestioneDocumenti.Size = new Size(129, 22);
             mniGestioneDocumenti.Text = "Gestione...";
             mniGestioneDocumenti.Click += mniGestioneDocumenti_Click;
             // 
@@ -110,7 +120,7 @@
             // 
             MniAgenda.Image = Properties.Resources.calendar_16x16_freeicon;
             MniAgenda.Name = "MniAgenda";
-            MniAgenda.Size = new Size(180, 22);
+            MniAgenda.Size = new Size(124, 22);
             MniAgenda.Text = "Agenda...";
             MniAgenda.ToolTipText = "Visualizza l'agenda per gestire gli appuntamento o calenderio attività";
             MniAgenda.Click += mniAgenda_Click;
@@ -118,13 +128,13 @@
             // MniRubrica
             // 
             MniRubrica.Name = "MniRubrica";
-            MniRubrica.Size = new Size(180, 22);
+            MniRubrica.Size = new Size(124, 22);
             MniRubrica.Text = "Rubrica...";
             // 
             // MniOpzioni
             // 
             MniOpzioni.Name = "MniOpzioni";
-            MniOpzioni.Size = new Size(180, 22);
+            MniOpzioni.Size = new Size(124, 22);
             MniOpzioni.Text = "Opzioni...";
             MniOpzioni.ToolTipText = "Apre la finestra delle opzioni";
             MniOpzioni.Click += MniOpzioni_Click;
@@ -152,23 +162,65 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 24);
             label1.Name = "label1";
-            label1.Size = new Size(1014, 22);
+            label1.Size = new Size(1042, 22);
             label1.TabIndex = 2;
             label1.Text = "Formica - Principale";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // MniAttivita
+            // label2
             // 
-            MniAttivita.Name = "MniAttivita";
-            MniAttivita.Size = new Size(180, 22);
-            MniAttivita.Text = "Attività..";
+            label2.AutoSize = true;
+            label2.Location = new Point(46, 64);
+            label2.Name = "label2";
+            label2.Size = new Size(87, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Attività aperte: ";
+            // 
+            // lnkAttivitaAperte
+            // 
+            lnkAttivitaAperte.AutoSize = true;
+            lnkAttivitaAperte.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lnkAttivitaAperte.Location = new Point(139, 58);
+            lnkAttivitaAperte.Name = "lnkAttivitaAperte";
+            lnkAttivitaAperte.Size = new Size(89, 21);
+            lnkAttivitaAperte.TabIndex = 4;
+            lnkAttivitaAperte.TabStop = true;
+            lnkAttivitaAperte.Text = "linkLabel1";
+            lnkAttivitaAperte.LinkClicked += lnkAttivitaAperte_LinkClicked;
+            // 
+            // LnkAttivitaTerminate
+            // 
+            LnkAttivitaTerminate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            LnkAttivitaTerminate.AutoSize = true;
+            LnkAttivitaTerminate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            LnkAttivitaTerminate.Location = new Point(941, 59);
+            LnkAttivitaTerminate.Name = "LnkAttivitaTerminate";
+            LnkAttivitaTerminate.Size = new Size(89, 21);
+            LnkAttivitaTerminate.TabIndex = 6;
+            LnkAttivitaTerminate.TabStop = true;
+            LnkAttivitaTerminate.Text = "linkLabel2";
+            LnkAttivitaTerminate.LinkClicked += LnkAttivitaTerminate_LinkClicked;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Location = new Point(792, 64);
+            label3.Name = "label3";
+            label3.Size = new Size(155, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Percentuale Attività Chiuse: ";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1014, 635);
+            ClientSize = new Size(1042, 635);
+            Controls.Add(LnkAttivitaTerminate);
+            Controls.Add(label3);
+            Controls.Add(lnkAttivitaAperte);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(mnsMenuPrincipale);
             MainMenuStrip = mnsMenuPrincipale;
@@ -199,5 +251,9 @@
         private ToolStripMenuItem MniRubrica;
         private ToolStripMenuItem MniOpzioni;
         private ToolStripMenuItem MniAttivita;
+        private Label label2;
+        private LinkLabel lnkAttivitaAperte;
+        private LinkLabel LnkAttivitaTerminate;
+        private Label label3;
     }
 }
