@@ -180,6 +180,7 @@
             // 
             lnkAttivitaAperte.AutoSize = true;
             lnkAttivitaAperte.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lnkAttivitaAperte.LinkColor = Color.Green;
             lnkAttivitaAperte.Location = new Point(139, 58);
             lnkAttivitaAperte.Name = "lnkAttivitaAperte";
             lnkAttivitaAperte.Size = new Size(89, 21);
@@ -193,6 +194,7 @@
             LnkAttivitaTerminate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LnkAttivitaTerminate.AutoSize = true;
             LnkAttivitaTerminate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            LnkAttivitaTerminate.LinkColor = Color.Green;
             LnkAttivitaTerminate.Location = new Point(941, 59);
             LnkAttivitaTerminate.Name = "LnkAttivitaTerminate";
             LnkAttivitaTerminate.Size = new Size(89, 21);

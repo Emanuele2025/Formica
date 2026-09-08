@@ -106,17 +106,23 @@ namespace Formica
 
                 lnkAttivitaAperte.Text = percentualeTaskAperti.ToString() + "%";
                 LnkAttivitaTerminate.Text = percentualeTaskChiusi.ToString() + "%";  
-                //TODO: Farlo con lo switch nuovo
-
+                 
                 if (percentualeTaskAperti < 50)
                 {
                     lnkAttivitaAperte.LinkColor = Color.Red;
+                }
+                else if (percentualeTaskAperti > 49 && percentualeTaskAperti < 85)
+                {
+                    lnkAttivitaAperte.LinkColor = Color.Yellow;
                 }
                 if (percentualeTaskChiusi < 50)
                 {
                     LnkAttivitaTerminate.LinkColor = Color.Red;
                 }
-
+                else if (percentualeTaskChiusi > 49 && percentualeTaskChiusi < 85)
+                {
+                    LnkAttivitaTerminate.LinkColor = Color.Yellow;
+                }
 
             }
             catch (Exception ex)
