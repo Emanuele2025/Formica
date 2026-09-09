@@ -25,8 +25,8 @@ namespace Formica
 
         public const string Inserimento = "Inserimento effettuato con successo.";
 
+        public const string Errore = "Si è verificato il seguente errore:.";
 
-         
 
 
         #endregion

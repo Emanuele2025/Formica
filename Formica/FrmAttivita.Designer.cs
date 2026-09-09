@@ -259,6 +259,7 @@
             BtnInserisci.TabIndex = 39;
             BtnInserisci.Text = "Inerisci";
             BtnInserisci.UseVisualStyleBackColor = true;
+            BtnInserisci.Click += BtnInserisci_Click;
             // 
             // BtnSalva
             // 

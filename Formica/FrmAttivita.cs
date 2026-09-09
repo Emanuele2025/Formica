@@ -17,8 +17,10 @@ namespace Formica
 
         private void FrmAttivita_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             this.Text = Utility.TitoloFinestra;
             CaricaDati();
+            Cursor.Current = Cursors.Default;
         }
 
         private void BtnChiudi_Click(object sender, EventArgs e)
@@ -41,13 +43,25 @@ namespace Formica
             {
                 Utility.MessaggioErrore(ex.Message);
             }
-        
-        
-        
-        
-        
+
+
+
+
+
         }
 
         #endregion
+
+        private void BtnInserisci_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore + " " +  ex.Message);
+            }
+        }
     }
 }
