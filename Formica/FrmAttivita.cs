@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Formica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ namespace Formica
         {
             InitializeComponent();
         }
-
+        AppDbContext contesto = new AppDbContext();
         private void FrmAttivita_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -38,6 +39,32 @@ namespace Formica
             try
             {
 
+                var progetti = contesto.Progettis.Select(p => new { p.Nome, p.IdProgetto }).ToList();
+                CmbProgetto.DisplayMember = "Nome";
+                CmbProgetto.ValueMember = "IdProgetto";
+
+                CmbProgetto.DataSource = progetti;
+                if (CmbProgetto.Items.Count >0)
+                {
+                    CmbProgetto.SelectedIndex = 0;
+                }
+                var stati = contesto.StatoLavoraziones.Select(p => new { p.IdStato, p.Stato }).ToList();
+                CmbStato.DisplayMember = "Stato";
+                CmbStato.ValueMember = "IdStato";
+                CmbStato.DataSource = stati;
+                if (CmbStato.Items.Count>0)
+                {
+                    CmbStato.SelectedIndex = 0;
+                }
+
+
+
+                BtnInserisci.Visible = true;
+                BtnAnnulla.Visible = false;
+                BtnSalva.Visible = false;
+
+
+
             }
             catch (Exception ex)
             {
@@ -56,6 +83,17 @@ namespace Formica
         {
             try
             {
+                if (TxtNomeAttivita.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Il campo Nome attività è obbligatorio.");
+                    return;
+                }
+
+                
+
+
+
+
 
             }
             catch (Exception ex)

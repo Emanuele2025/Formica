@@ -231,14 +231,10 @@ namespace Formica
             if (e.Button != MouseButtons.Right)
                 return;
 
-
-
             //Escludo intestazioni e griglia
 
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
-
-
 
             CmsMenu.Show(Cursor.Position);
 
