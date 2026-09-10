@@ -44,7 +44,7 @@ namespace Formica
                 CmbProgetto.ValueMember = "IdProgetto";
 
                 CmbProgetto.DataSource = progetti;
-                if (CmbProgetto.Items.Count >0)
+                if (CmbProgetto.Items.Count > 0)
                 {
                     CmbProgetto.SelectedIndex = 0;
                 }
@@ -52,7 +52,7 @@ namespace Formica
                 CmbStato.DisplayMember = "Stato";
                 CmbStato.ValueMember = "IdStato";
                 CmbStato.DataSource = stati;
-                if (CmbStato.Items.Count>0)
+                if (CmbStato.Items.Count > 0)
                 {
                     CmbStato.SelectedIndex = 0;
                 }
@@ -89,7 +89,7 @@ namespace Formica
                     return;
                 }
 
-                
+
 
 
 
@@ -98,8 +98,25 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(Utility.Errore + " " +  ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + " " + ex.Message);
             }
+        }
+
+        private void BtnSalva_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+
+
         }
     }
 }

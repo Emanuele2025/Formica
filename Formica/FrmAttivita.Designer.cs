@@ -270,6 +270,7 @@
             BtnSalva.Text = "Salva";
             BtnSalva.UseVisualStyleBackColor = true;
             BtnSalva.Visible = false;
+            BtnSalva.Click += BtnSalva_Click;
             // 
             // BtnAnnulla
             // 
