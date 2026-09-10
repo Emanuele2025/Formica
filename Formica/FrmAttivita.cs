@@ -107,11 +107,17 @@ namespace Formica
             try
             {
 
+
+
+                CaricaDati();
+
+
+
+
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore(Utility.Errore + " " + ex.Message);
             }
 
 
