@@ -100,6 +100,8 @@
             TxtNomeAttivita.Name = "TxtNomeAttivita";
             TxtNomeAttivita.Size = new Size(251, 23);
             TxtNomeAttivita.TabIndex = 1;
+            TxtNomeAttivita.Enter += txt_Enter;
+            TxtNomeAttivita.Leave += txt_Leave;
             // 
             // TxtDescrizione
             // 
@@ -109,6 +111,8 @@
             TxtDescrizione.Name = "TxtDescrizione";
             TxtDescrizione.Size = new Size(251, 112);
             TxtDescrizione.TabIndex = 2;
+            TxtDescrizione.Enter += txt_Enter;
+            TxtDescrizione.Leave += txt_Leave;
             // 
             // label3
             // 
@@ -128,6 +132,8 @@
             TxtNote.ScrollBars = ScrollBars.Both;
             TxtNote.Size = new Size(251, 150);
             TxtNote.TabIndex = 7;
+            TxtNote.Enter += txt_Enter;
+            TxtNote.Leave += txt_Leave;
             // 
             // label4
             // 
@@ -281,6 +287,7 @@
             BtnAnnulla.Text = "Annulla";
             BtnAnnulla.UseVisualStyleBackColor = true;
             BtnAnnulla.Visible = false;
+            BtnAnnulla.Click += BtnAnnulla_Click;
             // 
             // FrmAttivita
             // 

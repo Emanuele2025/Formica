@@ -76,18 +76,28 @@ namespace Formica
 
         private void MniOpzioni_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             FrmOpzioni opzioni = new FrmOpzioni();
             opzioni.ShowDialog();
+            Cursor.Current = Cursors.Default;
         }
 
         private void LnkAttivitaTerminate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //Apro task chiuse
+            Cursor.Current = Cursors.WaitCursor;
+            FrmAttivita attivita = new FrmAttivita();
+            attivita.ShowDialog();
+            Cursor.Current = Cursors.Default;
         }
 
         private void lnkAttivitaAperte_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //apro task attività aperte
+            Cursor.Current = Cursors.WaitCursor;
+            FrmAttivita attivita = new FrmAttivita();
+            attivita.ShowDialog();
+            Cursor.Current = Cursors.Default;
 
         }
 

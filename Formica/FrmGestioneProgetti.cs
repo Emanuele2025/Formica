@@ -374,10 +374,9 @@ namespace Formica
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore("Errore: " + ex.Message);
             }
         }
     }
