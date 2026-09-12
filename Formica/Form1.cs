@@ -1,3 +1,5 @@
+using Formica.Models;
+
 namespace Formica
 {
     public partial class Form1 : Form
@@ -6,6 +8,9 @@ namespace Formica
         {
             InitializeComponent();
         }
+
+        AppDbContext contesto = new AppDbContext();
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -26,8 +31,8 @@ namespace Formica
                 //TODO: Valutare in schermata di mettere una griglia con lo stato degli ultimi task
 
 
-                VerificaATtivita();
-
+                VerificaAttivita();
+                CaricaDati();
 
 
 
@@ -104,24 +109,34 @@ namespace Formica
 
         #region funzioni
 
-        private void VerificaATtivita()
+        private void VerificaAttivita()
         {
 
             //Imposto la percentuale per le attività rosso sotto il 50, tra il 50 e 85 giallo e sopra 85 verde
 
             try
             {
-                int percentualeTaskAperti = 0;
+                string percentualeTaskAperti = "";
                 int percentualeTaskChiusi = 0;
+
+                int TotaleTask = 0;
+                int TaskAperti = 0;
+
+
+                //TotaleTask = contesto.Attivita.Count();
+
+                  percentualeTaskAperti = CalcolaPercentuale(TaskAperti, TotaleTask);
+
+
 
                 lnkAttivitaAperte.Text = percentualeTaskAperti.ToString() + "%";
                 LnkAttivitaTerminate.Text = percentualeTaskChiusi.ToString() + "%";  
                  
-                if (percentualeTaskAperti < 50)
+                if (percentualeTaskChiusi < 50)
                 {
                     lnkAttivitaAperte.LinkColor = Color.Red;
                 }
-                else if (percentualeTaskAperti > 49 && percentualeTaskAperti < 85)
+                else if (percentualeTaskChiusi > 49 && percentualeTaskChiusi < 85)
                 {
                     lnkAttivitaAperte.LinkColor = Color.Yellow;
                 }
@@ -146,6 +161,33 @@ namespace Formica
         
         }
 
+        private void CaricaDati()
+        {
+            try
+            {
+                //string Valore = CalcolaPercentuale();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        
+        
+        
+        
+        }
+
+
+        private string CalcolaPercentuale(double parte, double totale)
+        {
+            if (totale == 0)
+            {
+                Utility.MessaggioInfo("Il totale non può essere zero.");
+                return "";
+            }
+             return Convert.ToString((parte / totale) * 100);
+        }
 
 
 
