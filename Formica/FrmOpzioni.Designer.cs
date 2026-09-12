@@ -41,7 +41,6 @@
             BtnInserisci = new Button();
             TxtStato = new TextBox();
             lblTitolod = new Label();
-            tabPage2 = new TabPage();
             CmsMenu = new ContextMenuStrip(components);
             MniModifica = new ToolStripMenuItem();
             MniElimina = new ToolStripMenuItem();
@@ -81,7 +80,6 @@
             // tabControl1
             // 
             tabControl1.Controls.Add(tbpStato);
-            tabControl1.Controls.Add(tabPage2);
             tabControl1.Dock = DockStyle.Top;
             tabControl1.Location = new Point(0, 22);
             tabControl1.Name = "tabControl1";
@@ -186,16 +184,6 @@
             lblTitolod.TabIndex = 0;
             lblTitolod.Text = "Stato:";
             // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1029, 440);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
-            // 
             // CmsMenu
             // 
             CmsMenu.Items.AddRange(new ToolStripItem[] { MniModifica, MniElimina });
@@ -249,7 +237,6 @@
         private Button BtnInserisci;
         private TextBox TxtStato;
         private Label lblTitolod;
-        private TabPage tabPage2;
         private DataGridView dtgDatiStato;
         private TextBox TxtDescrizione;
         private Label label3;

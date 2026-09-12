@@ -155,12 +155,14 @@
             MniModifica.Name = "MniModifica";
             MniModifica.Size = new Size(121, 22);
             MniModifica.Text = "Modifica";
+            MniModifica.Click += MniModifica_Click;
             // 
             // MniElimina
             // 
             MniElimina.Name = "MniElimina";
             MniElimina.Size = new Size(121, 22);
             MniElimina.Text = "Elimina";
+            MniElimina.Click += MniElimina_Click;
             // 
             // DtgDatiAttivita
             // 
@@ -241,6 +243,7 @@
             // 
             // CmbProgetto
             // 
+            CmbProgetto.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbProgetto.FormattingEnabled = true;
             CmbProgetto.Location = new Point(301, 433);
             CmbProgetto.Name = "CmbProgetto";

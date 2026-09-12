@@ -116,27 +116,27 @@ namespace Formica
 
             try
             {
-                string percentualeTaskAperti = "";
+                int percentualeTaskAperti = 0;
                 int percentualeTaskChiusi = 0;
 
                 int TotaleTask = 0;
                 int TaskAperti = 0;
-
+                int TaskChiusi = 0;
 
                 //TotaleTask = contesto.Attivita.Count();
 
                   percentualeTaskAperti = CalcolaPercentuale(TaskAperti, TotaleTask);
-
+                percentualeTaskChiusi =   CalcolaPercentuale(TaskChiusi, TotaleTask);
 
 
                 lnkAttivitaAperte.Text = percentualeTaskAperti.ToString() + "%";
                 LnkAttivitaTerminate.Text = percentualeTaskChiusi.ToString() + "%";  
                  
-                if (percentualeTaskChiusi < 50)
+                if (percentualeTaskAperti < 50)
                 {
                     lnkAttivitaAperte.LinkColor = Color.Red;
                 }
-                else if (percentualeTaskChiusi > 49 && percentualeTaskChiusi < 85)
+                else if (percentualeTaskAperti > 49 && percentualeTaskAperti < 85)
                 {
                     lnkAttivitaAperte.LinkColor = Color.Yellow;
                 }
@@ -179,14 +179,14 @@ namespace Formica
         }
 
 
-        private string CalcolaPercentuale(double parte, double totale)
+        private int CalcolaPercentuale(int parte, int totale)
         {
             if (totale == 0)
             {
                 Utility.MessaggioInfo("Il totale non può essere zero.");
-                return "";
+                return 0;
             }
-             return Convert.ToString((parte / totale) * 100);
+             return  ((parte / totale) * 100);
         }
 
 
