@@ -21,11 +21,11 @@ namespace Formica
         const string titolo = "Falco";
 
 
-        public const string Modifica = "Modifica effettuata con successo.";
+        public const string Modifica = "Modifica effettuata con successo. ";
 
-        public const string Inserimento = "Inserimento effettuato con successo.";
+        public const string Inserimento = "Inserimento effettuato con successo. ";
 
-        public const string Errore = "Si è verificato il seguente errore:.";
+        public const string Errore = "Si è verificato il seguente errore: ";
 
 
 

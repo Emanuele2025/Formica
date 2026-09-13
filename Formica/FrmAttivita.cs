@@ -107,6 +107,11 @@ namespace Formica
             try
             {
 
+                if (TxtNomeAttivita.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Il campo Nome attività è obbligatorio.");
+                    return;
+                }
 
 
                 CaricaDati();
@@ -117,7 +122,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(Utility.Errore + " " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore +  ex.Message);
             }
 
 

@@ -17,6 +17,8 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Agendum> Agenda { get; set; }
 
+    public virtual DbSet<Attivitum> Attivita { get; set; }
+
     public virtual DbSet<Progetti> Progettis { get; set; }
 
     public virtual DbSet<StatoLavorazione> StatoLavoraziones { get; set; }
@@ -32,6 +34,15 @@ public partial class AppDbContext : DbContext
             entity.HasKey(e => e.IdAgenda);
 
             entity.Property(e => e.DataEvento).HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<Attivitum>(entity =>
+        {
+            entity.HasKey(e => e.IdAttivita);
+
+            entity.Property(e => e.IdAttivita);
+            entity.Property(e => e.Aperto).HasColumnType("DATETIME");
+            entity.Property(e => e.Chiuso).HasColumnType("DATETIME");
         });
 
         modelBuilder.Entity<Progetti>(entity =>
@@ -50,7 +61,7 @@ public partial class AppDbContext : DbContext
 
             entity.ToTable("StatoLavorazione");
 
-            entity.Property(e => e.IdStato).ValueGeneratedOnAdd();
+            entity.Property(e => e.IdStato);
         });
 
         OnModelCreatingPartial(modelBuilder);
