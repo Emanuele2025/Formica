@@ -62,7 +62,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore caricamento dati: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
             finally
             {
@@ -102,7 +102,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore inserimento dati dati: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore  + ex.Message);
             }
         }
 

@@ -95,7 +95,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
 
@@ -153,7 +153,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
@@ -251,8 +251,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
@@ -317,11 +316,11 @@ namespace Formica
             }
             catch (IOException exio)
             {
-                Utility.MessaggioErrore("Errore: " + exio.Message);
+                Utility.MessaggioErrore(Utility.Errore + exio.Message);
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
         }
@@ -376,7 +375,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
     }
