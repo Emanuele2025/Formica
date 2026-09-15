@@ -32,7 +32,7 @@ namespace Formica
 
 
                 VerificaAttivita();
-                CaricaDati();
+                 
 
 
 
@@ -67,7 +67,7 @@ namespace Formica
 
         private void mniAgenda_Click(object sender, EventArgs e)
         {
-            //TODO: Apre finestra dell'agenda
+            
             Cursor.Current = Cursors.WaitCursor;
             FrmAgenda agenda = new FrmAgenda();
             agenda.ShowDialog();
@@ -123,9 +123,11 @@ namespace Formica
                 int TaskAperti = 0;
                 int TaskChiusi = 0;
 
-                //TotaleTask = contesto.Attivita.Count();
+                TotaleTask = contesto.Attivita.Count();
+                TaskAperti = contesto.Attivita.Where(p => p.Chiuso == null).Count();
+                TaskChiusi = contesto.Attivita.Where(p => p.Chiuso != null).Count();
 
-                  percentualeTaskAperti = CalcolaPercentuale(TaskAperti, TotaleTask);
+                percentualeTaskAperti = CalcolaPercentuale(TaskAperti, TotaleTask);
                 percentualeTaskChiusi =   CalcolaPercentuale(TaskChiusi, TotaleTask);
 
 
@@ -161,29 +163,14 @@ namespace Formica
         
         }
 
-        private void CaricaDati()
-        {
-            try
-            {
-                //string Valore = CalcolaPercentuale();
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
         
-        
-        
-        
-        }
 
 
         private int CalcolaPercentuale(int parte, int totale)
         {
             if (totale == 0)
             {
-                Utility.MessaggioInfo("Il totale non può essere zero.");
+               // Utility.MessaggioInfo("Il totale non può essere zero.");
                 return 0;
             }
              return  ((parte / totale) * 100);

@@ -30,7 +30,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
             finally
             {
@@ -293,7 +293,7 @@ namespace Formica
 
                 if (dtgDatiProgetti.Columns[e.ColumnIndex].Name == "FileAllegato")
                 {
-                    if (dtgDatiProgetti.Rows[e.RowIndex].Cells["FileAllegato"].Value == "Scarica")
+                    if (dtgDatiProgetti.Rows[e.RowIndex]?.Cells["FileAllegato"]?.Value == "Scarica")
                     {
                         SaveFileDialog salvaFile = new SaveFileDialog();
                         string estensione = dtgDatiProgetti.Rows[e.RowIndex].Cells["NomeFile"].Value.ToString();
