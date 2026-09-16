@@ -89,7 +89,20 @@ namespace Formica
                     return;
                 }
 
+                Attivitum attivita = new Attivitum
+                {
+                    Aperto = dtpApertura.Value,
+                    Descrizione = TxtDescrizione.Text.Trim(),
+                    IdProgetto = (int)CmbProgetto.SelectedValue,
+                    IdStato = (int)CmbStato.SelectedValue,
+                    Nome = TxtNomeAttivita.Text.Trim(),
+                    Nota = TxtNote.Text.Trim(),
+                    Urgente = ChkUrgente.Checked ? 1 : 0
 
+
+
+
+                };
 
 
 
@@ -122,7 +135,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(Utility.Errore +  ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
 
 
