@@ -167,6 +167,27 @@ namespace Formica
             try
             {
 
+                if (DtgDatiAttivita.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Selezionare una riga");
+                    return;
+                }
+
+                if (!Utility.CancellaRecord())
+                {
+                    return;
+                }
+
+                int idRecord = 0;
+                idRecord = Convert.ToInt32(DtgDatiAttivita.SelectedRows[0].Cells["IdAttivita"].Value);
+
+
+
+
+
+
+                CaricaDati();
+
             }
             catch (Exception ex)
             {
