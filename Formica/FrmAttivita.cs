@@ -63,7 +63,7 @@ namespace Formica
                 BtnAnnulla.Visible = false;
                 BtnSalva.Visible = false;
 
-
+                DtgDatiAttivita.Enabled = true;
 
             }
             catch (Exception ex)
@@ -125,9 +125,34 @@ namespace Formica
                     Utility.MessaggioInfo("Il campo Nome attività è obbligatorio.");
                     return;
                 }
+                int idRecord = 0;
+                idRecord = Convert.ToInt32(DtgDatiAttivita.SelectedRows[0].Cells["IdAttivita"].Value);
+                if (TxtNomeAttivita.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Il campo Nome attività è obbligatorio.");
+                    return;
+                }
 
+                Attivitum attivita = new Attivitum
+                {
+                    Aperto = dtpApertura.Value,
+                    Descrizione = TxtDescrizione.Text.Trim(),
+                    IdProgetto = (int)CmbProgetto.SelectedValue,
+                    IdStato = (int)CmbStato.SelectedValue,
+                    Nome = TxtNomeAttivita.Text.Trim(),
+                    Nota = TxtNote.Text.Trim(),
+                    Urgente = ChkUrgente.Checked ? 1 : 0,
+                    Chiuso = dtpTermine.Checked ? dtpTermine.Value : null
+                };
 
-                CaricaDati();
+                if (contesto.SaveChanges() > 0)
+                {
+                    Utility.MessaggioInfo(Utility.Modifica);
+                    CaricaDati();
+                
+                
+                }
+ 
 
 
 
@@ -181,12 +206,18 @@ namespace Formica
                 int idRecord = 0;
                 idRecord = Convert.ToInt32(DtgDatiAttivita.SelectedRows[0].Cells["IdAttivita"].Value);
 
+                var attivitaTrovata = contesto.Attivita.Where(p => p.IdAttivita == idRecord).FirstOrDefault();
+                if (attivitaTrovata != null)
+                {
 
-
-
-
-
-                CaricaDati();
+                    contesto.Remove(attivitaTrovata);
+                    if(contesto.SaveChanges() >0)
+                    {
+                        Utility.MessaggioInfo("Record cancellato con successo.");
+                        CaricaDati();
+                    }
+                }
+ 
 
             }
             catch (Exception ex)
@@ -199,7 +230,26 @@ namespace Formica
         {
             try
             {
+                int idRecord = 0;
+                idRecord = Convert.ToInt32(DtgDatiAttivita.SelectedRows[0].Cells["IdAttivita"].Value);
+                DtgDatiAttivita.Enabled = false;
+                var attivitaTrovata = contesto.Attivita.Where(p => p.IdAttivita == idRecord).FirstOrDefault();
+                if (attivitaTrovata != null)
+                {
+                    TxtDescrizione.Text = attivitaTrovata.Descrizione;
+                    TxtNomeAttivita.Text = attivitaTrovata.Nome;
+                    TxtNote.Text = attivitaTrovata.Nota;
+                    CmbProgetto.SelectedValue = attivitaTrovata.IdProgetto;
+                    CmbStato.SelectedValue = attivitaTrovata.IdStato;
+                    ChkUrgente.Checked = attivitaTrovata.Urgente == 1;
+                    dtpApertura.Value = attivitaTrovata.Aperto.HasValue ? attivitaTrovata.Aperto.Value : DateTime.Now;
+                    if (attivitaTrovata.Chiuso.HasValue)
+                    {
+                        dtpTermine.Value = attivitaTrovata.Chiuso.Value;
+                        dtpTermine.Checked = true;
+                    }
 
+                }
             }
             catch (Exception ex)
             {
