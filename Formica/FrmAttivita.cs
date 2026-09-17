@@ -57,7 +57,7 @@ namespace Formica
                     CmbStato.SelectedIndex = 0;
                 }
                 DtgDatiAttivita.DataSource = contesto.Attivita.ToList();
-
+                 
 
                 BtnInserisci.Visible = true;
                 BtnAnnulla.Visible = false;
