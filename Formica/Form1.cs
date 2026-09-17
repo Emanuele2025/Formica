@@ -134,13 +134,17 @@ namespace Formica
                 lnkAttivitaAperte.Text = percentualeTaskAperti.ToString() + "%";
                 LnkAttivitaTerminate.Text = percentualeTaskChiusi.ToString() + "%";
 
-                if (percentualeTaskAperti < 50)
+                if (percentualeTaskAperti > 85)
                 {
                     lnkAttivitaAperte.LinkColor = Color.Red;
                 }
-                else if (percentualeTaskAperti > 49 && percentualeTaskAperti < 85)
+                else if (percentualeTaskAperti > 3 && percentualeTaskAperti < 85)
                 {
                     lnkAttivitaAperte.LinkColor = Color.Yellow;
+                }
+                else if ( percentualeTaskAperti < 3)
+                {
+                    lnkAttivitaAperte.LinkColor = Color.Green;
                 }
                 if (percentualeTaskChiusi < 50)
                 {

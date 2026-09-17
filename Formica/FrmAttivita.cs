@@ -48,6 +48,7 @@ namespace Formica
                 {
                     CmbProgetto.SelectedIndex = 0;
                 }
+                //TODO: mettere stato e progetti con il testo - Urgente si o no
                 var stati = contesto.StatoLavoraziones.Select(p => new { p.IdStato, p.Stato }).ToList();
                 CmbStato.DisplayMember = "Stato";
                 CmbStato.ValueMember = "IdStato";
@@ -57,7 +58,15 @@ namespace Formica
                     CmbStato.SelectedIndex = 0;
                 }
                 DtgDatiAttivita.DataSource = contesto.Attivita.ToList();
-                 
+
+                TxtDescrizione.Text = "";
+                TxtNomeAttivita.Text = "";
+                TxtNote.Text = "";
+                dtpApertura.Value = DateTime.Now;
+                
+                dtpTermine.Value = DateTime.Now;
+                dtpTermine.Checked = false;
+
 
                 BtnInserisci.Visible = true;
                 BtnAnnulla.Visible = false;
@@ -145,7 +154,7 @@ namespace Formica
                     Aperto = dtpApertura.Value,
                     Descrizione = TxtDescrizione.Text.Trim(),
                     IdProgetto = (int)CmbProgetto.SelectedValue,
-                    IdStato = (int)CmbStato.SelectedValue,
+                    IdStato = (int)CmbStato?.SelectedValue,
                     Nome = TxtNomeAttivita.Text.Trim(),
                     Nota = TxtNote.Text.Trim(),
                     Urgente = ChkUrgente.Checked ? 1 : 0,
@@ -246,8 +255,8 @@ namespace Formica
                     TxtDescrizione.Text = attivitaTrovata.Descrizione;
                     TxtNomeAttivita.Text = attivitaTrovata.Nome;
                     TxtNote.Text = attivitaTrovata.Nota;
-                    CmbProgetto.SelectedValue = attivitaTrovata.IdProgetto;
-                    CmbStato.SelectedValue = attivitaTrovata.IdStato;
+                    CmbProgetto.SelectedValue = attivitaTrovata.IdProgetto ?? 0;
+                    CmbStato.SelectedValue = attivitaTrovata.IdStato ?? 0;
                     ChkUrgente.Checked = attivitaTrovata.Urgente == 1;
                     dtpApertura.Value = attivitaTrovata.Aperto.HasValue ? attivitaTrovata.Aperto.Value : DateTime.Now;
                     if (attivitaTrovata.Chiuso.HasValue)
