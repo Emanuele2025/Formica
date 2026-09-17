@@ -32,7 +32,7 @@ namespace Formica
 
 
                 VerificaAttivita();
-                 
+
 
 
 
@@ -67,7 +67,7 @@ namespace Formica
 
         private void mniAgenda_Click(object sender, EventArgs e)
         {
-            
+
             Cursor.Current = Cursors.WaitCursor;
             FrmAgenda agenda = new FrmAgenda();
             agenda.ShowDialog();
@@ -128,12 +128,12 @@ namespace Formica
                 TaskChiusi = contesto.Attivita.Where(p => p.Chiuso != null).Count();
 
                 percentualeTaskAperti = CalcolaPercentuale(TaskAperti, TotaleTask);
-                percentualeTaskChiusi =   CalcolaPercentuale(TaskChiusi, TotaleTask);
+                percentualeTaskChiusi = CalcolaPercentuale(TaskChiusi, TotaleTask);
 
 
                 lnkAttivitaAperte.Text = percentualeTaskAperti.ToString() + "%";
-                LnkAttivitaTerminate.Text = percentualeTaskChiusi.ToString() + "%";  
-                 
+                LnkAttivitaTerminate.Text = percentualeTaskChiusi.ToString() + "%";
+
                 if (percentualeTaskAperti < 50)
                 {
                     lnkAttivitaAperte.LinkColor = Color.Red;
@@ -160,20 +160,20 @@ namespace Formica
 
 
 
-        
+
         }
 
-        
+
 
 
         private int CalcolaPercentuale(int parte, int totale)
         {
             if (totale == 0)
             {
-               // Utility.MessaggioInfo("Il totale non può essere zero.");
+                // Utility.MessaggioInfo("Il totale non può essere zero.");
                 return 0;
             }
-             return  ((parte / totale) * 100);
+            return ((parte / totale) * 100);
         }
 
 
@@ -184,5 +184,13 @@ namespace Formica
 
 
 
+        private void MniAttivita_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            FrmAttivita attivita = new FrmAttivita();
+            attivita.ShowDialog();
+            Cursor.Current = Cursors.Default;
+
+        }
     }
 }

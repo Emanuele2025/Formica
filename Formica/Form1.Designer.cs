@@ -84,7 +84,7 @@
             // mniGestione
             // 
             mniGestione.Name = "mniGestione";
-            mniGestione.Size = new Size(125, 22);
+            mniGestione.Size = new Size(180, 22);
             mniGestione.Text = "Progetti...";
             mniGestione.ToolTipText = "Apre la finestra per la gestione dei progetti";
             mniGestione.Click += gestioneToolStripMenuItem_Click;
@@ -92,8 +92,9 @@
             // MniAttivita
             // 
             MniAttivita.Name = "MniAttivita";
-            MniAttivita.Size = new Size(125, 22);
+            MniAttivita.Size = new Size(180, 22);
             MniAttivita.Text = "Attività..";
+            MniAttivita.Click += MniAttivita_Click;
             // 
             // documentiToolStripMenuItem
             // 

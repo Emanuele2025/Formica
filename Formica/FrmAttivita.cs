@@ -56,7 +56,7 @@ namespace Formica
                 {
                     CmbStato.SelectedIndex = 0;
                 }
-
+                DtgDatiAttivita.DataSource = contesto.Attivita.ToList();
 
 
                 BtnInserisci.Visible = true;
@@ -104,7 +104,14 @@ namespace Formica
 
                 };
 
-
+                contesto.Attivita.Add(attivita);
+                if (contesto.SaveChanges() > 0)
+                {
+                    Utility.MessaggioInfo(Utility.Inserimento);
+                    CaricaDati();
+                    
+                
+                }
 
 
 
