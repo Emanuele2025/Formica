@@ -63,7 +63,7 @@ namespace Formica
                 TxtNomeAttivita.Text = "";
                 TxtNote.Text = "";
                 dtpApertura.Value = DateTime.Now;
-                
+
                 dtpTermine.Value = DateTime.Now;
                 dtpTermine.Checked = false;
 
@@ -118,8 +118,8 @@ namespace Formica
                 {
                     Utility.MessaggioInfo(Utility.Inserimento);
                     CaricaDati();
-                    
-                
+
+
                 }
 
 
@@ -165,10 +165,10 @@ namespace Formica
                 {
                     Utility.MessaggioInfo(Utility.Modifica);
                     CaricaDati();
-                
-                
+
+
                 }
- 
+
 
 
 
@@ -227,13 +227,13 @@ namespace Formica
                 {
 
                     contesto.Remove(attivitaTrovata);
-                    if(contesto.SaveChanges() >0)
+                    if (contesto.SaveChanges() > 0)
                     {
                         Utility.MessaggioInfo("Record cancellato con successo.");
                         CaricaDati();
                     }
                 }
- 
+
 
             }
             catch (Exception ex)
@@ -270,6 +270,40 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+        }
+
+        private void DtgDatiAttivita_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DtgDatiAttivita_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // Click destro su una cella valida
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                // Controllo che il DGV abbia almeno una riga
+                if (DtgDatiAttivita.Rows.Count == 0)
+                    return;
+
+                // Recupero la riga cliccata
+                var riga = DtgDatiAttivita.Rows[e.RowIndex];
+
+                // Verifico che la riga abbia almeno un dato non vuoto
+                bool rigaValida = riga.Cells
+                    .Cast<DataGridViewCell>()
+                    .Any(c => c.Value != null && c?.Value?.ToString()?.Trim() != "");
+
+                if (!rigaValida)
+                    return;
+
+                // Se arrivo qui: la riga è valida → la seleziono
+                DtgDatiAttivita.ClearSelection();
+                riga.Selected = true;
+
+                // Mostro il menu contestuale
+                CmsAttivita.Show(Cursor.Position);
             }
         }
     }

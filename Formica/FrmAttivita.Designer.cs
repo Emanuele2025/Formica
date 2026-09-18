@@ -172,6 +172,7 @@
             DtgDatiAttivita.Name = "DtgDatiAttivita";
             DtgDatiAttivita.Size = new Size(1236, 329);
             DtgDatiAttivita.TabIndex = 12;
+            DtgDatiAttivita.CellMouseDown += DtgDatiAttivita_CellMouseDown;
             // 
             // dtpTermine
             // 
