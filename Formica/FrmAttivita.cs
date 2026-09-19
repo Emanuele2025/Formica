@@ -73,6 +73,7 @@ namespace Formica
                 BtnSalva.Visible = false;
 
                 DtgDatiAttivita.Enabled = true;
+                ChkUrgente.Checked = false;
 
             }
             catch (Exception ex)
@@ -143,32 +144,33 @@ namespace Formica
                 }
                 int idRecord = 0;
                 idRecord = Convert.ToInt32(DtgDatiAttivita.SelectedRows[0].Cells["IdAttivita"].Value);
-                if (TxtNomeAttivita.Text.Trim() == "")
+               
+
+
+                Attivitum? attivita = contesto.Attivita.Where(p => p.IdAttivita == idRecord).FirstOrDefault();
+
+                if (attivita != null)
                 {
-                    Utility.MessaggioInfo("Il campo Nome attività è obbligatorio.");
-                    return;
+
+
+                    attivita.Aperto = dtpApertura.Value;
+                    attivita.Descrizione = TxtDescrizione.Text.Trim();
+                    attivita.IdProgetto = (int)CmbProgetto.SelectedValue;
+                    attivita.IdStato = (int)CmbStato?.SelectedValue;
+                    attivita.Nome = TxtNomeAttivita.Text.Trim();
+                    attivita.Nota = TxtNote.Text.Trim();
+                    attivita.Urgente = ChkUrgente.Checked ? 1 : 0;
+                    attivita.Chiuso = dtpTermine.Checked ? dtpTermine.Value : null;
+
+
+                    if (contesto.SaveChanges() > 0)
+                    {
+                        Utility.MessaggioInfo(Utility.Modifica);
+                        CaricaDati();
+
+
+                    }
                 }
-
-                Attivitum attivita = new Attivitum
-                {
-                    Aperto = dtpApertura.Value,
-                    Descrizione = TxtDescrizione.Text.Trim(),
-                    IdProgetto = (int)CmbProgetto.SelectedValue,
-                    IdStato = (int)CmbStato?.SelectedValue,
-                    Nome = TxtNomeAttivita.Text.Trim(),
-                    Nota = TxtNote.Text.Trim(),
-                    Urgente = ChkUrgente.Checked ? 1 : 0,
-                    Chiuso = dtpTermine.Checked ? dtpTermine.Value : null
-                };
-
-                if (contesto.SaveChanges() > 0)
-                {
-                    Utility.MessaggioInfo(Utility.Modifica);
-                    CaricaDati();
-
-
-                }
-
 
 
 
@@ -266,6 +268,9 @@ namespace Formica
                     }
 
                 }
+                BtnAnnulla.Visible = true;
+                BtnSalva.Visible = true;
+                BtnInserisci.Visible = false;
             }
             catch (Exception ex)
             {
