@@ -95,21 +95,23 @@
             // 
             // TxtNomeAttivita
             // 
+            TxtNomeAttivita.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TxtNomeAttivita.Location = new Point(12, 386);
             TxtNomeAttivita.MaxLength = 200;
             TxtNomeAttivita.Name = "TxtNomeAttivita";
-            TxtNomeAttivita.Size = new Size(251, 23);
+            TxtNomeAttivita.Size = new Size(251, 29);
             TxtNomeAttivita.TabIndex = 1;
             TxtNomeAttivita.Enter += txt_Enter;
             TxtNomeAttivita.Leave += txt_Leave;
             // 
             // TxtDescrizione
             // 
+            TxtDescrizione.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TxtDescrizione.Location = new Point(12, 433);
             TxtDescrizione.MaxLength = 500;
             TxtDescrizione.Multiline = true;
             TxtDescrizione.Name = "TxtDescrizione";
-            TxtDescrizione.Size = new Size(251, 112);
+            TxtDescrizione.Size = new Size(251, 140);
             TxtDescrizione.TabIndex = 2;
             TxtDescrizione.Enter += txt_Enter;
             TxtDescrizione.Leave += txt_Leave;
@@ -117,7 +119,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(9, 413);
+            label3.Location = new Point(9, 416);
             label3.Name = "label3";
             label3.Size = new Size(70, 15);
             label3.TabIndex = 7;
@@ -125,6 +127,7 @@
             // 
             // TxtNote
             // 
+            TxtNote.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TxtNote.Location = new Point(973, 395);
             TxtNote.MaxLength = 1000;
             TxtNote.Multiline = true;
@@ -177,13 +180,15 @@
             // dtpTermine
             // 
             dtpTermine.Checked = false;
+            dtpTermine.Enabled = false;
+            dtpTermine.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpTermine.Format = DateTimePickerFormat.Short;
             dtpTermine.Location = new Point(521, 386);
             dtpTermine.MaxDate = new DateTime(2099, 12, 31, 0, 0, 0, 0);
             dtpTermine.MinDate = new DateTime(1980, 1, 1, 0, 0, 0, 0);
             dtpTermine.Name = "dtpTermine";
             dtpTermine.ShowCheckBox = true;
-            dtpTermine.Size = new Size(200, 23);
+            dtpTermine.Size = new Size(200, 29);
             dtpTermine.TabIndex = 4;
             dtpTermine.Value = new DateTime(2099, 12, 31, 0, 0, 0, 0);
             // 
@@ -198,12 +203,13 @@
             // 
             // dtpApertura
             // 
+            dtpApertura.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpApertura.Format = DateTimePickerFormat.Short;
             dtpApertura.Location = new Point(301, 386);
             dtpApertura.MaxDate = new DateTime(2099, 12, 31, 0, 0, 0, 0);
             dtpApertura.MinDate = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             dtpApertura.Name = "dtpApertura";
-            dtpApertura.Size = new Size(200, 23);
+            dtpApertura.Size = new Size(200, 29);
             dtpApertura.TabIndex = 3;
             // 
             // label5
@@ -227,7 +233,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(302, 413);
+            label8.Location = new Point(302, 416);
             label8.Name = "label8";
             label8.Size = new Size(56, 15);
             label8.TabIndex = 36;
@@ -236,19 +242,21 @@
             // CmbStato
             // 
             CmbStato.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbStato.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             CmbStato.FormattingEnabled = true;
             CmbStato.Location = new Point(742, 389);
             CmbStato.Name = "CmbStato";
-            CmbStato.Size = new Size(194, 23);
+            CmbStato.Size = new Size(194, 29);
             CmbStato.TabIndex = 5;
             // 
             // CmbProgetto
             // 
             CmbProgetto.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbProgetto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             CmbProgetto.FormattingEnabled = true;
-            CmbProgetto.Location = new Point(301, 433);
+            CmbProgetto.Location = new Point(301, 436);
             CmbProgetto.Name = "CmbProgetto";
-            CmbProgetto.Size = new Size(420, 23);
+            CmbProgetto.Size = new Size(420, 29);
             CmbProgetto.TabIndex = 6;
             // 
             // ChkUrgente

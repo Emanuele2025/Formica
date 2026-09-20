@@ -1,4 +1,5 @@
 ﻿using Formica.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,7 +58,33 @@ namespace Formica
                 {
                     CmbStato.SelectedIndex = 0;
                 }
-                DtgDatiAttivita.DataSource = contesto.Attivita.ToList();
+
+                using (var db = new AppDbContext())
+                {
+                    var lista = db.Attivita
+                        .Include(a => a.Progetti )   // relazione con Progetti
+                        .Include(a => a.Stato)      // relazione con Stato
+                        .Select(a => new
+                        {
+                            a.IdAttivita,
+                            a.Aperto,
+                            a.Chiuso,
+                            a.Descrizione,
+                            a.Nome,
+                            a.Nota,
+                            Urgente = a.Urgente == 0 ? "No" : "Si",
+                            Progetto = a.Progetti.Nome,
+                            Stato = a.Stato.Stato
+                           
+                        })
+                        .ToList();
+
+                    DtgDatiAttivita.DataSource = lista;
+                }
+
+
+              //  var attivita = contesto.Attivita.LeftJoin(contesto.Progettis)
+             //   DtgDatiAttivita.DataSource = contesto.Attivita .ToList();
 
                 TxtDescrizione.Text = "";
                 TxtNomeAttivita.Text = "";
@@ -66,7 +93,7 @@ namespace Formica
 
                 dtpTermine.Value = DateTime.Now;
                 dtpTermine.Checked = false;
-
+                dtpTermine.Enabled = false;
 
                 BtnInserisci.Visible = true;
                 BtnAnnulla.Visible = false;
@@ -271,6 +298,7 @@ namespace Formica
                 BtnAnnulla.Visible = true;
                 BtnSalva.Visible = true;
                 BtnInserisci.Visible = false;
+                dtpTermine.Enabled = true;
             }
             catch (Exception ex)
             {

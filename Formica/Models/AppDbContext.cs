@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace Formica.Models;
 
@@ -43,7 +44,19 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.IdAttivita);
             entity.Property(e => e.Aperto).HasColumnType("DATETIME");
             entity.Property(e => e.Chiuso).HasColumnType("DATETIME");
+
         });
+
+        modelBuilder.Entity<Attivitum>()
+        .HasOne(a => a.Progetti)
+        .WithMany()
+        .HasForeignKey(a => a.IdProgetto);
+
+        modelBuilder.Entity<Attivitum>()
+            .HasOne(a => a.Stato)
+            .WithMany()
+            .HasForeignKey(a => a.IdStato);
+
 
         modelBuilder.Entity<Progetti>(entity =>
         {
