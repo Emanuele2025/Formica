@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             mnsMenuPrincipale = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             esciToolStripMenuItem = new ToolStripMenuItem();
@@ -84,7 +85,7 @@
             // mniGestione
             // 
             mniGestione.Name = "mniGestione";
-            mniGestione.Size = new Size(180, 22);
+            mniGestione.Size = new Size(125, 22);
             mniGestione.Text = "Progetti...";
             mniGestione.ToolTipText = "Apre la finestra per la gestione dei progetti";
             mniGestione.Click += gestioneToolStripMenuItem_Click;
@@ -92,7 +93,7 @@
             // MniAttivita
             // 
             MniAttivita.Name = "MniAttivita";
-            MniAttivita.Size = new Size(180, 22);
+            MniAttivita.Size = new Size(125, 22);
             MniAttivita.Text = "Attività..";
             MniAttivita.Click += MniAttivita_Click;
             // 
@@ -226,6 +227,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(mnsMenuPrincipale);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = mnsMenuPrincipale;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;

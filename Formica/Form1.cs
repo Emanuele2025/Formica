@@ -140,7 +140,7 @@ namespace Formica
                 }
                 else if (percentualeTaskAperti > 3 && percentualeTaskAperti < 85)
                 {
-                    lnkAttivitaAperte.LinkColor = Color.Yellow;
+                    lnkAttivitaAperte.LinkColor = Color.Orange;
                 }
                 else if ( percentualeTaskAperti < 3)
                 {
@@ -170,17 +170,28 @@ namespace Formica
 
 
 
-        private int CalcolaPercentuale(int parte, int totale)
+        //private int CalcolaPercentuale(int parte, int totale)
+        //{
+        //    if (totale == 0)
+        //    {
+        //        // Utility.MessaggioInfo("Il totale non può essere zero.");
+        //        return 0;
+        //    }
+        //    return ((parte / totale) * 100);
+        //}
+
+        private int CalcolaPercentuale(double parte, double totale)
         {
             if (totale == 0)
             {
                 // Utility.MessaggioInfo("Il totale non può essere zero.");
                 return 0;
             }
-            return ((parte / totale) * 100);
+            return Convert.ToInt32((parte / totale) * 100);
         }
 
 
+        
 
         #endregion
 

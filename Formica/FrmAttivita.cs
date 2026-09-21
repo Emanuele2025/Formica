@@ -169,6 +169,16 @@ namespace Formica
                     Utility.MessaggioInfo("Il campo Nome attività è obbligatorio.");
                     return;
                 }
+                if (dtpTermine.Checked)
+                {
+                    if (dtpTermine.Value < dtpApertura.Value)
+                    {
+                        Utility.MessaggioInfo("La data di termine attività non può essere minore della data di apertura.");
+                        return;
+                    }
+                }
+
+
                 int idRecord = 0;
                 idRecord = Convert.ToInt32(DtgDatiAttivita.SelectedRows[0].Cells["IdAttivita"].Value);
                
