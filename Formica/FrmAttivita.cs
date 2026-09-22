@@ -49,7 +49,8 @@ namespace Formica
                 {
                     CmbProgetto.SelectedIndex = 0;
                 }
-                //TODO: mettere stato e progetti con il testo - Urgente si o no
+                
+
                 var stati = contesto.StatoLavoraziones.Select(p => new { p.IdStato, p.Stato }).ToList();
                 CmbStato.DisplayMember = "Stato";
                 CmbStato.ValueMember = "IdStato";
@@ -135,9 +136,6 @@ namespace Formica
                     Nome = TxtNomeAttivita.Text.Trim(),
                     Nota = TxtNote.Text.Trim(),
                     Urgente = ChkUrgente.Checked ? 1 : 0
-
-
-
 
                 };
 

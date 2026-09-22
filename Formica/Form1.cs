@@ -152,7 +152,7 @@ namespace Formica
                 }
                 else if (percentualeTaskChiusi > 49 && percentualeTaskChiusi < 85)
                 {
-                    LnkAttivitaTerminate.LinkColor = Color.Yellow;
+                    LnkAttivitaTerminate.LinkColor = Color.Orange;
                 }
 
             }
