@@ -17,18 +17,18 @@ namespace Formica
             try
             {
                 this.Text = Utility.TitoloFinestra;
-                //TODO : task chiusi in percentuali
+                 
                 //TODO: come consigliato da AI, visualizzare una Dashboard con i task chiusi, aperti etc
-                //TODO: Visualizzare i task in un dataGrid
-                //TODO: fare form, che inserisce il progetto (progetto e non task) come nome progetto, descrizione, data inserito e data conclusione
-                //TODO: fare form per inserire le opzioni, come priorità (Urgente, immediata, normale, bassa) stato (da fare, in corso, completato, sospesa)
-                //TODO task, descrizione, percentuale di completamente, nome, descrizione, progetto, documento, informazioni
+                 
+                
+                //TODO: fare form per inserire le opzioni, come priorità (Urgente, immediata, normale, bassa)  
+                 
                 //TODO: FAre anche se è un bug, implementazione, attività normale come nota, etc
                 //Comando per aggiornare tutto                      dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite--context AppDbContext --output - dir Models--force
                 //Comando per aggiornare solo nuove tabelle         dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --table Progetti --table Clienti --context AppDbContext --output-dir Models --force
                 //TODO : FAre anche Agenda
                 //Ultimo comando funziona dopo il cd nel progetto - dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --context AppDbContext --output-dir Models --force
-                //TODO: Valutare in schermata di mettere una griglia con lo stato degli ultimi task
+                 
 
 
                 VerificaAttivita();
@@ -169,16 +169,7 @@ namespace Formica
 
 
 
-
-        //private int CalcolaPercentuale(int parte, int totale)
-        //{
-        //    if (totale == 0)
-        //    {
-        //        // Utility.MessaggioInfo("Il totale non può essere zero.");
-        //        return 0;
-        //    }
-        //    return ((parte / totale) * 100);
-        //}
+ 
 
         private int CalcolaPercentuale(double parte, double totale)
         {
