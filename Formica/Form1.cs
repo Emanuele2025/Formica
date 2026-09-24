@@ -170,12 +170,17 @@ namespace Formica
 
 
  
-
+        /// <summary>
+        /// Rileva la percentuale su due numeri
+        /// </summary>
+        /// <param name="parte"></param>
+        /// <param name="totale"></param>
+        /// <returns></returns>
         private int CalcolaPercentuale(double parte, double totale)
         {
             if (totale == 0)
             {
-                // Utility.MessaggioInfo("Il totale non può essere zero.");
+                 
                 return 0;
             }
             return Convert.ToInt32((parte / totale) * 100);
