@@ -221,7 +221,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore durante la modifica dei   dati: " + ex.Message);
+                Utility.MessaggioErrore("Errore durante la modifica dei dati: " + ex.Message);
             }
         }
 
@@ -244,10 +244,7 @@ namespace Formica
 
                     
                     if (contesto.SaveChanges() > 0)
-                        Utility.MessaggioInfo("Record salvato con successo. ");
-
-
-
+                        Utility.MessaggioInfo(Utility.Modifica);
 
                     CaricaDati();
 
@@ -259,7 +256,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore durante il salvataggio dei   dati: " + ex.Message);
+                Utility.MessaggioErrore("Errore durante il salvataggio dei dati: " + ex.Message);
             }
         }
     }
