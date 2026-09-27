@@ -241,7 +241,7 @@ namespace Formica
                 }
 
                 int idRecord = 0;
-                idRecord = Convert.ToInt32(dtgDatiProgetti.SelectedRows[0].Cells["Idprogetto"]);
+                idRecord = Convert.ToInt32(dtgDatiProgetti.SelectedRows[0].Cells["Idprogetto"].Value);
                 var progettoTrovato = contesto.Progettis.Where(p => p.IdProgetto == idRecord).FirstOrDefault();
                 if (progettoTrovato != null)
                 {
@@ -256,6 +256,10 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Utility.MessaggioErrore(Utility.Errore + " " + ex.InnerException.Message);
+                }
             }
         }
 
