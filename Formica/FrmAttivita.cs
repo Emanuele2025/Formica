@@ -304,6 +304,10 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Utility.MessaggioErrore(Utility.Errore + " " + ex.InnerException.Message);
+                }
             }
         }
 
