@@ -103,6 +103,10 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(Utility.Errore  + ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Utility.MessaggioErrore(Utility.Errore + " " + ex.InnerException.Message);
+                }
             }
         }
 
@@ -257,6 +261,10 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore("Errore durante il salvataggio dei dati: " + ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Utility.MessaggioErrore(Utility.Errore + " " + ex.InnerException.Message);
+                }
             }
         }
     }

@@ -126,13 +126,24 @@ namespace Formica
                     Utility.MessaggioInfo("Il campo Nome attività è obbligatorio.");
                     return;
                 }
+                int? idStato = null;
+                if (CmbStato.SelectedValue != null)
+                {
+                    idStato = (int)CmbStato.SelectedValue;
+                }
+                int? idProgetto = null;
+                if (CmbProgetto.SelectedValue != null)
+                {
+                    idProgetto = (int)CmbProgetto.SelectedValue;
+                }
+
 
                 Attivitum attivita = new Attivitum
                 {
                     Aperto = dtpApertura.Value,
                     Descrizione = TxtDescrizione.Text.Trim(),
-                    IdProgetto = (int)CmbProgetto.SelectedValue,
-                    IdStato = (int)CmbStato.SelectedValue,
+                    IdProgetto = idProgetto,
+                    IdStato = idStato,
                     Nome = TxtNomeAttivita.Text.Trim(),
                     Nota = TxtNote.Text.Trim(),
                     Urgente = ChkUrgente.Checked ? 1 : 0
@@ -154,6 +165,10 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(Utility.Errore + " " + ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Utility.MessaggioErrore(Utility.Errore + " " + ex.InnerException.Message);
+                }
             }
         }
 
@@ -187,11 +202,20 @@ namespace Formica
                 if (attivita != null)
                 {
 
-
+                    int? idStato = null;
+                    if (CmbStato.SelectedValue != null)
+                    {
+                        idStato = (int)CmbStato.SelectedValue;
+                    }
+                    int? idProgetto = null;
+                    if (CmbProgetto.SelectedValue != null)
+                    {
+                        idProgetto = (int)CmbProgetto.SelectedValue;
+                    }
                     attivita.Aperto = dtpApertura.Value;
                     attivita.Descrizione = TxtDescrizione.Text.Trim();
-                    attivita.IdProgetto = (int)CmbProgetto.SelectedValue;
-                    attivita.IdStato = (int)CmbStato?.SelectedValue;
+                    attivita.IdProgetto = idStato;
+                    attivita.IdStato = idProgetto;
                     attivita.Nome = TxtNomeAttivita.Text.Trim();
                     attivita.Nota = TxtNote.Text.Trim();
                     attivita.Urgente = ChkUrgente.Checked ? 1 : 0;
@@ -214,6 +238,10 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Utility.MessaggioErrore(Utility.Errore + " " + ex.InnerException.Message);
+                }
             }
 
 
