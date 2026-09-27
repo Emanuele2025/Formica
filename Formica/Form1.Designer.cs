@@ -85,7 +85,7 @@
             // mniGestione
             // 
             mniGestione.Name = "mniGestione";
-            mniGestione.Size = new Size(125, 22);
+            mniGestione.Size = new Size(180, 22);
             mniGestione.Text = "Progetti...";
             mniGestione.ToolTipText = "Apre la finestra per la gestione dei progetti";
             mniGestione.Click += gestioneToolStripMenuItem_Click;
@@ -93,8 +93,9 @@
             // MniAttivita
             // 
             MniAttivita.Name = "MniAttivita";
-            MniAttivita.Size = new Size(125, 22);
+            MniAttivita.Size = new Size(180, 22);
             MniAttivita.Text = "Attività..";
+            MniAttivita.ToolTipText = "Apre la finestra per la gestione delle attività, task da realizzare";
             MniAttivita.Click += MniAttivita_Click;
             // 
             // documentiToolStripMenuItem
@@ -107,7 +108,7 @@
             // mniGestioneDocumenti
             // 
             mniGestioneDocumenti.Name = "mniGestioneDocumenti";
-            mniGestioneDocumenti.Size = new Size(129, 22);
+            mniGestioneDocumenti.Size = new Size(180, 22);
             mniGestioneDocumenti.Text = "Gestione...";
             mniGestioneDocumenti.Click += mniGestioneDocumenti_Click;
             // 
@@ -122,7 +123,7 @@
             // 
             MniAgenda.Image = Properties.Resources.calendar_16x16_freeicon;
             MniAgenda.Name = "MniAgenda";
-            MniAgenda.Size = new Size(124, 22);
+            MniAgenda.Size = new Size(180, 22);
             MniAgenda.Text = "Agenda...";
             MniAgenda.ToolTipText = "Visualizza l'agenda per gestire gli appuntamento o calenderio attività";
             MniAgenda.Click += mniAgenda_Click;
@@ -130,13 +131,15 @@
             // MniRubrica
             // 
             MniRubrica.Name = "MniRubrica";
-            MniRubrica.Size = new Size(124, 22);
+            MniRubrica.Size = new Size(180, 22);
             MniRubrica.Text = "Rubrica...";
+            MniRubrica.ToolTipText = "Visualizza la finestra riguardante la rubrica";
+            MniRubrica.Click += MniRubrica_Click;
             // 
             // MniOpzioni
             // 
             MniOpzioni.Name = "MniOpzioni";
-            MniOpzioni.Size = new Size(124, 22);
+            MniOpzioni.Size = new Size(180, 22);
             MniOpzioni.Text = "Opzioni...";
             MniOpzioni.ToolTipText = "Apre la finestra delle opzioni";
             MniOpzioni.Click += MniOpzioni_Click;

@@ -17,19 +17,19 @@ namespace Formica
             try
             {
                 this.Text = Utility.TitoloFinestra;
-                 
+
                 //TODO: come consigliato da AI, visualizzare una Dashboard con i task chiusi, aperti etc
-                 
-                
+
+
                 //TODO: fare form per inserire le opzioni, come priorità (Urgente, immediata, normale, bassa)  
-                 
+
                 //TODO: FAre anche se è un bug, implementazione, attività normale come nota, etc
                 //Comando per aggiornare tutto                      dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite--context AppDbContext --output - dir Models--force
                 //Comando per aggiornare solo nuove tabelle         dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --table Progetti --table Clienti --context AppDbContext --output-dir Models --force
                 //TODO : FAre anche Agenda
                 //Ultimo comando funziona dopo il cd nel progetto - dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --context AppDbContext --output-dir Models --force
                 //TODO: Future funzionalità - Gestione Password / dati - Documenti - Appuntamenti (tipo calendario e scadenze) contatti
-
+                //TODO: Future modifiche, esportare in Excel
 
 
 
@@ -79,6 +79,7 @@ namespace Formica
         private void mniGestioneDocumenti_Click(object sender, EventArgs e)
         {
             //TODO: Apre finestra gestione dei documenti
+            Utility.MessaggioInfo("Funzionalità non abilitata");
         }
 
         private void MniOpzioni_Click(object sender, EventArgs e)
@@ -144,7 +145,7 @@ namespace Formica
                 {
                     lnkAttivitaAperte.LinkColor = Color.Orange;
                 }
-                else if ( percentualeTaskAperti < 3)
+                else if (percentualeTaskAperti < 3)
                 {
                     lnkAttivitaAperte.LinkColor = Color.Green;
                 }
@@ -171,7 +172,7 @@ namespace Formica
 
 
 
- 
+
         /// <summary>
         /// Rileva la percentuale su due numeri
         /// </summary>
@@ -182,14 +183,14 @@ namespace Formica
         {
             if (totale == 0)
             {
-                 
+
                 return 0;
             }
             return Convert.ToInt32((parte / totale) * 100);
         }
 
 
-        
+
 
         #endregion
 
@@ -204,6 +205,12 @@ namespace Formica
             attivita.ShowDialog();
             Cursor.Current = Cursors.Default;
 
+        }
+
+        private void MniRubrica_Click(object sender, EventArgs e)
+        {
+            //TODO: Apre finestra gestione dei documenti
+            Utility.MessaggioInfo("Funzionalità non abilitata");
         }
     }
 }
