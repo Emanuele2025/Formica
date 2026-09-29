@@ -18,7 +18,7 @@ namespace Formica
 
 
         public const string TitoloFinestra = "Formica - Programma gratuito per la gestione delle attività";
-        const string titolo = "Falco";
+        const string titolo = "Formica";
 
 
         public const string Modifica = "Modifica effettuata con successo. ";
