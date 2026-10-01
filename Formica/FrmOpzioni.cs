@@ -21,9 +21,11 @@ namespace Formica
 
         private void FrmOpzioni_Load(object sender, EventArgs e)
         {
+            
             Cursor.Current = Cursors.WaitCursor;
             try
             {
+                dtgDatiStato.AutoGenerateColumns = false;
                 this.Text = Utility.TitoloFinestra;
                 CaricaDati();
 
@@ -117,7 +119,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore caricamento dati: " + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 

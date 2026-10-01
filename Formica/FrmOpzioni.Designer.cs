@@ -44,6 +44,9 @@
             CmsMenu = new ContextMenuStrip(components);
             MniModifica = new ToolStripMenuItem();
             MniElimina = new ToolStripMenuItem();
+            IdStato = new DataGridViewTextBoxColumn();
+            Stato = new DataGridViewTextBoxColumn();
+            Descrizione = new DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
             tbpStato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatiStato).BeginInit();
@@ -128,6 +131,7 @@
             // dtgDatiStato
             // 
             dtgDatiStato.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatiStato.Columns.AddRange(new DataGridViewColumn[] { IdStato, Stato, Descrizione });
             dtgDatiStato.Dock = DockStyle.Top;
             dtgDatiStato.Location = new Point(3, 3);
             dtgDatiStato.Name = "dtgDatiStato";
@@ -204,6 +208,29 @@
             MniElimina.Text = "Elimina";
             MniElimina.Click += MniElimina_Click;
             // 
+            // IdStato
+            // 
+            IdStato.DataPropertyName = "IdStato";
+            IdStato.HeaderText = "IdStato";
+            IdStato.Name = "IdStato";
+            IdStato.Visible = false;
+            // 
+            // Stato
+            // 
+            Stato.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Stato.DataPropertyName = "Descrizione";
+            Stato.HeaderText = "Stato";
+            Stato.Name = "Stato";
+            Stato.Width = 200;
+            // 
+            // Descrizione
+            // 
+            Descrizione.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Descrizione.DataPropertyName = "Descrizione";
+            Descrizione.HeaderText = "Descrizione";
+            Descrizione.Name = "Descrizione";
+            Descrizione.Width = 200;
+            // 
             // FrmOpzioni
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -243,5 +270,8 @@
         private ContextMenuStrip CmsMenu;
         private ToolStripMenuItem MniModifica;
         private ToolStripMenuItem MniElimina;
+        private DataGridViewTextBoxColumn IdStato;
+        private DataGridViewTextBoxColumn Stato;
+        private DataGridViewTextBoxColumn Descrizione;
     }
 }
