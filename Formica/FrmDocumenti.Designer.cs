@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             BtnChiudi = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // BtnChiudi
@@ -36,7 +37,7 @@
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             BtnChiudi.Image = Properties.Resources.Chiudi_uxwing;
             BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnChiudi.Location = new Point(944, 523);
+            BtnChiudi.Location = new Point(1206, 625);
             BtnChiudi.Name = "BtnChiudi";
             BtnChiudi.Size = new Size(75, 23);
             BtnChiudi.TabIndex = 5;
@@ -45,11 +46,25 @@
             BtnChiudi.UseVisualStyleBackColor = true;
             BtnChiudi.Click += BtnChiudi_Click;
             // 
+            // label1
+            // 
+            label1.BackColor = SystemColors.Highlight;
+            label1.Dock = DockStyle.Top;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(1293, 22);
+            label1.TabIndex = 6;
+            label1.Text = "Formica - Gestione dei documenti";
+            label1.TextAlign = ContentAlignment.TopCenter;
+            // 
             // FrmDocumenti
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1031, 558);
+            ClientSize = new Size(1293, 660);
+            Controls.Add(label1);
             Controls.Add(BtnChiudi);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -63,5 +78,6 @@
         #endregion
 
         private Button BtnChiudi;
+        private Label label1;
     }
 }

@@ -17,14 +17,20 @@ namespace Formica
 
         private void FrmDocumenti_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             try
             {
-
+                this.Text = Utility.TitoloFinestra;
+                CaricaDati();
             }
             catch (Exception ex)
             {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
 
-                throw;
             }
         }
 
@@ -32,5 +38,30 @@ namespace Formica
         {
             this.Close();
         }
+
+
+        private void CaricaDati()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+
+            }
+
+
+
+        }
+
+
+
     }
 }
