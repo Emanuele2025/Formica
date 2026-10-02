@@ -61,7 +61,35 @@ namespace Formica
 
         }
 
+        private void MniElimina_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+
+                if (Utility.CancellaRecord())
+                {
 
 
+
+
+
+                }
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+
+            }
+        }
     }
 }

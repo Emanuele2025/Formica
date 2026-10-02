@@ -28,8 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             BtnChiudi = new Button();
             label1 = new Label();
+            dtgDatiDocumenti = new DataGridView();
+            BtnSalva = new Button();
+            BtnAnnulla = new Button();
+            BtnInserisci = new Button();
+            CmsMenu = new ContextMenuStrip(components);
+            MniModifica = new ToolStripMenuItem();
+            MniElimina = new ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)dtgDatiDocumenti).BeginInit();
+            CmsMenu.SuspendLayout();
             SuspendLayout();
             // 
             // BtnChiudi
@@ -59,11 +69,75 @@
             label1.Text = "Formica - Gestione dei documenti";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
+            // dtgDatiDocumenti
+            // 
+            dtgDatiDocumenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatiDocumenti.Dock = DockStyle.Top;
+            dtgDatiDocumenti.Location = new Point(0, 22);
+            dtgDatiDocumenti.Name = "dtgDatiDocumenti";
+            dtgDatiDocumenti.Size = new Size(1293, 289);
+            dtgDatiDocumenti.TabIndex = 7;
+            // 
+            // BtnSalva
+            // 
+            BtnSalva.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnSalva.Location = new Point(208, 607);
+            BtnSalva.Name = "BtnSalva";
+            BtnSalva.Size = new Size(75, 23);
+            BtnSalva.TabIndex = 12;
+            BtnSalva.Text = "Salva";
+            BtnSalva.UseVisualStyleBackColor = true;
+            BtnSalva.Visible = false;
+            // 
+            // BtnAnnulla
+            // 
+            BtnAnnulla.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnAnnulla.Location = new Point(118, 607);
+            BtnAnnulla.Name = "BtnAnnulla";
+            BtnAnnulla.Size = new Size(75, 23);
+            BtnAnnulla.TabIndex = 11;
+            BtnAnnulla.Text = "Annulla";
+            BtnAnnulla.UseVisualStyleBackColor = true;
+            BtnAnnulla.Visible = false;
+            // 
+            // BtnInserisci
+            // 
+            BtnInserisci.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnInserisci.Location = new Point(23, 607);
+            BtnInserisci.Name = "BtnInserisci";
+            BtnInserisci.Size = new Size(75, 23);
+            BtnInserisci.TabIndex = 10;
+            BtnInserisci.Text = "Inserisci";
+            BtnInserisci.UseVisualStyleBackColor = true;
+            // 
+            // CmsMenu
+            // 
+            CmsMenu.Items.AddRange(new ToolStripItem[] { MniModifica, MniElimina });
+            CmsMenu.Name = "CmsMenu";
+            CmsMenu.Size = new Size(181, 70);
+            // 
+            // MniModifica
+            // 
+            MniModifica.Name = "MniModifica";
+            MniModifica.Size = new Size(180, 22);
+            MniModifica.Text = "Modifica";
+            // 
+            // MniElimina
+            // 
+            MniElimina.Name = "MniElimina";
+            MniElimina.Size = new Size(180, 22);
+            MniElimina.Text = "Elimina";
+            MniElimina.Click += MniElimina_Click;
+            // 
             // FrmDocumenti
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1293, 660);
+            Controls.Add(BtnSalva);
+            Controls.Add(BtnAnnulla);
+            Controls.Add(BtnInserisci);
+            Controls.Add(dtgDatiDocumenti);
             Controls.Add(label1);
             Controls.Add(BtnChiudi);
             MaximizeBox = false;
@@ -72,6 +146,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestione dei documenti";
             Load += FrmDocumenti_Load;
+            ((System.ComponentModel.ISupportInitialize)dtgDatiDocumenti).EndInit();
+            CmsMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -79,5 +155,12 @@
 
         private Button BtnChiudi;
         private Label label1;
+        private DataGridView dtgDatiDocumenti;
+        private Button BtnSalva;
+        private Button BtnAnnulla;
+        private Button BtnInserisci;
+        private ContextMenuStrip CmsMenu;
+        private ToolStripMenuItem MniModifica;
+        private ToolStripMenuItem MniElimina;
     }
 }
