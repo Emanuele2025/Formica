@@ -66,6 +66,11 @@ namespace Formica
             Cursor.Current = Cursors.WaitCursor;
             try
             {
+                if (dtgDatiDocumenti.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Selezionare una riga");
+                    return;
+                }
 
                 if (Utility.CancellaRecord())
                 {
@@ -90,6 +95,16 @@ namespace Formica
                 Cursor.Current = Cursors.Default;
 
             }
+        }
+
+        private void BtnInserisci_Click(object sender, EventArgs e)
+        {
+            //if (TxtNomeProgetto.Text.Trim() == "")
+            //{
+            //    Utility.MessaggioInfo("Campo nome progetto obbligatorio");
+            //    return;
+
+            //}
         }
     }
 }

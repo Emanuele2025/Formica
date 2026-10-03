@@ -109,23 +109,24 @@
             BtnInserisci.TabIndex = 10;
             BtnInserisci.Text = "Inserisci";
             BtnInserisci.UseVisualStyleBackColor = true;
+            BtnInserisci.Click += BtnInserisci_Click;
             // 
             // CmsMenu
             // 
             CmsMenu.Items.AddRange(new ToolStripItem[] { MniModifica, MniElimina });
             CmsMenu.Name = "CmsMenu";
-            CmsMenu.Size = new Size(181, 70);
+            CmsMenu.Size = new Size(122, 48);
             // 
             // MniModifica
             // 
             MniModifica.Name = "MniModifica";
-            MniModifica.Size = new Size(180, 22);
+            MniModifica.Size = new Size(121, 22);
             MniModifica.Text = "Modifica";
             // 
             // MniElimina
             // 
             MniElimina.Name = "MniElimina";
-            MniElimina.Size = new Size(180, 22);
+            MniElimina.Size = new Size(121, 22);
             MniElimina.Text = "Elimina";
             MniElimina.Click += MniElimina_Click;
             // 
