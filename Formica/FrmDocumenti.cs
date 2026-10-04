@@ -46,6 +46,13 @@ namespace Formica
             try
             {
 
+
+                BtnAnnulla.Visible = false;
+                BtnSalva.Visible = false;
+                BtnInserisci.Visible = true;
+
+
+
             }
             catch (Exception ex)
             {
@@ -120,5 +127,30 @@ namespace Formica
         {
             CaricaDati();
         }
+
+        private void BtnSalva_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private void txt_Leave(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.White;
+
+        }
+
+        private void txt_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).BackColor = Color.Yellow;
+        }
+
     }
 }

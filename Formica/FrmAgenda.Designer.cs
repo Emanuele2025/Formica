@@ -42,6 +42,9 @@
             CmsMenu = new ContextMenuStrip(components);
             mniElimina = new ToolStripMenuItem();
             MniModifica = new ToolStripMenuItem();
+            IdAgenda = new DataGridViewTextBoxColumn();
+            Note = new DataGridViewTextBoxColumn();
+            DataEvento = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgDatiAgenda).BeginInit();
             CmsMenu.SuspendLayout();
             SuspendLayout();
@@ -76,6 +79,7 @@
             // dtgDatiAgenda
             // 
             dtgDatiAgenda.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatiAgenda.Columns.AddRange(new DataGridViewColumn[] { IdAgenda, Note, DataEvento });
             dtgDatiAgenda.Dock = DockStyle.Top;
             dtgDatiAgenda.Location = new Point(0, 22);
             dtgDatiAgenda.Name = "dtgDatiAgenda";
@@ -173,6 +177,28 @@
             MniModifica.Text = "Modifica";
             MniModifica.Click += MniModifica_Click;
             // 
+            // IdAgenda
+            // 
+            IdAgenda.DataPropertyName = "IdAgenda";
+            IdAgenda.HeaderText = "IdAgenda";
+            IdAgenda.Name = "IdAgenda";
+            IdAgenda.Visible = false;
+            // 
+            // Note
+            // 
+            Note.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Note.DataPropertyName = "Note";
+            Note.HeaderText = "Note";
+            Note.Name = "Note";
+            Note.Width = 300;
+            // 
+            // DataEvento
+            // 
+            DataEvento.DataPropertyName = "DataEvento";
+            DataEvento.HeaderText = "Data";
+            DataEvento.Name = "DataEvento";
+            DataEvento.Width = 150;
+            // 
             // FrmAgenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -216,5 +242,8 @@
         private ContextMenuStrip CmsMenu;
         private ToolStripMenuItem mniElimina;
         private ToolStripMenuItem MniModifica;
+        private DataGridViewTextBoxColumn IdAgenda;
+        private DataGridViewTextBoxColumn Note;
+        private DataGridViewTextBoxColumn DataEvento;
     }
 }
