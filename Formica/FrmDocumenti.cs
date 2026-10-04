@@ -105,6 +105,20 @@ namespace Formica
             //    return;
 
             //}
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private void BtnAnnulla_Click(object sender, EventArgs e)
+        {
+            CaricaDati();
         }
     }
 }

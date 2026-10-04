@@ -99,6 +99,7 @@
             BtnAnnulla.Text = "Annulla";
             BtnAnnulla.UseVisualStyleBackColor = true;
             BtnAnnulla.Visible = false;
+            BtnAnnulla.Click += BtnAnnulla_Click;
             // 
             // BtnInserisci
             // 
