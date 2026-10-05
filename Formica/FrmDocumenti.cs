@@ -118,8 +118,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
@@ -137,7 +136,7 @@ namespace Formica
             catch (Exception ex)
             {
 
-                throw;
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
