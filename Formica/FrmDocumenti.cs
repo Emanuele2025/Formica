@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Formica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,10 @@ namespace Formica
 {
     public partial class FrmDocumenti : Form
     {
+
+        AppDbContext contesto = new AppDbContext();
+
+
         public FrmDocumenti()
         {
             InitializeComponent();
@@ -81,9 +86,9 @@ namespace Formica
 
                 if (Utility.CancellaRecord())
                 {
+                    int idDocumento =   Convert.ToInt32(dtgDatiDocumenti.SelectedRows[0].Cells["IdDocumento"].Value);
 
-
-
+                    //var documentoTrovato = contesto.Documenti.Where(d => d.IdDocumento == idDocumento).FirstOrDefault();
 
 
                 }
@@ -114,6 +119,20 @@ namespace Formica
             //}
             try
             {
+
+                if (TxtTitolo.Text.Trim() == "" || TxtPercorsoFile.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("I Campi titolo e percorso file sono obbligatori.");
+                    return;
+                }
+
+
+
+
+
+
+
+
 
             }
             catch (Exception ex)
