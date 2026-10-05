@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             mnsMenuPrincipale = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -48,6 +49,8 @@
             lnkAttivitaAperte = new LinkLabel();
             LnkAttivitaTerminate = new LinkLabel();
             label3 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
+            LblAppuntamento = new Label();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -85,7 +88,7 @@
             // mniGestione
             // 
             mniGestione.Name = "mniGestione";
-            mniGestione.Size = new Size(180, 22);
+            mniGestione.Size = new Size(125, 22);
             mniGestione.Text = "Progetti...";
             mniGestione.ToolTipText = "Apre la finestra per la gestione dei progetti";
             mniGestione.Click += gestioneToolStripMenuItem_Click;
@@ -93,7 +96,7 @@
             // MniAttivita
             // 
             MniAttivita.Name = "MniAttivita";
-            MniAttivita.Size = new Size(180, 22);
+            MniAttivita.Size = new Size(125, 22);
             MniAttivita.Text = "Attività..";
             MniAttivita.ToolTipText = "Apre la finestra per la gestione delle attività, task da realizzare";
             MniAttivita.Click += MniAttivita_Click;
@@ -108,7 +111,7 @@
             // mniGestioneDocumenti
             // 
             mniGestioneDocumenti.Name = "mniGestioneDocumenti";
-            mniGestioneDocumenti.Size = new Size(180, 22);
+            mniGestioneDocumenti.Size = new Size(129, 22);
             mniGestioneDocumenti.Text = "Gestione...";
             mniGestioneDocumenti.Click += mniGestioneDocumenti_Click;
             // 
@@ -123,7 +126,7 @@
             // 
             MniAgenda.Image = Properties.Resources.calendar_16x16_freeicon;
             MniAgenda.Name = "MniAgenda";
-            MniAgenda.Size = new Size(180, 22);
+            MniAgenda.Size = new Size(124, 22);
             MniAgenda.Text = "Agenda...";
             MniAgenda.ToolTipText = "Visualizza l'agenda per gestire gli appuntamento o calenderio attività";
             MniAgenda.Click += mniAgenda_Click;
@@ -131,7 +134,7 @@
             // MniRubrica
             // 
             MniRubrica.Name = "MniRubrica";
-            MniRubrica.Size = new Size(180, 22);
+            MniRubrica.Size = new Size(124, 22);
             MniRubrica.Text = "Rubrica...";
             MniRubrica.ToolTipText = "Visualizza la finestra riguardante la rubrica";
             MniRubrica.Click += MniRubrica_Click;
@@ -139,7 +142,7 @@
             // MniOpzioni
             // 
             MniOpzioni.Name = "MniOpzioni";
-            MniOpzioni.Size = new Size(180, 22);
+            MniOpzioni.Size = new Size(124, 22);
             MniOpzioni.Text = "Opzioni...";
             MniOpzioni.ToolTipText = "Apre la finestra delle opzioni";
             MniOpzioni.Click += MniOpzioni_Click;
@@ -218,12 +221,26 @@
             label3.TabIndex = 5;
             label3.Text = "Percentuale Attività Chiuse: ";
             // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
+            // LblAppuntamento
+            // 
+            LblAppuntamento.AutoSize = true;
+            LblAppuntamento.Location = new Point(858, 175);
+            LblAppuntamento.Name = "LblAppuntamento";
+            LblAppuntamento.Size = new Size(0, 15);
+            LblAppuntamento.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1042, 635);
+            Controls.Add(LblAppuntamento);
             Controls.Add(LnkAttivitaTerminate);
             Controls.Add(label3);
             Controls.Add(lnkAttivitaAperte);
@@ -263,5 +280,7 @@
         private LinkLabel lnkAttivitaAperte;
         private LinkLabel LnkAttivitaTerminate;
         private Label label3;
+        private System.Windows.Forms.Timer timer1;
+        private Label LblAppuntamento;
     }
 }

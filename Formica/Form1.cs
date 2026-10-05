@@ -11,7 +11,7 @@ namespace Formica
 
         AppDbContext contesto = new AppDbContext();
 
-
+        List<Agendum> listaAgende = new List<Agendum>();
         private void Form1_Load(object sender, EventArgs e)
         {
             try
@@ -34,7 +34,8 @@ namespace Formica
 
 
                 VerificaAttivita();
-
+                CaricaAgende();
+                timer1.Start();
 
 
 
@@ -170,7 +171,21 @@ namespace Formica
 
         }
 
+        private void CaricaAgende()
+        {
+            try
+            {
+                listaAgende = contesto.Agenda.ToList();
+            }
+            catch (Exception ex)
+            {
 
+                throw;
+            }
+        
+        
+        
+        }
 
 
         /// <summary>
@@ -211,6 +226,17 @@ namespace Formica
         {
             //TODO: Apre finestra gestione dei documenti
             Utility.MessaggioInfo("Funzionalità non abilitata");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //TODO: Sistemare con l'orario preso dal db e cancellare quando ha superato l'orario.
+            if (listaAgende.Where(p=>p.DataEvento ==  DateTime.Now).Any())
+            {
+                //Devo aggiornare il dato.
+                LblAppuntamento.Text = "Sono le ore 16.00";
+                CaricaAgende(); 
+            }
         }
     }
 }
