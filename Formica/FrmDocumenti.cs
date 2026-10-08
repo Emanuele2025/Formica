@@ -86,10 +86,17 @@ namespace Formica
 
                 if (Utility.CancellaRecord())
                 {
-                    int idDocumento =   Convert.ToInt32(dtgDatiDocumenti.SelectedRows[0].Cells["IdDocumento"].Value);
+                    int idDocumento = Convert.ToInt32(dtgDatiDocumenti.SelectedRows[0].Cells["IdDocumento"].Value);
 
                     //var documentoTrovato = contesto.Documenti.Where(d => d.IdDocumento == idDocumento).FirstOrDefault();
+                    //if (documentoTrovato != null)
+                    //{
 
+
+
+
+
+                    //}
 
                 }
 
@@ -151,6 +158,11 @@ namespace Formica
             try
             {
 
+
+
+
+
+                CaricaDati();
             }
             catch (Exception ex)
             {
@@ -170,5 +182,26 @@ namespace Formica
             ((TextBox)sender).BackColor = Color.Yellow;
         }
 
+        private void MniModifica_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dtgDatiDocumenti.SelectedRows.Count < 1)
+                {
+                    Utility.MessaggioInfo("Selezionare una riga da modificare.");
+                    return;
+                }
+
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+        }
     }
 }
