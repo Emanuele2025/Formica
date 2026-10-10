@@ -158,6 +158,11 @@ namespace Formica
             try
             {
 
+                if (TxtTitolo.Text.Trim() == "" || TxtPercorsoFile.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("I Campi titolo e percorso file sono obbligatori.");
+                    return;
+                }
 
 
 

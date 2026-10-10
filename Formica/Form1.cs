@@ -171,7 +171,8 @@ namespace Formica
 
         }
 
-        private void CaricaAgende()
+        
+        public void CaricaAgende()
         {
             try
             {
@@ -179,8 +180,7 @@ namespace Formica
             }
             catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore("Errore durante il caricamento dell'applicativo." + ex.Message);
             }
         
         

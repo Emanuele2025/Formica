@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Windows.Forms;
 
@@ -97,6 +98,7 @@ namespace Formica
                  contesto.Agenda.Add(agenda);
                 contesto.SaveChanges();
                 CaricaDati();
+                //TODO: Fare in modo che aggiornata anche la lista per la form1.  CaricaAgende
 
 
             }
@@ -253,7 +255,7 @@ namespace Formica
                     CaricaDati();
 
                 }
-
+                // TODO: Fare in modo che aggiornata anche la lista per la form1 CaricaAgende
 
 
 
