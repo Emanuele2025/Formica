@@ -72,8 +72,12 @@ namespace Formica
         {
 
             Cursor.Current = Cursors.WaitCursor;
-            FrmAgenda agenda = new FrmAgenda(this);
-            agenda.ShowDialog();
+            using (FrmAgenda agenda = new FrmAgenda(this))
+            {
+                agenda.ShowDialog();
+            }
+            //FrmAgenda agenda = new FrmAgenda(this);
+            //agenda.ShowDialog();
             Cursor.Current = Cursors.Default;
         }
 
@@ -176,11 +180,12 @@ namespace Formica
         {
             try
             {
+                 
                 listaAgende = contesto.Agenda.ToList();
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore("Errore durante il caricamento dell'applicativo." + ex.Message);
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         
         
