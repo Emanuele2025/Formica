@@ -12,9 +12,21 @@ namespace Formica
 {
     public partial class FrmAgenda : Form
     {
+        private Form1? frmPrincipale;
+        public FrmAgenda(Form1 frm_Principale)
+        {
+            InitializeComponent();
+            frmPrincipale = frm_Principale;
+
+        }
+
+
+
+
         public FrmAgenda()
         {
             InitializeComponent();
+            frmPrincipale = null;
         }
         AppDbContext contesto = new AppDbContext();
         Int32 idAgendaSelezionato = 0;
@@ -96,15 +108,17 @@ namespace Formica
 
 
                  contesto.Agenda.Add(agenda);
-                contesto.SaveChanges();
+                 contesto.SaveChanges();
+                if(frmPrincipale!= null)
+                    frmPrincipale.CaricaAgende();
                 CaricaDati();
                 //TODO: Fare in modo che aggiornata anche la lista per la form1.  CaricaAgende
-
+                
 
             }
             catch (Exception ex)
             {
-                Utility.MessaggioErrore(Utility.Errore  + ex.Message);
+                
                 if (ex.InnerException != null)
                 {
                     Utility.MessaggioErrore(Utility.Errore + " " + ex.InnerException.Message);
@@ -189,7 +203,12 @@ namespace Formica
                 {
                     contesto.Agenda.Remove(record);
                     if (contesto.SaveChanges() > 0)
+                    {
+                        if (frmPrincipale != null)
+                            frmPrincipale.CaricaAgende();
                         Utility.MessaggioInfo("Record cancellato con successo. ");
+                    }
+                        
                     CaricaDati();
 
                 }
@@ -248,9 +267,16 @@ namespace Formica
                     record.Note = TxtNote.Text.Trim();
                     record.DataEvento = dtpData.Value;
 
-                    
+
                     if (contesto.SaveChanges() > 0)
+                    {
+
+                        if (frmPrincipale != null)
+                            frmPrincipale.CaricaAgende();
                         Utility.MessaggioInfo(Utility.Modifica);
+
+                    }
+                        
 
                     CaricaDati();
 

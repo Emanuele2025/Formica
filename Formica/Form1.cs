@@ -72,7 +72,7 @@ namespace Formica
         {
 
             Cursor.Current = Cursors.WaitCursor;
-            FrmAgenda agenda = new FrmAgenda();
+            FrmAgenda agenda = new FrmAgenda(this);
             agenda.ShowDialog();
             Cursor.Current = Cursors.Default;
         }
@@ -224,7 +224,7 @@ namespace Formica
 
         private void MniRubrica_Click(object sender, EventArgs e)
         {
-            //TODO: Apre finestra gestione dei documenti
+            //TODO: Apre finestra gestione della rubrica
             Utility.MessaggioInfo("Funzionalità non abilitata");
         }
 
