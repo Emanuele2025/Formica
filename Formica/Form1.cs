@@ -30,7 +30,7 @@ namespace Formica
                 //Ultimo comando funziona dopo il cd nel progetto - dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --context AppDbContext --output-dir Models --force
                 //TODO: Future funzionalità - Gestione Password / dati - Documenti - Appuntamenti (tipo calendario e scadenze) contatti
                 //TODO: Future modifiche, esportare in Excel
-
+                //TODO: Finestra per le credenziali
 
 
                 VerificaAttivita();
