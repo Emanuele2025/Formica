@@ -172,6 +172,7 @@
             Name = "FrmCredenziali";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestione Credenziali";
+            Load += FrmCredenziali_Load;
             ResumeLayout(false);
             PerformLayout();
         }

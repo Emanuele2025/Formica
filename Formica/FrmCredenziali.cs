@@ -14,5 +14,42 @@ namespace Formica
         {
             InitializeComponent();
         }
+
+        private void FrmCredenziali_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                CaricaDati();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+
+        private void CaricaDati()
+        {
+
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        
+        
+        
+        
+        
+        
+        }
+
+
+
     }
 }
