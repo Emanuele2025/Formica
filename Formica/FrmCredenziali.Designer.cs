@@ -54,6 +54,7 @@
             BtnChiudi.Text = "Chiudi";
             BtnChiudi.TextAlign = ContentAlignment.MiddleRight;
             BtnChiudi.UseVisualStyleBackColor = true;
+            BtnChiudi.Click += BtnChiudi_Click;
             // 
             // label1
             // 
@@ -83,6 +84,8 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(371, 23);
             textBox1.TabIndex = 12;
+            textBox1.Enter += txt_Enter;
+            textBox1.Leave += txt_Leave;
             // 
             // textBox2
             // 
@@ -91,6 +94,8 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(516, 128);
             textBox2.TabIndex = 14;
+            textBox2.Enter += txt_Enter;
+            textBox2.Leave += txt_Leave;
             // 
             // label3
             // 
@@ -107,6 +112,8 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(371, 23);
             textBox3.TabIndex = 16;
+            textBox3.Enter += txt_Enter;
+            textBox3.Leave += txt_Leave;
             // 
             // label4
             // 
@@ -123,6 +130,8 @@
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(371, 23);
             textBox4.TabIndex = 18;
+            textBox4.Enter += txt_Enter;
+            textBox4.Leave += txt_Leave;
             // 
             // label5
             // 
@@ -139,6 +148,8 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(371, 23);
             textBox5.TabIndex = 20;
+            textBox5.Enter += txt_Enter;
+            textBox5.Leave += txt_Leave;
             // 
             // label6
             // 
