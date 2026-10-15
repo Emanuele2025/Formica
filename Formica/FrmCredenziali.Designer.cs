@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             BtnChiudi = new Button();
             label1 = new Label();
             label2 = new Label();
@@ -40,6 +41,15 @@
             label5 = new Label();
             textBox5 = new TextBox();
             label6 = new Label();
+            DtgDati = new DataGridView();
+            BtnInserisci = new Button();
+            BtnAnnulla = new Button();
+            BtnSalva = new Button();
+            CmsMenu = new ContextMenuStrip(components);
+            MniModifica = new ToolStripMenuItem();
+            MniElimina = new ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)DtgDati).BeginInit();
+            CmsMenu.SuspendLayout();
             SuspendLayout();
             // 
             // BtnChiudi
@@ -47,7 +57,7 @@
             BtnChiudi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             BtnChiudi.Image = Properties.Resources.Chiudi_uxwing;
             BtnChiudi.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnChiudi.Location = new Point(1220, 601);
+            BtnChiudi.Location = new Point(1220, 677);
             BtnChiudi.Name = "BtnChiudi";
             BtnChiudi.Size = new Size(75, 23);
             BtnChiudi.TabIndex = 9;
@@ -71,8 +81,9 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label2.AutoSize = true;
-            label2.Location = new Point(19, 400);
+            label2.Location = new Point(19, 476);
             label2.Name = "label2";
             label2.Size = new Size(41, 15);
             label2.TabIndex = 11;
@@ -80,7 +91,8 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(21, 415);
+            textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox1.Location = new Point(21, 491);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(371, 23);
             textBox1.TabIndex = 12;
@@ -89,7 +101,8 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(424, 415);
+            textBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox2.Location = new Point(424, 491);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(516, 128);
@@ -99,8 +112,9 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label3.AutoSize = true;
-            label3.Location = new Point(422, 400);
+            label3.Location = new Point(422, 476);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
             label3.TabIndex = 13;
@@ -108,7 +122,8 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(21, 460);
+            textBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox3.Location = new Point(21, 536);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(371, 23);
             textBox3.TabIndex = 16;
@@ -117,8 +132,9 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label4.AutoSize = true;
-            label4.Location = new Point(19, 445);
+            label4.Location = new Point(19, 521);
             label4.Name = "label4";
             label4.Size = new Size(63, 15);
             label4.TabIndex = 15;
@@ -126,7 +142,8 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(21, 506);
+            textBox4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox4.Location = new Point(21, 582);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(371, 23);
             textBox4.TabIndex = 18;
@@ -135,8 +152,9 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label5.AutoSize = true;
-            label5.Location = new Point(19, 491);
+            label5.Location = new Point(19, 567);
             label5.Name = "label5";
             label5.Size = new Size(39, 15);
             label5.TabIndex = 17;
@@ -144,7 +162,8 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(21, 548);
+            textBox5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox5.Location = new Point(21, 624);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(371, 23);
             textBox5.TabIndex = 20;
@@ -153,18 +172,80 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label6.AutoSize = true;
-            label6.Location = new Point(19, 533);
+            label6.Location = new Point(19, 609);
             label6.Name = "label6";
             label6.Size = new Size(60, 15);
             label6.TabIndex = 19;
             label6.Text = "Password:";
             // 
+            // DtgDati
+            // 
+            DtgDati.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DtgDati.Dock = DockStyle.Top;
+            DtgDati.Location = new Point(0, 22);
+            DtgDati.Name = "DtgDati";
+            DtgDati.Size = new Size(1334, 432);
+            DtgDati.TabIndex = 21;
+            // 
+            // BtnInserisci
+            // 
+            BtnInserisci.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnInserisci.Location = new Point(33, 681);
+            BtnInserisci.Name = "BtnInserisci";
+            BtnInserisci.Size = new Size(75, 23);
+            BtnInserisci.TabIndex = 22;
+            BtnInserisci.Text = "Inserisci";
+            BtnInserisci.UseVisualStyleBackColor = true;
+            // 
+            // BtnAnnulla
+            // 
+            BtnAnnulla.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnAnnulla.Location = new Point(126, 681);
+            BtnAnnulla.Name = "BtnAnnulla";
+            BtnAnnulla.Size = new Size(75, 23);
+            BtnAnnulla.TabIndex = 23;
+            BtnAnnulla.Text = "Annulla";
+            BtnAnnulla.UseVisualStyleBackColor = true;
+            // 
+            // BtnSalva
+            // 
+            BtnSalva.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnSalva.Location = new Point(207, 681);
+            BtnSalva.Name = "BtnSalva";
+            BtnSalva.Size = new Size(75, 23);
+            BtnSalva.TabIndex = 24;
+            BtnSalva.Text = "Salva";
+            BtnSalva.UseVisualStyleBackColor = true;
+            // 
+            // CmsMenu
+            // 
+            CmsMenu.Items.AddRange(new ToolStripItem[] { MniModifica, MniElimina });
+            CmsMenu.Name = "CmsMenu";
+            CmsMenu.Size = new Size(122, 48);
+            // 
+            // MniModifica
+            // 
+            MniModifica.Name = "MniModifica";
+            MniModifica.Size = new Size(121, 22);
+            MniModifica.Text = "Modifica";
+            // 
+            // MniElimina
+            // 
+            MniElimina.Name = "MniElimina";
+            MniElimina.Size = new Size(121, 22);
+            MniElimina.Text = "Elimina";
+            // 
             // FrmCredenziali
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1334, 636);
+            ClientSize = new Size(1334, 712);
+            Controls.Add(BtnSalva);
+            Controls.Add(BtnAnnulla);
+            Controls.Add(BtnInserisci);
+            Controls.Add(DtgDati);
             Controls.Add(textBox5);
             Controls.Add(label6);
             Controls.Add(textBox4);
@@ -184,6 +265,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestione Credenziali";
             Load += FrmCredenziali_Load;
+            ((System.ComponentModel.ISupportInitialize)DtgDati).EndInit();
+            CmsMenu.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -202,5 +285,12 @@
         private Label label5;
         private TextBox textBox5;
         private Label label6;
+        private DataGridView DtgDati;
+        private Button BtnInserisci;
+        private Button BtnAnnulla;
+        private Button BtnSalva;
+        private ContextMenuStrip CmsMenu;
+        private ToolStripMenuItem MniModifica;
+        private ToolStripMenuItem MniElimina;
     }
 }

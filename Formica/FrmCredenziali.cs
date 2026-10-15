@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Formica.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,12 @@ namespace Formica
 {
     public partial class FrmCredenziali : Form
     {
+
+        AppDbContext conteto = new AppDbContext();
+
+
+
+
         public FrmCredenziali()
         {
             InitializeComponent();
@@ -33,6 +40,11 @@ namespace Formica
 
             try
             {
+                //var dati = conteto.Credenziali.FirstOrDefault();
+
+
+
+
 
             }
             catch (Exception ex)
