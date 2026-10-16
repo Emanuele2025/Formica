@@ -198,6 +198,7 @@
             BtnInserisci.TabIndex = 22;
             BtnInserisci.Text = "Inserisci";
             BtnInserisci.UseVisualStyleBackColor = true;
+            BtnInserisci.Click += BtnInserisci_Click;
             // 
             // BtnAnnulla
             // 
@@ -208,6 +209,7 @@
             BtnAnnulla.TabIndex = 23;
             BtnAnnulla.Text = "Annulla";
             BtnAnnulla.UseVisualStyleBackColor = true;
+            BtnAnnulla.Click += BtnAnnulla_Click;
             // 
             // BtnSalva
             // 
@@ -218,6 +220,7 @@
             BtnSalva.TabIndex = 24;
             BtnSalva.Text = "Salva";
             BtnSalva.UseVisualStyleBackColor = true;
+            BtnSalva.Click += BtnSalva_Click;
             // 
             // CmsMenu
             // 

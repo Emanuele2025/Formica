@@ -44,7 +44,9 @@ namespace Formica
 
 
 
-
+                BtnAnnulla.Visible = false;
+                BtnInserisci.Visible = true;
+                BtnSalva.Visible = false;
 
             }
             catch (Exception ex)
@@ -74,6 +76,51 @@ namespace Formica
         private void BtnChiudi_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnSalva_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private void BtnAnnulla_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        private void BtnInserisci_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }
