@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgenda));
             BtnChiudi = new Button();
             label1 = new Label();
             dtgDatiAgenda = new DataGridView();
+            IdAgenda = new DataGridViewTextBoxColumn();
+            Note = new DataGridViewTextBoxColumn();
+            DataEvento = new DataGridViewTextBoxColumn();
             Giorno = new Label();
             label3 = new Label();
             dtpData = new DateTimePicker();
@@ -42,9 +46,6 @@
             CmsMenu = new ContextMenuStrip(components);
             mniElimina = new ToolStripMenuItem();
             MniModifica = new ToolStripMenuItem();
-            IdAgenda = new DataGridViewTextBoxColumn();
-            Note = new DataGridViewTextBoxColumn();
-            DataEvento = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgDatiAgenda).BeginInit();
             CmsMenu.SuspendLayout();
             SuspendLayout();
@@ -86,6 +87,28 @@
             dtgDatiAgenda.Size = new Size(826, 341);
             dtgDatiAgenda.TabIndex = 7;
             dtgDatiAgenda.CellMouseDown += dtgDatiAgenda_CellMouseDown;
+            // 
+            // IdAgenda
+            // 
+            IdAgenda.DataPropertyName = "IdAgenda";
+            IdAgenda.HeaderText = "IdAgenda";
+            IdAgenda.Name = "IdAgenda";
+            IdAgenda.Visible = false;
+            // 
+            // Note
+            // 
+            Note.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Note.DataPropertyName = "Note";
+            Note.HeaderText = "Note";
+            Note.Name = "Note";
+            Note.Width = 300;
+            // 
+            // DataEvento
+            // 
+            DataEvento.DataPropertyName = "DataEvento";
+            DataEvento.HeaderText = "Data";
+            DataEvento.Name = "DataEvento";
+            DataEvento.Width = 150;
             // 
             // Giorno
             // 
@@ -177,28 +200,6 @@
             MniModifica.Text = "Modifica";
             MniModifica.Click += MniModifica_Click;
             // 
-            // IdAgenda
-            // 
-            IdAgenda.DataPropertyName = "IdAgenda";
-            IdAgenda.HeaderText = "IdAgenda";
-            IdAgenda.Name = "IdAgenda";
-            IdAgenda.Visible = false;
-            // 
-            // Note
-            // 
-            Note.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            Note.DataPropertyName = "Note";
-            Note.HeaderText = "Note";
-            Note.Name = "Note";
-            Note.Width = 300;
-            // 
-            // DataEvento
-            // 
-            DataEvento.DataPropertyName = "DataEvento";
-            DataEvento.HeaderText = "Data";
-            DataEvento.Name = "DataEvento";
-            DataEvento.Width = 150;
-            // 
             // FrmAgenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -215,6 +216,7 @@
             Controls.Add(label1);
             Controls.Add(BtnChiudi);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmAgenda";

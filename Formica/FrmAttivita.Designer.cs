@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAttivita));
             label1 = new Label();
             BtnChiudi = new Button();
             label2 = new Label();
@@ -328,6 +329,7 @@
             Controls.Add(BtnChiudi);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmAttivita";

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDocumenti));
             BtnChiudi = new Button();
             label1 = new Label();
             dtgDatiDocumenti = new DataGridView();
@@ -124,19 +125,19 @@
             // 
             CmsMenu.Items.AddRange(new ToolStripItem[] { MniModifica, MniElimina });
             CmsMenu.Name = "CmsMenu";
-            CmsMenu.Size = new Size(181, 70);
+            CmsMenu.Size = new Size(122, 48);
             // 
             // MniModifica
             // 
             MniModifica.Name = "MniModifica";
-            MniModifica.Size = new Size(180, 22);
+            MniModifica.Size = new Size(121, 22);
             MniModifica.Text = "Modifica";
             MniModifica.Click += MniModifica_Click;
             // 
             // MniElimina
             // 
             MniElimina.Name = "MniElimina";
-            MniElimina.Size = new Size(180, 22);
+            MniElimina.Size = new Size(121, 22);
             MniElimina.Text = "Elimina";
             MniElimina.Click += MniElimina_Click;
             // 
@@ -232,6 +233,7 @@
             Controls.Add(dtgDatiDocumenti);
             Controls.Add(label1);
             Controls.Add(BtnChiudi);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmDocumenti";

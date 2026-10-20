@@ -342,8 +342,7 @@ namespace Formica
             try
             {
 
-                //if (txtFoto.Text != "[File]" & txtFoto.Text.Trim() != "")
-                //    nuovoSocio.Foto = File.ReadAllBytes(txtFoto.Text);
+                
                 if (TxtNomeProgetto.Text.Trim() == "")
                 {
                     Utility.MessaggioInfo("Campo nome progetto obbligatorio");

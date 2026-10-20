@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestioneProgetti));
             label1 = new Label();
             dtgDatiProgetti = new DataGridView();
             IdProgetto = new DataGridViewTextBoxColumn();
@@ -366,6 +367,7 @@
             Controls.Add(BtnInserisci);
             Controls.Add(dtgDatiProgetti);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FrmGestioneProgetti";
             StartPosition = FormStartPosition.CenterScreen;

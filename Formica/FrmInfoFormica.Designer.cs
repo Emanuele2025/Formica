@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInfoFormica));
             pctLogo = new PictureBox();
             label3 = new Label();
             BtnChiudi = new Button();
@@ -233,6 +234,7 @@
             Controls.Add(label3);
             Controls.Add(pctLogo);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmInfoFormica";

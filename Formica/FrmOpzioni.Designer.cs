@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOpzioni));
             label1 = new Label();
             BtnChiudi = new Button();
             tabControl1 = new TabControl();
@@ -36,6 +37,9 @@
             TxtDescrizione = new TextBox();
             label3 = new Label();
             dtgDatiStato = new DataGridView();
+            IdStato = new DataGridViewTextBoxColumn();
+            Stato = new DataGridViewTextBoxColumn();
+            Descrizione = new DataGridViewTextBoxColumn();
             BtnAnnulla = new Button();
             BtnSalva = new Button();
             BtnInserisci = new Button();
@@ -44,9 +48,6 @@
             CmsMenu = new ContextMenuStrip(components);
             MniModifica = new ToolStripMenuItem();
             MniElimina = new ToolStripMenuItem();
-            IdStato = new DataGridViewTextBoxColumn();
-            Stato = new DataGridViewTextBoxColumn();
-            Descrizione = new DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
             tbpStato.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatiStato).BeginInit();
@@ -139,6 +140,29 @@
             dtgDatiStato.TabIndex = 6;
             dtgDatiStato.CellMouseDown += dtgDatiStato_CellMouseDown;
             // 
+            // IdStato
+            // 
+            IdStato.DataPropertyName = "IdStato";
+            IdStato.HeaderText = "IdStato";
+            IdStato.Name = "IdStato";
+            IdStato.Visible = false;
+            // 
+            // Stato
+            // 
+            Stato.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Stato.DataPropertyName = "Descrizione";
+            Stato.HeaderText = "Stato";
+            Stato.Name = "Stato";
+            Stato.Width = 200;
+            // 
+            // Descrizione
+            // 
+            Descrizione.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Descrizione.DataPropertyName = "Descrizione";
+            Descrizione.HeaderText = "Descrizione";
+            Descrizione.Name = "Descrizione";
+            Descrizione.Width = 200;
+            // 
             // BtnAnnulla
             // 
             BtnAnnulla.Location = new Point(174, 411);
@@ -208,29 +232,6 @@
             MniElimina.Text = "Elimina";
             MniElimina.Click += MniElimina_Click;
             // 
-            // IdStato
-            // 
-            IdStato.DataPropertyName = "IdStato";
-            IdStato.HeaderText = "IdStato";
-            IdStato.Name = "IdStato";
-            IdStato.Visible = false;
-            // 
-            // Stato
-            // 
-            Stato.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            Stato.DataPropertyName = "Descrizione";
-            Stato.HeaderText = "Stato";
-            Stato.Name = "Stato";
-            Stato.Width = 200;
-            // 
-            // Descrizione
-            // 
-            Descrizione.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            Descrizione.DataPropertyName = "Descrizione";
-            Descrizione.HeaderText = "Descrizione";
-            Descrizione.Name = "Descrizione";
-            Descrizione.Width = 200;
-            // 
             // FrmOpzioni
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -240,6 +241,7 @@
             Controls.Add(BtnChiudi);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FrmOpzioni";
             StartPosition = FormStartPosition.CenterScreen;

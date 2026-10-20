@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCredenziali));
             BtnChiudi = new Button();
             label1 = new Label();
             label2 = new Label();
@@ -262,6 +263,7 @@
             Controls.Add(label1);
             Controls.Add(BtnChiudi);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmCredenziali";
