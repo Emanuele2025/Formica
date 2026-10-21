@@ -51,6 +51,10 @@ namespace Formica
             try
             {
 
+                //var dati = contesto.Documenti.ToList();
+
+
+
 
                 BtnAnnulla.Visible = false;
                 BtnSalva.Visible = false;
@@ -80,7 +84,7 @@ namespace Formica
             {
                 if (dtgDatiDocumenti.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show("Selezionare una riga");
+                    Utility.MessaggioInfo("Selezionare una riga");
                     return;
                 }
 
