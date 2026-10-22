@@ -44,7 +44,7 @@
             label7 = new Label();
             TxtTitolo = new TextBox();
             label2 = new Label();
-            textBox1 = new TextBox();
+            TxtDescrizione = new TextBox();
             label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgDatiDocumenti).BeginInit();
             CmsMenu.SuspendLayout();
@@ -193,17 +193,17 @@
             label2.TabIndex = 24;
             label2.Text = "Titolo:";
             // 
-            // textBox1
+            // TxtDescrizione
             // 
-            textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            textBox1.Location = new Point(626, 518);
-            textBox1.MaxLength = 2000;
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(476, 86);
-            textBox1.TabIndex = 2;
-            textBox1.Enter += txt_Enter;
-            textBox1.Leave += txt_Leave;
+            TxtDescrizione.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            TxtDescrizione.Location = new Point(626, 518);
+            TxtDescrizione.MaxLength = 2000;
+            TxtDescrizione.Multiline = true;
+            TxtDescrizione.Name = "TxtDescrizione";
+            TxtDescrizione.Size = new Size(476, 86);
+            TxtDescrizione.TabIndex = 2;
+            TxtDescrizione.Enter += txt_Enter;
+            TxtDescrizione.Leave += txt_Leave;
             // 
             // label3
             // 
@@ -220,7 +220,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1293, 639);
-            Controls.Add(textBox1);
+            Controls.Add(TxtDescrizione);
             Controls.Add(label3);
             Controls.Add(TxtTitolo);
             Controls.Add(label2);
@@ -262,7 +262,7 @@
         private Label label7;
         private TextBox TxtTitolo;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox TxtDescrizione;
         private Label label3;
     }
 }

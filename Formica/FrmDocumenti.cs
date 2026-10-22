@@ -59,7 +59,9 @@ namespace Formica
                 BtnAnnulla.Visible = false;
                 BtnSalva.Visible = false;
                 BtnInserisci.Visible = true;
-
+                TxtPercorsoFile.Text = "";
+                TxtTitolo.Text = "";
+                TxtDescrizione.Text = "";
 
 
             }
