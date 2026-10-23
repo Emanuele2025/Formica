@@ -31,6 +31,8 @@ namespace Formica
                 //TODO: Future funzionalità - Gestione Password / dati - Documenti - Appuntamenti (tipo calendario e scadenze) contatti
                 //TODO: Future modifiche, esportare in Excel
                 //TODO: Finestra per le credenziali
+                //TODO: Finestra documenti
+                //TODO: In home page visualizzare le varie attività divisi per categoria
 
 
                 VerificaAttivita();
