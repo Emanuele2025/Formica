@@ -76,7 +76,12 @@ namespace Formica
             return MessageBox.Show(testo, titolo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes;
         }
 
-
+        public static void MesssaggioInserimento()
+        {
+            MessaggioInfo(Inserimento);
+            
+        
+        }
 
 
 

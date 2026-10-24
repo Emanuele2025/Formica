@@ -33,14 +33,14 @@
             BtnChiudi = new Button();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            TxtTitolo = new TextBox();
+            TxtNote = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
+            TxtUserName = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
+            TxtEmail = new TextBox();
             label5 = new Label();
-            textBox5 = new TextBox();
+            TxtPassword = new TextBox();
             label6 = new Label();
             DtgDati = new DataGridView();
             BtnInserisci = new Button();
@@ -90,26 +90,26 @@
             label2.TabIndex = 11;
             label2.Text = "Titolo:";
             // 
-            // textBox1
+            // TxtTitolo
             // 
-            textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            textBox1.Location = new Point(21, 491);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(371, 23);
-            textBox1.TabIndex = 12;
-            textBox1.Enter += txt_Enter;
-            textBox1.Leave += txt_Leave;
+            TxtTitolo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            TxtTitolo.Location = new Point(21, 491);
+            TxtTitolo.Name = "TxtTitolo";
+            TxtTitolo.Size = new Size(371, 23);
+            TxtTitolo.TabIndex = 12;
+            TxtTitolo.Enter += txt_Enter;
+            TxtTitolo.Leave += txt_Leave;
             // 
-            // textBox2
+            // TxtNote
             // 
-            textBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            textBox2.Location = new Point(424, 491);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(516, 128);
-            textBox2.TabIndex = 14;
-            textBox2.Enter += txt_Enter;
-            textBox2.Leave += txt_Leave;
+            TxtNote.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            TxtNote.Location = new Point(424, 491);
+            TxtNote.Multiline = true;
+            TxtNote.Name = "TxtNote";
+            TxtNote.Size = new Size(516, 128);
+            TxtNote.TabIndex = 14;
+            TxtNote.Enter += txt_Enter;
+            TxtNote.Leave += txt_Leave;
             // 
             // label3
             // 
@@ -121,15 +121,15 @@
             label3.TabIndex = 13;
             label3.Text = "Note:";
             // 
-            // textBox3
+            // TxtUserName
             // 
-            textBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            textBox3.Location = new Point(21, 536);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(371, 23);
-            textBox3.TabIndex = 16;
-            textBox3.Enter += txt_Enter;
-            textBox3.Leave += txt_Leave;
+            TxtUserName.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            TxtUserName.Location = new Point(21, 536);
+            TxtUserName.Name = "TxtUserName";
+            TxtUserName.Size = new Size(371, 23);
+            TxtUserName.TabIndex = 16;
+            TxtUserName.Enter += txt_Enter;
+            TxtUserName.Leave += txt_Leave;
             // 
             // label4
             // 
@@ -141,15 +141,15 @@
             label4.TabIndex = 15;
             label4.Text = "Username:";
             // 
-            // textBox4
+            // TxtEmail
             // 
-            textBox4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            textBox4.Location = new Point(21, 582);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(371, 23);
-            textBox4.TabIndex = 18;
-            textBox4.Enter += txt_Enter;
-            textBox4.Leave += txt_Leave;
+            TxtEmail.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            TxtEmail.Location = new Point(21, 582);
+            TxtEmail.Name = "TxtEmail";
+            TxtEmail.Size = new Size(371, 23);
+            TxtEmail.TabIndex = 18;
+            TxtEmail.Enter += txt_Enter;
+            TxtEmail.Leave += txt_Leave;
             // 
             // label5
             // 
@@ -161,15 +161,15 @@
             label5.TabIndex = 17;
             label5.Text = "Email:";
             // 
-            // textBox5
+            // TxtPassword
             // 
-            textBox5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            textBox5.Location = new Point(21, 624);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(371, 23);
-            textBox5.TabIndex = 20;
-            textBox5.Enter += txt_Enter;
-            textBox5.Leave += txt_Leave;
+            TxtPassword.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            TxtPassword.Location = new Point(21, 624);
+            TxtPassword.Name = "TxtPassword";
+            TxtPassword.Size = new Size(371, 23);
+            TxtPassword.TabIndex = 20;
+            TxtPassword.Enter += txt_Enter;
+            TxtPassword.Leave += txt_Leave;
             // 
             // label6
             // 
@@ -250,15 +250,15 @@
             Controls.Add(BtnAnnulla);
             Controls.Add(BtnInserisci);
             Controls.Add(DtgDati);
-            Controls.Add(textBox5);
+            Controls.Add(TxtPassword);
             Controls.Add(label6);
-            Controls.Add(textBox4);
+            Controls.Add(TxtEmail);
             Controls.Add(label5);
-            Controls.Add(textBox3);
+            Controls.Add(TxtUserName);
             Controls.Add(label4);
-            Controls.Add(textBox2);
+            Controls.Add(TxtNote);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(TxtTitolo);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(BtnChiudi);
@@ -281,14 +281,14 @@
         private Button BtnChiudi;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox TxtTitolo;
+        private TextBox TxtNote;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox TxtUserName;
         private Label label4;
-        private TextBox textBox4;
+        private TextBox TxtEmail;
         private Label label5;
-        private TextBox textBox5;
+        private TextBox TxtPassword;
         private Label label6;
         private DataGridView DtgDati;
         private Button BtnInserisci;
