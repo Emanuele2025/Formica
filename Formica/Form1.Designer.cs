@@ -51,6 +51,7 @@
             label3 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             LblAppuntamento = new Label();
+            credenzialiToolStripMenuItem = new ToolStripMenuItem();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -88,7 +89,7 @@
             // mniGestione
             // 
             mniGestione.Name = "mniGestione";
-            mniGestione.Size = new Size(125, 22);
+            mniGestione.Size = new Size(180, 22);
             mniGestione.Text = "Progetti...";
             mniGestione.ToolTipText = "Apre la finestra per la gestione dei progetti";
             mniGestione.Click += gestioneToolStripMenuItem_Click;
@@ -96,7 +97,7 @@
             // MniAttivita
             // 
             MniAttivita.Name = "MniAttivita";
-            MniAttivita.Size = new Size(125, 22);
+            MniAttivita.Size = new Size(180, 22);
             MniAttivita.Text = "Attività..";
             MniAttivita.ToolTipText = "Apre la finestra per la gestione delle attività, task da realizzare";
             MniAttivita.Click += MniAttivita_Click;
@@ -107,17 +108,18 @@
             documentiToolStripMenuItem.Name = "documentiToolStripMenuItem";
             documentiToolStripMenuItem.Size = new Size(78, 20);
             documentiToolStripMenuItem.Text = "Documenti";
+            documentiToolStripMenuItem.ToolTipText = "Visualizza la finestra per la gestione dei documenti";
             // 
             // mniGestioneDocumenti
             // 
             mniGestioneDocumenti.Name = "mniGestioneDocumenti";
-            mniGestioneDocumenti.Size = new Size(129, 22);
+            mniGestioneDocumenti.Size = new Size(180, 22);
             mniGestioneDocumenti.Text = "Gestione...";
             mniGestioneDocumenti.Click += mniGestioneDocumenti_Click;
             // 
             // strumentiToolStripMenuItem
             // 
-            strumentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { MniAgenda, MniRubrica, MniOpzioni });
+            strumentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { MniAgenda, MniRubrica, MniOpzioni, credenzialiToolStripMenuItem });
             strumentiToolStripMenuItem.Name = "strumentiToolStripMenuItem";
             strumentiToolStripMenuItem.Size = new Size(71, 20);
             strumentiToolStripMenuItem.Text = "Strumenti";
@@ -126,7 +128,7 @@
             // 
             MniAgenda.Image = Properties.Resources.calendar_16x16_freeicon;
             MniAgenda.Name = "MniAgenda";
-            MniAgenda.Size = new Size(124, 22);
+            MniAgenda.Size = new Size(180, 22);
             MniAgenda.Text = "Agenda...";
             MniAgenda.ToolTipText = "Visualizza l'agenda per gestire gli appuntamento o calenderio attività";
             MniAgenda.Click += mniAgenda_Click;
@@ -134,7 +136,7 @@
             // MniRubrica
             // 
             MniRubrica.Name = "MniRubrica";
-            MniRubrica.Size = new Size(124, 22);
+            MniRubrica.Size = new Size(180, 22);
             MniRubrica.Text = "Rubrica...";
             MniRubrica.ToolTipText = "Visualizza la finestra riguardante la rubrica";
             MniRubrica.Click += MniRubrica_Click;
@@ -142,7 +144,7 @@
             // MniOpzioni
             // 
             MniOpzioni.Name = "MniOpzioni";
-            MniOpzioni.Size = new Size(124, 22);
+            MniOpzioni.Size = new Size(180, 22);
             MniOpzioni.Text = "Opzioni...";
             MniOpzioni.ToolTipText = "Apre la finestra delle opzioni";
             MniOpzioni.Click += MniOpzioni_Click;
@@ -234,6 +236,12 @@
             LblAppuntamento.Size = new Size(0, 15);
             LblAppuntamento.TabIndex = 7;
             // 
+            // credenzialiToolStripMenuItem
+            // 
+            credenzialiToolStripMenuItem.Name = "credenzialiToolStripMenuItem";
+            credenzialiToolStripMenuItem.Size = new Size(180, 22);
+            credenzialiToolStripMenuItem.Text = "Credenziali...";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -282,5 +290,6 @@
         private Label label3;
         private System.Windows.Forms.Timer timer1;
         private Label LblAppuntamento;
+        private ToolStripMenuItem credenzialiToolStripMenuItem;
     }
 }

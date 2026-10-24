@@ -83,7 +83,11 @@ namespace Formica
             try
             {
 
-
+                if (TxtTitolo.Text.Trim() == "" || TxtPassword.Text.Trim() == "")
+                {
+                    Utility.MessaggioInfo("Il campo Titolo e Password sono obbligatori.");
+                    return;
+                }
 
 
 
@@ -113,8 +117,6 @@ namespace Formica
             try
             {
 
-
-                
                 if (TxtTitolo.Text.Trim() == "" || TxtPassword.Text.Trim() == "")
                 {
                     Utility.MessaggioInfo("Il campo Titolo e Password sono obbligatori.");
