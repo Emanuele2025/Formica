@@ -53,16 +53,26 @@ namespace Formica
 
                 //var dati = contesto.Documenti.ToList();
 
+                var dati = contesto.Documentis.ToList().Select(p => new
+                {
 
+                    p.IdDocumento,
+                    p.Titolo,
+                    p.NomeFile,
+                    p.Descrizione,
+                    FileAllegato = (p.File != null) ? "Scarica" : "",
+                    FileProgetto = p.File
 
+                });
 
+                dtgDatiDocumenti.DataSource = dati.ToList();
                 BtnAnnulla.Visible = false;
                 BtnSalva.Visible = false;
                 BtnInserisci.Visible = true;
                 TxtPercorsoFile.Text = "";
                 TxtTitolo.Text = "";
                 TxtDescrizione.Text = "";
-
+                dtgDatiDocumenti.Enabled = true;
 
             }
             catch (Exception ex)
@@ -94,17 +104,23 @@ namespace Formica
                 {
                     int idDocumento = Convert.ToInt32(dtgDatiDocumenti.SelectedRows[0].Cells["IdDocumento"].Value);
 
-                    //var documentoTrovato = contesto.Documenti.Where(d => d.IdDocumento == idDocumento).FirstOrDefault();
-                    //if (documentoTrovato != null)
-                    //{
+                    var documentoTrovato = contesto.Documentis.Where(d => d.IdDocumento == idDocumento).FirstOrDefault();
+                    if (documentoTrovato != null)
+                    {
+
+                        contesto.Documentis.Remove(documentoTrovato);
+                        if (contesto.SaveChanges() > 0)
+                        {
+                            Utility.MessaggioInfo("Cancellazione avvvenuta con successo.");
+
+                            CaricaDati();
+
+                        }
 
 
+                    }
 
 
-
-                    //}
-
-                    CaricaDati();
 
 
                 }
@@ -142,12 +158,24 @@ namespace Formica
                     return;
                 }
 
+                Documenti documento = new Documenti
+                {
+                    Descrizione = TxtDescrizione.Text,
+                    Titolo = TxtTitolo.Text,
 
 
+                    NomeFile = new FileInfo(TxtPercorsoFile.Text.Trim()).Name,
+                    File = File.ReadAllBytes(TxtPercorsoFile.Text.Trim())
+                };
 
+                contesto.Documentis.Add(documento);
 
+                if (contesto.SaveChanges() > 0)
+                {
+                    Utility.MesssaggioInserimento();
+                    CaricaDati();
+                }
 
-                Utility.MesssaggioInserimento();
 
 
             }
@@ -172,11 +200,35 @@ namespace Formica
                     Utility.MessaggioInfo("I Campi titolo e percorso file sono obbligatori.");
                     return;
                 }
+                int idDocumento = Convert.ToInt32(dtgDatiDocumenti.SelectedRows[0].Cells["IdDocumento"].Value);
+
+                var documentoTrovato = contesto.Documentis.Where(d => d.IdDocumento == idDocumento).FirstOrDefault();
+                if (TxtPercorsoFile.Text == "[File]")
+                {
+
+                    documentoTrovato.Descrizione = TxtDescrizione.Text;
+                    documentoTrovato.Titolo = TxtTitolo.Text;
 
 
+                }
+                else
+                {
+
+                    documentoTrovato.Descrizione = TxtDescrizione.Text;
+                    documentoTrovato.Titolo = TxtTitolo.Text;
+
+                    documentoTrovato.NomeFile = new FileInfo(TxtPercorsoFile.Text.Trim()).Name;
+                    documentoTrovato.File = File.ReadAllBytes(TxtPercorsoFile.Text.Trim());
+
+                }
 
 
-                CaricaDati();
+                if (contesto.SaveChanges() > 0)
+                {
+                    Utility.MessaggioInfo(Utility.Modifica);
+                    CaricaDati();
+                }
+
             }
             catch (Exception ex)
             {
@@ -206,11 +258,109 @@ namespace Formica
                     return;
                 }
 
+                int idDocumento = Convert.ToInt32(dtgDatiDocumenti.SelectedRows[0].Cells["IdDocumento"].Value);
+
+                var documentoTrovato = contesto.Documentis.Where(d => d.IdDocumento == idDocumento).FirstOrDefault();
+                if (documentoTrovato != null)
+                {
+
+                    TxtDescrizione.Text = documentoTrovato.Descrizione;
+                    TxtTitolo.Text = documentoTrovato.Titolo;
+                    TxtPercorsoFile.Text = "[File]";
 
 
+                }
+                dtgDatiDocumenti.Enabled = false;
+                BtnInserisci.Visible = false;
+                BtnAnnulla.Visible = true;
+                BtnSalva.Visible = true;
 
 
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+        }
 
+        private void BtnCercaFile_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openDlg = new OpenFileDialog())
+            {
+
+                openDlg.Multiselect = false;
+
+                openDlg.Filter = "Tutti Files (*.*) | *.*";
+
+                if (openDlg.ShowDialog(this) == DialogResult.OK)
+                {
+                    TxtPercorsoFile.Text = openDlg.FileName;
+                }
+
+            }
+        }
+
+        private void dtgDatiDocumenti_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // Click destro su una cella valida
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                // Controllo che il DGV abbia almeno una riga
+                if (dtgDatiDocumenti.Rows.Count == 0)
+                    return;
+
+                // Recupero la riga cliccata
+                var riga = dtgDatiDocumenti.Rows[e.RowIndex];
+
+                // Verifico che la riga abbia almeno un dato non vuoto
+                bool rigaValida = riga.Cells
+                    .Cast<DataGridViewCell>()
+                    .Any(c => c.Value != null && c?.Value?.ToString()?.Trim() != "");
+
+                if (!rigaValida)
+                    return;
+
+                // Se arrivo qui: la riga è valida → la seleziono
+                dtgDatiDocumenti.ClearSelection();
+                riga.Selected = true;
+
+                // Mostro il menu contestuale
+                CmsMenu.Show(Cursor.Position);
+            }
+        }
+
+        private void dtgDatiDocumenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+
+                if (dtgDatiDocumenti.Columns[e.ColumnIndex].Name == "FileAllegato")
+                {
+                    if (dtgDatiDocumenti.Rows[e.RowIndex]?.Cells["FileAllegato"]?.Value == "Scarica")
+                    {
+                        SaveFileDialog salvaFile = new SaveFileDialog();
+                        string estensione = dtgDatiDocumenti.Rows[e.RowIndex].Cells["NomeFile"].Value.ToString();
+                        if (!string.IsNullOrWhiteSpace(estensione))
+                        {
+                            estensione = Path.GetExtension(estensione);
+                            salvaFile.Filter = "File  " + estensione + "  |*" + estensione + "";
+                        }
+                        salvaFile.Title = "Salva file sul pc";
+                        salvaFile.CheckPathExists = true;
+                        if (salvaFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        {
+                            byte[] fileBytes = (byte[])dtgDatiDocumenti.Rows[e.RowIndex].Cells["FileProgetto"].Value;
+                            if (fileBytes != null)
+                                File.WriteAllBytes(salvaFile.FileName, fileBytes);
+
+                        }
+                    }
+                }
+            }
+            catch (IOException exio)
+            {
+                Utility.MessaggioErrore(Utility.Errore + exio.Message);
             }
             catch (Exception ex)
             {

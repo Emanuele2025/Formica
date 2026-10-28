@@ -33,12 +33,18 @@
             BtnChiudi = new Button();
             label1 = new Label();
             dtgDatiDocumenti = new DataGridView();
-            BtnSalva = new Button();
-            BtnAnnulla = new Button();
-            BtnInserisci = new Button();
+            IdDocumento = new DataGridViewTextBoxColumn();
+            FileProgetto = new DataGridViewTextBoxColumn();
+            Titolo = new DataGridViewTextBoxColumn();
+            NomeFile = new DataGridViewTextBoxColumn();
+            Descrizione = new DataGridViewTextBoxColumn();
+            FileAllegato = new DataGridViewTextBoxColumn();
             CmsMenu = new ContextMenuStrip(components);
             MniModifica = new ToolStripMenuItem();
             MniElimina = new ToolStripMenuItem();
+            BtnSalva = new Button();
+            BtnAnnulla = new Button();
+            BtnInserisci = new Button();
             BtnCercaFile = new Button();
             TxtPercorsoFile = new TextBox();
             label7 = new Label();
@@ -80,11 +86,73 @@
             // dtgDatiDocumenti
             // 
             dtgDatiDocumenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatiDocumenti.Columns.AddRange(new DataGridViewColumn[] { IdDocumento, FileProgetto, Titolo, NomeFile, Descrizione, FileAllegato });
+            dtgDatiDocumenti.ContextMenuStrip = CmsMenu;
             dtgDatiDocumenti.Dock = DockStyle.Top;
             dtgDatiDocumenti.Location = new Point(0, 22);
             dtgDatiDocumenti.Name = "dtgDatiDocumenti";
             dtgDatiDocumenti.Size = new Size(1293, 453);
             dtgDatiDocumenti.TabIndex = 7;
+            dtgDatiDocumenti.CellContentClick += dtgDatiDocumenti_CellContentClick;
+            dtgDatiDocumenti.CellMouseDown += dtgDatiDocumenti_CellMouseDown;
+            // 
+            // IdDocumento
+            // 
+            IdDocumento.DataPropertyName = "IdDocumento";
+            IdDocumento.HeaderText = "IdDocumento";
+            IdDocumento.Name = "IdDocumento";
+            IdDocumento.Visible = false;
+            // 
+            // FileProgetto
+            // 
+            FileProgetto.DataPropertyName = "FileProgetto";
+            FileProgetto.HeaderText = "FileProgetto";
+            FileProgetto.Name = "FileProgetto";
+            FileProgetto.Visible = false;
+            // 
+            // Titolo
+            // 
+            Titolo.DataPropertyName = "Titolo";
+            Titolo.HeaderText = "Titolo";
+            Titolo.Name = "Titolo";
+            // 
+            // NomeFile
+            // 
+            NomeFile.DataPropertyName = "NomeFile";
+            NomeFile.HeaderText = "NomeFile";
+            NomeFile.Name = "NomeFile";
+            // 
+            // Descrizione
+            // 
+            Descrizione.DataPropertyName = "Descrizione";
+            Descrizione.HeaderText = "Descrizione";
+            Descrizione.Name = "Descrizione";
+            // 
+            // FileAllegato
+            // 
+            FileAllegato.DataPropertyName = "FileAllegato";
+            FileAllegato.HeaderText = "FileAllegato";
+            FileAllegato.Name = "FileAllegato";
+            // 
+            // CmsMenu
+            // 
+            CmsMenu.Items.AddRange(new ToolStripItem[] { MniModifica, MniElimina });
+            CmsMenu.Name = "CmsMenu";
+            CmsMenu.Size = new Size(122, 48);
+            // 
+            // MniModifica
+            // 
+            MniModifica.Name = "MniModifica";
+            MniModifica.Size = new Size(121, 22);
+            MniModifica.Text = "Modifica";
+            MniModifica.Click += MniModifica_Click;
+            // 
+            // MniElimina
+            // 
+            MniElimina.Name = "MniElimina";
+            MniElimina.Size = new Size(121, 22);
+            MniElimina.Text = "Elimina";
+            MniElimina.Click += MniElimina_Click;
             // 
             // BtnSalva
             // 
@@ -121,26 +189,6 @@
             BtnInserisci.UseVisualStyleBackColor = true;
             BtnInserisci.Click += BtnInserisci_Click;
             // 
-            // CmsMenu
-            // 
-            CmsMenu.Items.AddRange(new ToolStripItem[] { MniModifica, MniElimina });
-            CmsMenu.Name = "CmsMenu";
-            CmsMenu.Size = new Size(122, 48);
-            // 
-            // MniModifica
-            // 
-            MniModifica.Name = "MniModifica";
-            MniModifica.Size = new Size(121, 22);
-            MniModifica.Text = "Modifica";
-            MniModifica.Click += MniModifica_Click;
-            // 
-            // MniElimina
-            // 
-            MniElimina.Name = "MniElimina";
-            MniElimina.Size = new Size(121, 22);
-            MniElimina.Text = "Elimina";
-            MniElimina.Click += MniElimina_Click;
-            // 
             // BtnCercaFile
             // 
             BtnCercaFile.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -152,6 +200,7 @@
             BtnCercaFile.Text = "...";
             BtnCercaFile.TextAlign = ContentAlignment.TopLeft;
             BtnCercaFile.UseVisualStyleBackColor = true;
+            BtnCercaFile.Click += BtnCercaFile_Click;
             // 
             // TxtPercorsoFile
             // 
@@ -264,5 +313,11 @@
         private Label label2;
         private TextBox TxtDescrizione;
         private Label label3;
+        private DataGridViewTextBoxColumn IdDocumento;
+        private DataGridViewTextBoxColumn FileProgetto;
+        private DataGridViewTextBoxColumn Titolo;
+        private DataGridViewTextBoxColumn NomeFile;
+        private DataGridViewTextBoxColumn Descrizione;
+        private DataGridViewTextBoxColumn FileAllegato;
     }
 }

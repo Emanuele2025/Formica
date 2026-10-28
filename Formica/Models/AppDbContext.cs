@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace Formica.Models;
 
@@ -19,6 +18,10 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<Agendum> Agenda { get; set; }
 
     public virtual DbSet<Attivitum> Attivita { get; set; }
+
+    public virtual DbSet<Credenziali> Credenzialis { get; set; }
+
+    public virtual DbSet<Documenti> Documentis { get; set; }
 
     public virtual DbSet<Progetti> Progettis { get; set; }
 
@@ -44,19 +47,31 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.IdAttivita);
             entity.Property(e => e.Aperto).HasColumnType("DATETIME");
             entity.Property(e => e.Chiuso).HasColumnType("DATETIME");
-
         });
 
-        modelBuilder.Entity<Attivitum>()
-        .HasOne(a => a.Progetti)
-        .WithMany()
-        .HasForeignKey(a => a.IdProgetto);
+        modelBuilder.Entity<Credenziali>(entity =>
+        {
+            entity.HasKey(e => e.IdCredenziale);
 
-        modelBuilder.Entity<Attivitum>()
-            .HasOne(a => a.Stato)
-            .WithMany()
-            .HasForeignKey(a => a.IdStato);
+            entity.ToTable("Credenziali");
 
+            entity.Property(e => e.IdCredenziale)
+                .HasColumnType("bigint");
+        });
+
+
+       
+
+
+
+        modelBuilder.Entity<Documenti>(entity =>
+        {
+            entity.HasKey(e => e.IdDocumento);
+
+            entity.ToTable("Documenti");
+
+            entity.Property(e => e.File).HasColumnType("image");
+        });
 
         modelBuilder.Entity<Progetti>(entity =>
         {
@@ -76,6 +91,17 @@ public partial class AppDbContext : DbContext
 
             entity.Property(e => e.IdStato);
         });
+
+        modelBuilder.Entity<Attivitum>()
+     .HasOne(a => a.Progetti)
+     .WithMany()
+     .HasForeignKey(a => a.IdProgetto);
+
+        modelBuilder.Entity<Attivitum>()
+            .HasOne(a => a.Stato)
+            .WithMany()
+            .HasForeignKey(a => a.IdStato);
+
 
         OnModelCreatingPartial(modelBuilder);
     }

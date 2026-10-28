@@ -85,8 +85,10 @@ namespace Formica
 
         private void mniGestioneDocumenti_Click(object sender, EventArgs e)
         {
-            //TODO: Apre finestra gestione dei documenti
-            Utility.MessaggioInfo("Funzionalità non abilitata");
+            Cursor.Current = Cursors.WaitCursor;
+            FrmDocumenti documenti = new FrmDocumenti();
+            documenti.ShowDialog();
+            Cursor.Current = Cursors.Default;
         }
 
         private void MniOpzioni_Click(object sender, EventArgs e)
