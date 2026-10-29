@@ -47,6 +47,12 @@ namespace Formica
                 BtnAnnulla.Visible = false;
                 BtnInserisci.Visible = true;
                 BtnSalva.Visible = false;
+                DtgDati.Enabled = true;
+                TxtEmail.Text = "";
+                TxtNote.Text = "";
+                TxtPassword.Text = "";
+                TxtTitolo.Text = "";
+                TxtUserName.Text = "";
 
             }
             catch (Exception ex)
