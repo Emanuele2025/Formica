@@ -26,6 +26,8 @@ namespace Formica
         {
             try
             {
+                Text = Utility.TitoloFinestra;
+
                 CaricaDati();
             }
             catch (Exception ex)
@@ -110,7 +112,7 @@ namespace Formica
         {
             try
             {
-
+                CaricaDati();
             }
             catch (Exception ex)
             {
@@ -132,6 +134,33 @@ namespace Formica
                 Utility.MesssaggioInserimento();
 
 
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+        }
+
+        private void MniModifica_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+        }
+
+        private void MniElimina_Click(object sender, EventArgs e)
+        {
+            try
+            {
 
             }
             catch (Exception ex)

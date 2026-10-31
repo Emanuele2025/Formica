@@ -234,12 +234,14 @@
             MniModifica.Name = "MniModifica";
             MniModifica.Size = new Size(121, 22);
             MniModifica.Text = "Modifica";
+            MniModifica.Click += MniModifica_Click;
             // 
             // MniElimina
             // 
             MniElimina.Name = "MniElimina";
             MniElimina.Size = new Size(121, 22);
             MniElimina.Text = "Elimina";
+            MniElimina.Click += MniElimina_Click;
             // 
             // FrmCredenziali
             // 
