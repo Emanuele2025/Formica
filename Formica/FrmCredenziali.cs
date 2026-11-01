@@ -146,7 +146,7 @@ namespace Formica
         {
             try
             {
-
+                DtgDati.Enabled = false;
 
 
 
@@ -161,7 +161,16 @@ namespace Formica
         {
             try
             {
+                if (Utility.CancellaRecord())
+                {
+                    //Cancello
 
+
+
+
+                    CaricaDati();
+
+                }
             }
             catch (Exception ex)
             {
