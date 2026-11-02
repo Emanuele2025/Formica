@@ -27,6 +27,7 @@ namespace Formica
 
         public const string Errore = "Si è verificato il seguente errore: ";
 
+        public const string Cancellazione = "Cancellazione effettuata con successo. ";
 
 
 
@@ -82,7 +83,12 @@ namespace Formica
             
         
         }
+        public static void MesssaggioCancellazione()
+        {
+            MessaggioInfo(Cancellazione);
 
+
+        }
 
 
         #endregion

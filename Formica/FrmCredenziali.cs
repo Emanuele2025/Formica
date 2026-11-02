@@ -12,7 +12,7 @@ namespace Formica
     public partial class FrmCredenziali : Form
     {
 
-        AppDbContext conteto = new AppDbContext();
+        AppDbContext contesto = new AppDbContext();
 
 
 
@@ -164,11 +164,21 @@ namespace Formica
                 if (Utility.CancellaRecord())
                 {
                     //Cancello
+                    int idCredenziale = Convert.ToInt32(DtgDati.SelectedRows[0].Cells["IdCredenziale"].Value);
+                    var credenzialeTrovato = contesto.Credenzialis.Where(riga => riga.IdCredenziale == idCredenziale).FirstOrDefault();
+                    if (credenzialeTrovato != null)
+                    {
+                        contesto.Credenzialis.Remove(credenzialeTrovato);
+                        if(contesto.SaveChanges()>0)
+                        {
+                            Utility.MesssaggioCancellazione();
+                            CaricaDati();
+                        }
+                    }
 
 
 
-
-                    CaricaDati();
+                    
 
                 }
             }
