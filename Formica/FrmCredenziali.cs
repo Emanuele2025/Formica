@@ -148,6 +148,10 @@ namespace Formica
             {
                 DtgDati.Enabled = false;
 
+                //Riporto i dati della riga
+                TxtTitolo.Text = DtgDati.SelectedRows[0].Cells["Titolo"]?.Value?.ToString();
+
+
 
 
             }
@@ -176,9 +180,6 @@ namespace Formica
                         }
                     }
 
-
-
-                    
 
                 }
             }
