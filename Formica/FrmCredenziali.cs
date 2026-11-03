@@ -150,8 +150,11 @@ namespace Formica
 
                 //Riporto i dati della riga
                 TxtTitolo.Text = DtgDati.SelectedRows[0].Cells["Titolo"]?.Value?.ToString();
-
-
+                TxtEmail.Text = DtgDati.SelectedRows[0].Cells["Email"]?.Value?.ToString();
+                TxtNote.Text = DtgDati.SelectedRows[0].Cells["Note"]?.Value?.ToString();
+                TxtPassword.Text = DtgDati.SelectedRows[0].Cells["Password"]?.Value?.ToString();
+                 
+                TxtUserName.Text = DtgDati.SelectedRows[0].Cells["UserName"]?.Value?.ToString();
 
 
             }
