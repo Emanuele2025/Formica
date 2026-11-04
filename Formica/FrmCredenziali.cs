@@ -96,8 +96,30 @@ namespace Formica
                     Utility.MessaggioInfo("Il campo Titolo e Password sono obbligatori.");
                     return;
                 }
+                Int32 idCredeziale = Convert.ToInt32(DtgDati.SelectedRows[0].Cells["IdCredenziale"].Value);
+
+                var credenzialeTrovato = contesto.Credenzialis.Where(riga => riga.IdCredenziale == idCredeziale).FirstOrDefault();
+
+                if (credenzialeTrovato != null)
+                {
+                    credenzialeTrovato.Email = TxtEmail.Text.Trim();
+                    credenzialeTrovato.Nota = TxtNote.Text.Trim();
+                    credenzialeTrovato.Titolo = TxtTitolo.Text.Trim();
+                    credenzialeTrovato.Password = TxtPassword.Text.Trim();
+                    credenzialeTrovato.UserName = TxtUserName.Text.Trim();
+                    if (contesto.SaveChanges() > 0)
+                    {
+                        Utility.MessaggioInfo("Dati salvati correttamente.");
+                        CaricaDati();
+                    }
+                }
+                
 
 
+
+
+                 
+               
 
 
 
@@ -131,7 +153,26 @@ namespace Formica
                     return;
                 }
 
-                Utility.MesssaggioInserimento();
+                Credenziali credenziali = new Credenziali
+                {
+
+                    Email = TxtEmail.Text.Trim(),
+                    Nota = TxtNote.Text.Trim(),
+                    Titolo = TxtTitolo.Text.Trim(),
+                    Password = TxtPassword.Text.Trim(),
+                    UserName = TxtUserName.Text.Trim()
+
+
+
+                };
+                contesto.Credenzialis.Add(credenziali);
+                if (contesto.SaveChanges()>0)
+                {
+                    Utility.MesssaggioInserimento();
+                    CaricaDati();
+                }
+
+                
 
 
 
