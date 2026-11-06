@@ -35,10 +35,6 @@ namespace Formica
                 timer1.Start();
 
 
-
-
-
-
             }
             catch (Exception ex)
             {
@@ -174,21 +170,21 @@ namespace Formica
 
         }
 
-        
+
         public void CaricaAgende()
         {
             try
             {
-                 
+
                 listaAgende = contesto.Agenda.ToList();
             }
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
-        
-        
-        
+
+
+
         }
 
 
@@ -235,12 +231,20 @@ namespace Formica
         private void timer1_Tick(object sender, EventArgs e)
         {
             //TODO: Sistemare con l'orario preso dal db e cancellare quando ha superato l'orario.
-            if (listaAgende.Where(p=>p.DataEvento ==  DateTime.Now).Any())
+            if (listaAgende.Where(p => p.DataEvento == DateTime.Now).Any())
             {
                 //Devo aggiornare il dato.
                 LblAppuntamento.Text = "Sono le ore 16.00";
-                CaricaAgende(); 
+                CaricaAgende();
             }
+        }
+
+        private void MniCredenziali_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+
+            Cursor.Current = Cursors.Default;
+
         }
     }
 }

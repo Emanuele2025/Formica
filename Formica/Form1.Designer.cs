@@ -42,6 +42,7 @@
             MniAgenda = new ToolStripMenuItem();
             MniRubrica = new ToolStripMenuItem();
             MniOpzioni = new ToolStripMenuItem();
+            MniCredenziali = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             informazioniToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
@@ -51,7 +52,6 @@
             label3 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             LblAppuntamento = new Label();
-            credenzialiToolStripMenuItem = new ToolStripMenuItem();
             mnsMenuPrincipale.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             // 
             esciToolStripMenuItem.Image = Properties.Resources.Esci;
             esciToolStripMenuItem.Name = "esciToolStripMenuItem";
-            esciToolStripMenuItem.Size = new Size(94, 22);
+            esciToolStripMenuItem.Size = new Size(180, 22);
             esciToolStripMenuItem.Text = "Esci";
             esciToolStripMenuItem.Click += esciToolStripMenuItem_Click;
             // 
@@ -113,13 +113,13 @@
             // mniGestioneDocumenti
             // 
             mniGestioneDocumenti.Name = "mniGestioneDocumenti";
-            mniGestioneDocumenti.Size = new Size(180, 22);
+            mniGestioneDocumenti.Size = new Size(129, 22);
             mniGestioneDocumenti.Text = "Gestione...";
             mniGestioneDocumenti.Click += mniGestioneDocumenti_Click;
             // 
             // strumentiToolStripMenuItem
             // 
-            strumentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { MniAgenda, MniRubrica, MniOpzioni, credenzialiToolStripMenuItem });
+            strumentiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { MniAgenda, MniRubrica, MniOpzioni, MniCredenziali });
             strumentiToolStripMenuItem.Name = "strumentiToolStripMenuItem";
             strumentiToolStripMenuItem.Size = new Size(71, 20);
             strumentiToolStripMenuItem.Text = "Strumenti";
@@ -148,6 +148,13 @@
             MniOpzioni.Text = "Opzioni...";
             MniOpzioni.ToolTipText = "Apre la finestra delle opzioni";
             MniOpzioni.Click += MniOpzioni_Click;
+            // 
+            // MniCredenziali
+            // 
+            MniCredenziali.Name = "MniCredenziali";
+            MniCredenziali.Size = new Size(180, 22);
+            MniCredenziali.Text = "Credenziali...";
+            MniCredenziali.Click += MniCredenziali_Click;
             // 
             // toolStripMenuItem1
             // 
@@ -236,12 +243,6 @@
             LblAppuntamento.Size = new Size(0, 15);
             LblAppuntamento.TabIndex = 7;
             // 
-            // credenzialiToolStripMenuItem
-            // 
-            credenzialiToolStripMenuItem.Name = "credenzialiToolStripMenuItem";
-            credenzialiToolStripMenuItem.Size = new Size(180, 22);
-            credenzialiToolStripMenuItem.Text = "Credenziali...";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -290,6 +291,6 @@
         private Label label3;
         private System.Windows.Forms.Timer timer1;
         private Label LblAppuntamento;
-        private ToolStripMenuItem credenzialiToolStripMenuItem;
+        private ToolStripMenuItem MniCredenziali;
     }
 }
