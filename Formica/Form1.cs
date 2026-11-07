@@ -242,7 +242,8 @@ namespace Formica
         private void MniCredenziali_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-
+            FrmCredenziali credenziali = new FrmCredenziali();
+            credenziali.ShowDialog();
             Cursor.Current = Cursors.Default;
 
         }
