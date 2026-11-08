@@ -54,9 +54,9 @@ public partial class AppDbContext : DbContext
             entity.HasKey(e => e.IdCredenziale);
 
             entity.ToTable("Credenziali");
-
-            entity.Property(e => e.IdCredenziale)
-                .HasColumnType("bigint");
+            entity.Property(e => e.IdCredenziale);
+            //entity.Property(e => e.IdCredenziale)
+            //    .HasColumnType("bigint");
         });
 
 

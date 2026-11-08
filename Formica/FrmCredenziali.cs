@@ -43,8 +43,8 @@ namespace Formica
             try
             {
                 //var dati = conteto.Credenziali.FirstOrDefault();
-
-
+                var dati = contesto.Credenzialis.ToList();
+                DtgDati.DataSource = dati;
 
                 BtnAnnulla.Visible = false;
                 BtnInserisci.Visible = true;
