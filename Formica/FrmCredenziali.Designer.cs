@@ -43,6 +43,12 @@
             TxtPassword = new TextBox();
             label6 = new Label();
             DtgDati = new DataGridView();
+            IdCredenziale = new DataGridViewTextBoxColumn();
+            Titolo = new DataGridViewTextBoxColumn();
+            UserName = new DataGridViewTextBoxColumn();
+            Email = new DataGridViewTextBoxColumn();
+            Password = new DataGridViewTextBoxColumn();
+            Nota = new DataGridViewTextBoxColumn();
             BtnInserisci = new Button();
             BtnAnnulla = new Button();
             BtnSalva = new Button();
@@ -183,12 +189,57 @@
             // 
             // DtgDati
             // 
+            DtgDati.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             DtgDati.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DtgDati.Columns.AddRange(new DataGridViewColumn[] { IdCredenziale, Titolo, UserName, Email, Password, Nota });
             DtgDati.Dock = DockStyle.Top;
             DtgDati.Location = new Point(0, 22);
             DtgDati.Name = "DtgDati";
             DtgDati.Size = new Size(1334, 432);
             DtgDati.TabIndex = 21;
+            DtgDati.CellMouseDown += DtgDati_CellMouseDown;
+            // 
+            // IdCredenziale
+            // 
+            IdCredenziale.DataPropertyName = "IdCredenziale";
+            IdCredenziale.HeaderText = "IdCredenziale";
+            IdCredenziale.Name = "IdCredenziale";
+            IdCredenziale.Visible = false;
+            // 
+            // Titolo
+            // 
+            Titolo.DataPropertyName = "Titolo";
+            Titolo.HeaderText = "Titolo";
+            Titolo.Name = "Titolo";
+            Titolo.Width = 63;
+            // 
+            // UserName
+            // 
+            UserName.DataPropertyName = "UserName";
+            UserName.HeaderText = "UserName";
+            UserName.Name = "UserName";
+            UserName.Width = 87;
+            // 
+            // Email
+            // 
+            Email.DataPropertyName = "Email";
+            Email.HeaderText = "Email";
+            Email.Name = "Email";
+            Email.Width = 61;
+            // 
+            // Password
+            // 
+            Password.DataPropertyName = "Password";
+            Password.HeaderText = "Password";
+            Password.Name = "Password";
+            Password.Width = 82;
+            // 
+            // Nota
+            // 
+            Nota.DataPropertyName = "Nota";
+            Nota.HeaderText = "Nota";
+            Nota.Name = "Nota";
+            Nota.Width = 58;
             // 
             // BtnInserisci
             // 
@@ -299,5 +350,11 @@
         private ContextMenuStrip CmsMenu;
         private ToolStripMenuItem MniModifica;
         private ToolStripMenuItem MniElimina;
+        private DataGridViewTextBoxColumn IdCredenziale;
+        private DataGridViewTextBoxColumn Titolo;
+        private DataGridViewTextBoxColumn UserName;
+        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn Password;
+        private DataGridViewTextBoxColumn Nota;
     }
 }

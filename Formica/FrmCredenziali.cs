@@ -27,7 +27,7 @@ namespace Formica
             try
             {
                 Text = Utility.TitoloFinestra;
-
+                DtgDati.AutoGenerateColumns = false;
                 CaricaDati();
             }
             catch (Exception ex)
@@ -113,7 +113,7 @@ namespace Formica
                         CaricaDati();
                     }
                 }
-                
+
 
 
             }
@@ -159,13 +159,13 @@ namespace Formica
 
                 };
                 contesto.Credenzialis.Add(credenziali);
-                if (contesto.SaveChanges()>0)
+                if (contesto.SaveChanges() > 0)
                 {
                     Utility.MesssaggioInserimento();
                     CaricaDati();
                 }
 
-                
+
 
 
 
@@ -185,11 +185,13 @@ namespace Formica
                 //Riporto i dati della riga
                 TxtTitolo.Text = DtgDati.SelectedRows[0].Cells["Titolo"]?.Value?.ToString();
                 TxtEmail.Text = DtgDati.SelectedRows[0].Cells["Email"]?.Value?.ToString();
-                TxtNote.Text = DtgDati.SelectedRows[0].Cells["Note"]?.Value?.ToString();
+                TxtNote.Text = DtgDati.SelectedRows[0].Cells["Nota"]?.Value?.ToString();
                 TxtPassword.Text = DtgDati.SelectedRows[0].Cells["Password"]?.Value?.ToString();
-                 
-                TxtUserName.Text = DtgDati.SelectedRows[0].Cells["UserName"]?.Value?.ToString();
 
+                TxtUserName.Text = DtgDati.SelectedRows[0].Cells["UserName"]?.Value?.ToString();
+                BtnSalva.Visible = true;
+                BtnAnnulla.Visible = true;
+                BtnInserisci.Visible = false;
 
             }
             catch (Exception ex)
@@ -210,7 +212,7 @@ namespace Formica
                     if (credenzialeTrovato != null)
                     {
                         contesto.Credenzialis.Remove(credenzialeTrovato);
-                        if(contesto.SaveChanges()>0)
+                        if (contesto.SaveChanges() > 0)
                         {
                             Utility.MesssaggioCancellazione();
                             CaricaDati();
@@ -223,6 +225,35 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+        }
+
+        private void DtgDati_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // Click destro su una cella valida
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                // Controllo che il DGV abbia almeno una riga
+                if (DtgDati.Rows.Count == 0)
+                    return;
+
+                // Recupero la riga cliccata
+                var riga = DtgDati.Rows[e.RowIndex];
+
+                // Verifico che la riga abbia almeno un dato non vuoto
+                bool rigaValida = riga.Cells
+                    .Cast<DataGridViewCell>()
+                    .Any(c => c.Value != null && c?.Value?.ToString()?.Trim() != "");
+
+                if (!rigaValida)
+                    return;
+
+                // Se arrivo qui: la riga è valida → la seleziono
+                DtgDati.ClearSelection();
+                riga.Selected = true;
+
+                // Mostro il menu contestuale
+                CmsMenu.Show(Cursor.Position);
             }
         }
     }
