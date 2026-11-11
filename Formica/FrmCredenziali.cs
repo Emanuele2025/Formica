@@ -26,6 +26,7 @@ namespace Formica
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 Text = Utility.TitoloFinestra;
                 DtgDati.AutoGenerateColumns = false;
                 CaricaDati();
@@ -33,6 +34,11 @@ namespace Formica
             catch (Exception ex)
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+
             }
         }
 
@@ -42,6 +48,7 @@ namespace Formica
 
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 //var dati = conteto.Credenziali.FirstOrDefault();
                 var dati = contesto.Credenzialis.ToList();
                 DtgDati.DataSource = dati;
@@ -61,11 +68,11 @@ namespace Formica
             {
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
 
-
-
-
-
+            }
 
         }
 

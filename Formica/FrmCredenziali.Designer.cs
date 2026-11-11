@@ -255,7 +255,7 @@
             // BtnAnnulla
             // 
             BtnAnnulla.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnAnnulla.Location = new Point(126, 681);
+            BtnAnnulla.Location = new Point(206, 681);
             BtnAnnulla.Name = "BtnAnnulla";
             BtnAnnulla.Size = new Size(75, 23);
             BtnAnnulla.TabIndex = 23;
@@ -266,7 +266,7 @@
             // BtnSalva
             // 
             BtnSalva.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnSalva.Location = new Point(207, 681);
+            BtnSalva.Location = new Point(125, 681);
             BtnSalva.Name = "BtnSalva";
             BtnSalva.Size = new Size(75, 23);
             BtnSalva.TabIndex = 24;
