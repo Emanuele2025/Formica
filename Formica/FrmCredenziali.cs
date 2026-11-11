@@ -14,7 +14,7 @@ namespace Formica
 
         AppDbContext contesto = new AppDbContext();
 
-
+        //TODO: Gestire il copia in memora della password e della riga
 
 
         public FrmCredenziali()
