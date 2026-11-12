@@ -55,6 +55,8 @@
             CmsMenu = new ContextMenuStrip(components);
             MniModifica = new ToolStripMenuItem();
             MniElimina = new ToolStripMenuItem();
+            MniCopiaPassword = new ToolStripMenuItem();
+            MniCopiaRiga = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)DtgDati).BeginInit();
             CmsMenu.SuspendLayout();
             SuspendLayout();
@@ -99,9 +101,10 @@
             // TxtTitolo
             // 
             TxtTitolo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            TxtTitolo.Font = new Font("Segoe UI", 12F);
             TxtTitolo.Location = new Point(21, 491);
             TxtTitolo.Name = "TxtTitolo";
-            TxtTitolo.Size = new Size(371, 23);
+            TxtTitolo.Size = new Size(371, 29);
             TxtTitolo.TabIndex = 12;
             TxtTitolo.Enter += txt_Enter;
             TxtTitolo.Leave += txt_Leave;
@@ -109,6 +112,7 @@
             // TxtNote
             // 
             TxtNote.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            TxtNote.Font = new Font("Segoe UI", 12F);
             TxtNote.Location = new Point(424, 491);
             TxtNote.Multiline = true;
             TxtNote.Name = "TxtNote";
@@ -130,9 +134,10 @@
             // TxtUserName
             // 
             TxtUserName.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            TxtUserName.Location = new Point(21, 536);
+            TxtUserName.Font = new Font("Segoe UI", 12F);
+            TxtUserName.Location = new Point(21, 538);
             TxtUserName.Name = "TxtUserName";
-            TxtUserName.Size = new Size(371, 23);
+            TxtUserName.Size = new Size(371, 29);
             TxtUserName.TabIndex = 16;
             TxtUserName.Enter += txt_Enter;
             TxtUserName.Leave += txt_Leave;
@@ -141,7 +146,7 @@
             // 
             label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label4.AutoSize = true;
-            label4.Location = new Point(19, 521);
+            label4.Location = new Point(19, 523);
             label4.Name = "label4";
             label4.Size = new Size(63, 15);
             label4.TabIndex = 15;
@@ -150,9 +155,10 @@
             // TxtEmail
             // 
             TxtEmail.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            TxtEmail.Location = new Point(21, 582);
+            TxtEmail.Font = new Font("Segoe UI", 12F);
+            TxtEmail.Location = new Point(21, 586);
             TxtEmail.Name = "TxtEmail";
-            TxtEmail.Size = new Size(371, 23);
+            TxtEmail.Size = new Size(371, 29);
             TxtEmail.TabIndex = 18;
             TxtEmail.Enter += txt_Enter;
             TxtEmail.Leave += txt_Leave;
@@ -161,7 +167,7 @@
             // 
             label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label5.AutoSize = true;
-            label5.Location = new Point(19, 567);
+            label5.Location = new Point(19, 571);
             label5.Name = "label5";
             label5.Size = new Size(39, 15);
             label5.TabIndex = 17;
@@ -170,9 +176,10 @@
             // TxtPassword
             // 
             TxtPassword.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            TxtPassword.Location = new Point(21, 624);
+            TxtPassword.Font = new Font("Segoe UI", 12F);
+            TxtPassword.Location = new Point(21, 630);
             TxtPassword.Name = "TxtPassword";
-            TxtPassword.Size = new Size(371, 23);
+            TxtPassword.Size = new Size(371, 29);
             TxtPassword.TabIndex = 20;
             TxtPassword.Enter += txt_Enter;
             TxtPassword.Leave += txt_Leave;
@@ -181,7 +188,7 @@
             // 
             label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label6.AutoSize = true;
-            label6.Location = new Point(19, 609);
+            label6.Location = new Point(19, 615);
             label6.Name = "label6";
             label6.Size = new Size(60, 15);
             label6.TabIndex = 19;
@@ -244,7 +251,7 @@
             // BtnInserisci
             // 
             BtnInserisci.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnInserisci.Location = new Point(33, 681);
+            BtnInserisci.Location = new Point(21, 677);
             BtnInserisci.Name = "BtnInserisci";
             BtnInserisci.Size = new Size(75, 23);
             BtnInserisci.TabIndex = 22;
@@ -255,7 +262,7 @@
             // BtnAnnulla
             // 
             BtnAnnulla.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnAnnulla.Location = new Point(206, 681);
+            BtnAnnulla.Location = new Point(221, 677);
             BtnAnnulla.Name = "BtnAnnulla";
             BtnAnnulla.Size = new Size(75, 23);
             BtnAnnulla.TabIndex = 23;
@@ -266,7 +273,7 @@
             // BtnSalva
             // 
             BtnSalva.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            BtnSalva.Location = new Point(125, 681);
+            BtnSalva.Location = new Point(125, 677);
             BtnSalva.Name = "BtnSalva";
             BtnSalva.Size = new Size(75, 23);
             BtnSalva.TabIndex = 24;
@@ -276,23 +283,37 @@
             // 
             // CmsMenu
             // 
-            CmsMenu.Items.AddRange(new ToolStripItem[] { MniModifica, MniElimina });
+            CmsMenu.Items.AddRange(new ToolStripItem[] { MniModifica, MniElimina, MniCopiaPassword, MniCopiaRiga });
             CmsMenu.Name = "CmsMenu";
-            CmsMenu.Size = new Size(122, 48);
+            CmsMenu.Size = new Size(181, 114);
             // 
             // MniModifica
             // 
             MniModifica.Name = "MniModifica";
-            MniModifica.Size = new Size(121, 22);
+            MniModifica.Size = new Size(180, 22);
             MniModifica.Text = "Modifica";
             MniModifica.Click += MniModifica_Click;
             // 
             // MniElimina
             // 
             MniElimina.Name = "MniElimina";
-            MniElimina.Size = new Size(121, 22);
+            MniElimina.Size = new Size(180, 22);
             MniElimina.Text = "Elimina";
             MniElimina.Click += MniElimina_Click;
+            // 
+            // MniCopiaPassword
+            // 
+            MniCopiaPassword.Name = "MniCopiaPassword";
+            MniCopiaPassword.Size = new Size(180, 22);
+            MniCopiaPassword.Text = "Copia Password";
+            MniCopiaPassword.Click += MniCopiaPassword_Click;
+            // 
+            // MniCopiaRiga
+            // 
+            MniCopiaRiga.Name = "MniCopiaRiga";
+            MniCopiaRiga.Size = new Size(180, 22);
+            MniCopiaRiga.Text = "Copia Riga";
+            MniCopiaRiga.Click += MniCopiaRiga_Click;
             // 
             // FrmCredenziali
             // 
@@ -356,5 +377,7 @@
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Password;
         private DataGridViewTextBoxColumn Nota;
+        private ToolStripMenuItem MniCopiaPassword;
+        private ToolStripMenuItem MniCopiaRiga;
     }
 }

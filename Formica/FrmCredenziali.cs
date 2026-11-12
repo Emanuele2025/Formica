@@ -263,5 +263,31 @@ namespace Formica
                 CmsMenu.Show(Cursor.Position);
             }
         }
+
+        private void MniCopiaPassword_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void MniCopiaRiga_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
