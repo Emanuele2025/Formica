@@ -268,12 +268,11 @@ namespace Formica
         {
             try
             {
-
+                Clipboard.SetText(DtgDati.SelectedRows[0].Cells["Password"].Value?.ToString() ?? "");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
 
