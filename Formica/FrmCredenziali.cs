@@ -281,11 +281,23 @@ namespace Formica
             try
             {
 
-            }
-            catch (Exception)
-            {
+                if (DtgDati.SelectedRows.Count > 0)
+                {
+                    //Copia la riga selezionata negli appunti
+                    DataObject? datiAppunti = DtgDati.GetClipboardContent();
 
-                throw;
+                    if (datiAppunti != null)
+                    {
+                         
+                        Clipboard.SetDataObject(datiAppunti);
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
     }
