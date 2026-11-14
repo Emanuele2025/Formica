@@ -23,8 +23,10 @@ namespace Formica
                 //TODO: FAre anche se è un bug, implementazione, attività normale come nota, etc
                 //Comando per aggiornare tutto                      dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite--context AppDbContext --output - dir Models--force
                 //Comando per aggiornare solo nuove tabelle         dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --table Progetti --table Clienti --context AppDbContext --output-dir Models --force
-                //TODO : FAre anche Agenda
+                
                 //Ultimo comando funziona dopo il cd nel progetto - dotnet ef dbcontext scaffold "Data Source=Database/formica.db" Microsoft.EntityFrameworkCore.Sqlite --context AppDbContext --output-dir Models --force
+                
+                
                 //TODO: Future funzionalità - Gestione Password / dati - Documenti - Appuntamenti (tipo calendario e scadenze) contatti
                 //TODO: Future modifiche, esportare in Excel
                 //TODO: In home page visualizzare le varie attività divisi per categoria

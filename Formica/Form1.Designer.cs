@@ -75,7 +75,7 @@
             // 
             esciToolStripMenuItem.Image = Properties.Resources.Esci;
             esciToolStripMenuItem.Name = "esciToolStripMenuItem";
-            esciToolStripMenuItem.Size = new Size(180, 22);
+            esciToolStripMenuItem.Size = new Size(94, 22);
             esciToolStripMenuItem.Text = "Esci";
             esciToolStripMenuItem.Click += esciToolStripMenuItem_Click;
             // 
@@ -89,7 +89,7 @@
             // mniGestione
             // 
             mniGestione.Name = "mniGestione";
-            mniGestione.Size = new Size(180, 22);
+            mniGestione.Size = new Size(125, 22);
             mniGestione.Text = "Progetti...";
             mniGestione.ToolTipText = "Apre la finestra per la gestione dei progetti";
             mniGestione.Click += gestioneToolStripMenuItem_Click;
@@ -97,7 +97,7 @@
             // MniAttivita
             // 
             MniAttivita.Name = "MniAttivita";
-            MniAttivita.Size = new Size(180, 22);
+            MniAttivita.Size = new Size(125, 22);
             MniAttivita.Text = "Attività..";
             MniAttivita.ToolTipText = "Apre la finestra per la gestione delle attività, task da realizzare";
             MniAttivita.Click += MniAttivita_Click;
@@ -154,6 +154,7 @@
             MniCredenziali.Name = "MniCredenziali";
             MniCredenziali.Size = new Size(180, 22);
             MniCredenziali.Text = "Credenziali...";
+            MniCredenziali.ToolTipText = "Apre la finestra per la gestione delle credenziali che si desiderano registrarte";
             MniCredenziali.Click += MniCredenziali_Click;
             // 
             // toolStripMenuItem1
