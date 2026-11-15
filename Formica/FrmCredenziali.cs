@@ -14,9 +14,6 @@ namespace Formica
 
         AppDbContext contesto = new AppDbContext();
 
-        //TODO: Gestire il copia in memora della password e della riga
-
-
         public FrmCredenziali()
         {
             InitializeComponent();
@@ -49,7 +46,7 @@ namespace Formica
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
-                //var dati = conteto.Credenziali.FirstOrDefault();
+               
                 var dati = contesto.Credenzialis.ToList();
                 DtgDati.DataSource = dati;
 
