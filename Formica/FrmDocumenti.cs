@@ -143,12 +143,7 @@ namespace Formica
 
         private void BtnInserisci_Click(object sender, EventArgs e)
         {
-            //if (TxtNomeProgetto.Text.Trim() == "")
-            //{
-            //    Utility.MessaggioInfo("Campo nome progetto obbligatorio");
-            //    return;
 
-            //}
             try
             {
 
@@ -203,32 +198,36 @@ namespace Formica
                 int idDocumento = Convert.ToInt32(dtgDatiDocumenti.SelectedRows[0].Cells["IdDocumento"].Value);
 
                 var documentoTrovato = contesto.Documentis.Where(d => d.IdDocumento == idDocumento).FirstOrDefault();
-                if (TxtPercorsoFile.Text == "[File]")
+                if (documentoTrovato != null)
                 {
 
-                    documentoTrovato.Descrizione = TxtDescrizione.Text;
-                    documentoTrovato.Titolo = TxtTitolo.Text;
+
+                    if (TxtPercorsoFile.Text == "[File]")
+                    {
+
+                        documentoTrovato.Descrizione = TxtDescrizione.Text;
+                        documentoTrovato.Titolo = TxtTitolo.Text;
 
 
+                    }
+                    else
+                    {
+
+                        documentoTrovato.Descrizione = TxtDescrizione.Text;
+                        documentoTrovato.Titolo = TxtTitolo.Text;
+
+                        documentoTrovato.NomeFile = new FileInfo(TxtPercorsoFile.Text.Trim()).Name;
+                        documentoTrovato.File = File.ReadAllBytes(TxtPercorsoFile.Text.Trim());
+
+                    }
+
+
+                    if (contesto.SaveChanges() > 0)
+                    {
+                        Utility.MessaggioInfo(Utility.Modifica);
+                        CaricaDati();
+                    }
                 }
-                else
-                {
-
-                    documentoTrovato.Descrizione = TxtDescrizione.Text;
-                    documentoTrovato.Titolo = TxtTitolo.Text;
-
-                    documentoTrovato.NomeFile = new FileInfo(TxtPercorsoFile.Text.Trim()).Name;
-                    documentoTrovato.File = File.ReadAllBytes(TxtPercorsoFile.Text.Trim());
-
-                }
-
-
-                if (contesto.SaveChanges() > 0)
-                {
-                    Utility.MessaggioInfo(Utility.Modifica);
-                    CaricaDati();
-                }
-
             }
             catch (Exception ex)
             {
