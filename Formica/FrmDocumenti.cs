@@ -120,13 +120,7 @@ namespace Formica
 
                     }
 
-
-
-
                 }
-
-
-
 
 
             }
@@ -231,7 +225,6 @@ namespace Formica
             }
             catch (Exception ex)
             {
-
                 Utility.MessaggioErrore(Utility.Errore + ex.Message);
             }
         }
@@ -349,9 +342,10 @@ namespace Formica
                         salvaFile.CheckPathExists = true;
                         if (salvaFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                         {
-                            byte[] fileBytes = (byte[])dtgDatiDocumenti.Rows[e.RowIndex].Cells["FileProgetto"].Value;
-                            if (fileBytes != null)
-                                File.WriteAllBytes(salvaFile.FileName, fileBytes);
+                            
+                                byte[] fileBytes = (byte[])dtgDatiDocumenti.Rows[e.RowIndex].Cells["FileProgetto"].Value;
+                                if (fileBytes != null)
+                                    File.WriteAllBytes(salvaFile.FileName, fileBytes);
 
                         }
                     }
