@@ -151,8 +151,6 @@ namespace Formica
                 {
                     Descrizione = TxtDescrizione.Text,
                     Titolo = TxtTitolo.Text,
-
-
                     NomeFile = new FileInfo(TxtPercorsoFile.Text.Trim()).Name,
                     File = File.ReadAllBytes(TxtPercorsoFile.Text.Trim())
                 };
@@ -329,10 +327,10 @@ namespace Formica
 
                 if (dtgDatiDocumenti.Columns[e.ColumnIndex].Name == "FileAllegato")
                 {
-                    if (dtgDatiDocumenti.Rows[e.RowIndex]?.Cells["FileAllegato"]?.Value == "Scarica")
+                    if (dtgDatiDocumenti.Rows[e.RowIndex]?.Cells["FileAllegato"]?.Value?.ToString() == "Scarica")
                     {
                         SaveFileDialog salvaFile = new SaveFileDialog();
-                        string estensione = dtgDatiDocumenti.Rows[e.RowIndex].Cells["NomeFile"].Value.ToString();
+                        string estensione = dtgDatiDocumenti.Rows[e.RowIndex]?.Cells["NomeFile"]?.Value?.ToString() ?? "";
                         if (!string.IsNullOrWhiteSpace(estensione))
                         {
                             estensione = Path.GetExtension(estensione);
@@ -340,10 +338,10 @@ namespace Formica
                         }
                         salvaFile.Title = "Salva file sul pc";
                         salvaFile.CheckPathExists = true;
-                        if (salvaFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        if (salvaFile.ShowDialog() ==  DialogResult.OK)
                         {
                             
-                                byte[] fileBytes = (byte[])dtgDatiDocumenti.Rows[e.RowIndex].Cells["FileProgetto"].Value;
+                                byte[] fileBytes = (byte[])dtgDatiDocumenti.Rows[e.RowIndex]?.Cells["FileProgetto"]?.Value;
                                 if (fileBytes != null)
                                     File.WriteAllBytes(salvaFile.FileName, fileBytes);
 
