@@ -111,7 +111,7 @@ namespace Formica
                         contesto.Documentis.Remove(documentoTrovato);
                         if (contesto.SaveChanges() > 0)
                         {
-                            Utility.MessaggioInfo("Cancellazione avvvenuta con successo.");
+                            Utility.MessaggioInfo(Utility.Cancellazione);
 
                             CaricaDati();
 
