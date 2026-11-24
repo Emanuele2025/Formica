@@ -51,8 +51,7 @@ namespace Formica
             try
             {
 
-                //var dati = contesto.Documenti.ToList();
-
+               
                 var dati = contesto.Documentis.ToList().Select(p => new
                 {
 
