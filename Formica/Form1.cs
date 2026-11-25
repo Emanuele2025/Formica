@@ -71,16 +71,17 @@ namespace Formica
             {
                 agenda.ShowDialog();
             }
-            //FrmAgenda agenda = new FrmAgenda(this);
-            //agenda.ShowDialog();
+            
             Cursor.Current = Cursors.Default;
         }
 
         private void mniGestioneDocumenti_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            FrmDocumenti documenti = new FrmDocumenti();
-            documenti.ShowDialog();
+            using (FrmDocumenti documenti = new FrmDocumenti())
+            {
+                documenti.ShowDialog();
+            }
             Cursor.Current = Cursors.Default;
         }
 
